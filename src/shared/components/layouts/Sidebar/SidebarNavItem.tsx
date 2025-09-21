@@ -35,6 +35,7 @@ const SidebarNavItem: React.FC<SidebarNavItemProps> = ({
           <span className="text-xs text-[#646569] group-hover:text-gray-200 leading-tight mt-1 transition-colors duration-300">
             {subtitle}
           </span>
+          git push -u origin main
         </div>
       </div>
     </a>
