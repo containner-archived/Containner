@@ -18,31 +18,31 @@ const SidebarNav: React.FC = () => {
       icon: <img src={Containner} alt="Overview" className="w-16 h-16" />,
       title: 'Overview',
       subtitle: 'General statistics and insights',
-      path: '/'
+      path: '/containner'
     },
     {
       icon: <img src={Azul} alt="Projects" className="w-16 h-16" />,
       title: 'Projects',
       subtitle: 'Manage your active projects',
-      path: '/projects'
+      path: '/vextro'
     },
     {
       icon: <img src={Korri} alt="Analytics" className="w-16 h-16" />,
       title: 'Analytics',
       subtitle: 'Performance metrics and reports',
-      path: '/analytics'
+      path: '/korri'
     },
     {
       icon: <img src={C0ffe} alt="Team" className="w-16 h-16" />,
       title: 'Team',
       subtitle: 'Collaborate with team members',
-      path: '/team'
+      path: '/c0ffe'
     },
     {
       icon: <img src={Trac} alt="Settings" className="w-16 h-16" />,
       title: 'Settings',
       subtitle: 'Configure your preferences',
-      path: '/settings'
+      path: '/trac'
     }
   ]
 

@@ -3,10 +3,10 @@ import React from 'react'
 
 const SidebarLogo: React.FC = () => {
   return (
-    <div className="flex items-center gap-4 group cursor-pointer">
+    <div className="flex items-center gap-2 md:gap-4 group cursor-pointer">
       {/* First SVG - Bar Chart Icon */}
       <svg
-        className="h-10 text-[#646569] flex-shrink-0"
+        className="h-6 md:h-10 text-[#646569] flex-shrink-0"
         width="67"
         height="40"
         viewBox="0 0 67 40"
@@ -67,7 +67,7 @@ const SidebarLogo: React.FC = () => {
       {/* Second SVG - Container Text com efeito cortina */}
       <div className="relative flex-shrink-0 overflow-hidden">
         <svg
-          className="h-10 text-[#646569]"
+          className="h-6 md:h-10 text-[#646569]"
           viewBox="0 0 216 40"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -116,7 +116,12 @@ const SidebarLogo: React.FC = () => {
         </svg>
 
         {/* Cortina que cobre o texto inicialmente */}
-        <div className="absolute inset-0 bg-[#191919] translate-x-0 group-hover:translate-x-full transition-transform duration-300 ease-in-out"></div>
+        <div
+          className="absolute inset-0 bg-[#191919] translate-x-0 group-hover:translate-x-full transition-transform duration-500"
+          style={{
+            transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+          }}
+        ></div>
       </div>
     </div>
   )

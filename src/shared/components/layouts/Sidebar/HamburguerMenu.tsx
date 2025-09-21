@@ -1,6 +1,5 @@
 // src/layouts/HamburgerMenu.tsx
-import React, { useEffect } from 'react'
-import SidebarLogo from './SidebarLogo'
+import React, { useEffect, useRef } from 'react'
 import SidebarTitle from './SidebarTitle'
 import SidebarNav from './SidebarNav'
 
@@ -10,78 +9,59 @@ interface HamburgerMenuProps {
 }
 
 const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ isOpen, onClose }) => {
-  // Close menu when clicking outside or pressing Escape
+  const menuRef = useRef<HTMLDivElement>(null)
+
+  // Detecta cliques fora do menu
   useEffect(() => {
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element
+
+      // Verifica se o clique foi no botão do header (X ou hambúrguer)
+      if (target?.closest('button[aria-label*="Menu"]')) {
+        return
+      }
+
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         onClose()
+      } else {
       }
     }
 
     if (isOpen) {
-      document.addEventListener('keydown', handleEscape)
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'unset'
+      document.addEventListener('mousedown', handleClickOutside)
     }
 
     return () => {
-      document.removeEventListener('keydown', handleEscape)
-      document.body.style.overflow = 'unset'
+      document.removeEventListener('mousedown', handleClickOutside)
     }
   }, [isOpen, onClose])
 
-  if (!isOpen) return null
+  // Se não está aberto, retorna null (não renderiza nada)
+  if (!isOpen) {
+    return null
+  }
 
   return (
-    <>
-      {/* Overlay */}
-      <div
-        className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
-        onClick={onClose}
-      />
+    <div
+      ref={menuRef}
+      className="bg-[#191919] lg:hidden max-h-[50vh] overflow-y-auto"
+    >
+      <div className="p-4">
+        <div className="flex flex-col gap-6">
+          {/* Title Section */}
+          <SidebarTitle />
 
-      {/* Mobile Menu - Expands vertically up to 50% height */}
-      <div className="fixed top-0 left-0 right-0 bg-white shadow-lg z-50 lg:hidden max-h-[50vh] overflow-y-auto">
-        <div className="p-5">
-          <div className="flex flex-col gap-14">
-            {/* Close button */}
-            <div className="flex justify-between items-center">
-              <div className="flex-1">
-                <SidebarLogo />
-              </div>
-              <button
-                onClick={onClose}
-                className="p-2 hover:bg-gray-100 rounded-md"
-                aria-label="Close Menu"
-              >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
-            </div>
-
-            {/* Title Section */}
-            <SidebarTitle />
-
-            {/* Navigation Section */}
-            <div onClick={onClose}>
-              <SidebarNav />
-            </div>
+          {/* Navigation Section */}
+          <div
+            onClick={(e) => {
+              onClose()
+            }}
+          >
+            <SidebarNav />
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

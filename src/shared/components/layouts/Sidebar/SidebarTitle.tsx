@@ -5,15 +5,86 @@ const SidebarTitle: React.FC = () => {
   return (
     <div className="flex flex-col gap-6">
       <h2 className="text-base font-semibold text-[#646569] leading-tight uppercase">
-        pronto para abrir o containner?
+        <span className="block sm:inline">pronto para abrir</span>{' '}
+        <span className="block sm:inline">o containner?</span>
       </h2>
       <div className="flex flex-col">
-        <span className="text-[#646569] text-base font-normal leading-relaxed uppercase">
-          open@containner.co
-        </span>
-        <span className="text-[#646569] text-base font-normal leading-relaxed uppercase">
-          +55 54 9312-0440
-        </span>
+        <a
+          href="mailto:open@containner.co"
+          className="text-[#646569] text-base font-normal leading-relaxed uppercase relative overflow-hidden transition-colors duration-500 hover:text-white inline-block"
+          style={{
+            position: 'relative'
+          }}
+          onMouseEnter={(e) => {
+            const target = e.currentTarget
+            const span = target.querySelector('span') as HTMLElement
+            if (!target.querySelector('.bg-animation') && span) {
+              const bgDiv = document.createElement('div')
+              bgDiv.className = 'bg-animation'
+              bgDiv.style.cssText = `
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: ${span.offsetWidth}px;
+                height: ${span.offsetHeight}px;
+                background-color: #646569;
+                transform: translateX(-100%);
+                transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                z-index: 0;
+              `
+              target.insertBefore(bgDiv, target.firstChild)
+            }
+            const bg = target.querySelector('.bg-animation') as HTMLElement
+            if (bg) bg.style.transform = 'translateX(0)'
+          }}
+          onMouseLeave={(e) => {
+            const bg = e.currentTarget.querySelector(
+              '.bg-animation'
+            ) as HTMLElement
+            if (bg) bg.style.transform = 'translateX(-100%)'
+          }}
+        >
+          <span className="relative z-10">open@containner.co</span>
+        </a>
+        <a
+          href="https://wa.me/5554993120440"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#646569] text-base font-normal leading-relaxed uppercase relative overflow-hidden transition-colors duration-500 hover:text-white inline-block"
+          style={{
+            position: 'relative'
+          }}
+          onMouseEnter={(e) => {
+            const target = e.currentTarget
+            const span = target.querySelector('span') as HTMLElement
+            if (!target.querySelector('.bg-animation') && span) {
+              const bgDiv = document.createElement('div')
+              bgDiv.className = 'bg-animation'
+              bgDiv.style.cssText = `
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: ${span.offsetWidth}px;
+                height: ${span.offsetHeight}px;
+                background-color: #646569;
+                transform: translateX(-100%);
+                transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                z-index: 0;
+              `
+              target.insertBefore(bgDiv, target.firstChild)
+            }
+            const bg = target.querySelector('.bg-animation') as HTMLElement
+            if (bg) bg.style.transform = 'translateX(0)'
+          }}
+          onMouseLeave={(e) => {
+            const bg = e.currentTarget.querySelector(
+              '.bg-animation'
+            ) as HTMLElement
+            if (bg) bg.style.transform = 'translateX(-100%)'
+          }}
+        >
+          <span className="relative z-10">+55 54 9312-0440</span>
+        </a>
       </div>
     </div>
   )

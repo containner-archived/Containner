@@ -21,16 +21,22 @@ const SidebarNavItem: React.FC<SidebarNavItemProps> = ({
     <Link
       to={path}
       className={`
-        flex items-center gap-4 py-3 pr-3 relative overflow-hidden transition-all duration-300 group cursor-pointer
+        flex items-center gap-4 py-3 pr-3 relative overflow-hidden transition-all duration-500 group cursor-pointer
         ${isActive ? 'pl-3' : 'pl-0 hover:pl-3'}
       `}
+      style={{
+        transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+      }}
     >
       {/* Background animado */}
       <div
         className={`
-          absolute inset-0 bg-[#646569] transition-transform duration-300 ease-out
+          absolute inset-0 bg-[#646569] transition-transform duration-500 group
           ${isActive ? 'translate-x-0' : 'transform -translate-x-full group-hover:translate-x-0'}
         `}
+        style={{
+          transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+        }}
       ></div>
 
       {/* Conteúdo por cima do background */}
@@ -38,9 +44,12 @@ const SidebarNavItem: React.FC<SidebarNavItemProps> = ({
         {/* Icon Section */}
         <div
           className={`
-            flex-shrink-0 transition-colors duration-300
+            flex-shrink-0 transition-colors duration-500
             ${isActive ? 'text-white' : 'text-[#646569] group-hover:text-white'}
           `}
+          style={{
+            transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+          }}
         >
           {icon}
         </div>
@@ -49,17 +58,23 @@ const SidebarNavItem: React.FC<SidebarNavItemProps> = ({
         <div className="flex flex-col justify-center min-w-0">
           <h3
             className={`
-              font-semibold transition-colors duration-300 text-sm
+              font-semibold transition-colors duration-500 text-sm
               ${isActive ? 'text-[#191919]' : 'text-[#646569] group-hover:text-[#191919]'}
             `}
+            style={{
+              transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+            }}
           >
             {title}
           </h3>
           <span
             className={`
-              text-xs leading-tight mt-1 transition-colors duration-300
+              text-xs leading-tight mt-1 transition-colors duration-500
               ${isActive ? 'text-[#191919]' : 'text-[#646569] group-hover:text-[#191919]'}
             `}
+            style={{
+              transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+            }}
           >
             {subtitle}
           </span>
