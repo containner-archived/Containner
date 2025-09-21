@@ -23,7 +23,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
   }
 
   return (
-    <div className="min-h-screen bg-[#191919]">
+    <div className="min-h-screen bg-[#191919] font-freesans">
       {/* Desktop Layout */}
       <div className="hidden md:flex h-screen">
         {/* Sidebar fixa - Larguras responsivas por tamanho de tela */}

@@ -1,7 +1,7 @@
-// src/layouts/HamburgerMenu.tsx
 import React, { useEffect, useRef } from 'react'
 import SidebarTitle from './SidebarTitle'
 import SidebarNav from './SidebarNav'
+import { LanguageSwitch } from '../../ui/LanguageSwitch'
 
 interface HamburgerMenuProps {
   isOpen: boolean
@@ -23,7 +23,6 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ isOpen, onClose }) => {
 
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         onClose()
-      } else {
       }
     }
 
@@ -44,7 +43,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ isOpen, onClose }) => {
   return (
     <div
       ref={menuRef}
-      className="bg-[#191919] lg:hidden max-h-[50vh] overflow-y-auto"
+      className="bg-[#191919] lg:hidden max-h-[50vh] overflow-y-auto font-freesans"
     >
       <div className="p-4">
         <div className="flex flex-col gap-6">
@@ -53,12 +52,15 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ isOpen, onClose }) => {
 
           {/* Navigation Section */}
           <div
-            onClick={(e) => {
+            onClick={() => {
               onClose()
             }}
           >
             <SidebarNav />
           </div>
+
+          {/* Language Switch - No final do menu */}
+          <LanguageSwitch />
         </div>
       </div>
     </div>

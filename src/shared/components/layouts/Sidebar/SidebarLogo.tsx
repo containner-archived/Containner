@@ -93,8 +93,8 @@ const SidebarLogo: React.FC = () => {
         />
       </svg>
 
-      {/* Second SVG - Container Text */}
-      <div className="flex-shrink-0">
+      {/* Second SVG - Container Text - Escondido no mobile */}
+      <div className="hidden md:block flex-shrink-0">
         <svg
           className="h-8 md:h-16 text-[#646569]"
           width="216"

@@ -21,7 +21,7 @@ const SidebarNavItem: React.FC<SidebarNavItemProps> = ({
     <Link
       to={path}
       className={`
-        flex items-center gap-4 py-3 pr-3 relative overflow-hidden transition-all duration-500 group cursor-pointer
+        flex items-center gap-4 py-3 pr-3 relative overflow-hidden transition-all duration-500 group cursor-pointer font-freesans
         ${isActive ? 'pl-3' : 'pl-0 hover:pl-3'}
       `}
       style={{
@@ -58,7 +58,7 @@ const SidebarNavItem: React.FC<SidebarNavItemProps> = ({
         <div className="flex flex-col justify-center min-w-0">
           <h3
             className={`
-              font-semibold transition-colors duration-500 text-sm
+              font-bold transition-colors duration-500 text-sm
               ${isActive ? 'text-[#191919]' : 'text-[#646569] group-hover:text-[#191919]'}
             `}
             style={{

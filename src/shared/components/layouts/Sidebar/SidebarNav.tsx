@@ -3,6 +3,7 @@ import React from 'react'
 import { useActiveRoute } from '@/shared/hooks/useActiveRoute'
 import { useI18n } from '@/shared/contexts/I18nContext'
 import SidebarNavItem from './SidebarNavItem'
+
 // Importar os SVGs
 import Containner from '@assets/nav/container.svg'
 import Azul from '@assets/nav/azul.svg'
@@ -48,7 +49,7 @@ const SidebarNav: React.FC = () => {
   ]
 
   return (
-    <div className="">
+    <div className="font-freesans">
       <nav>
         <ul className="space-y-2">
           {navItems.map((item, index) => (

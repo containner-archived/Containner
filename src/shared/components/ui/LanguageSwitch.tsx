@@ -26,14 +26,14 @@ export const LanguageSwitch: React.FC = () => {
   return (
     <button
       onClick={toggleLanguage}
-      className="relative overflow-hidden flex items-center space-x-2 px-3 py-2 text-sm text-[#646569] hover:text-white transition-colors duration-200"
+      className="relative overflow-hidden flex items-center  py-2 text-sm text-[#646569] hover:text-[#191919] transition-colors duration-200"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       aria-label={`${t.footer.language}: ${language === 'pt' ? 'Português' : 'English'}`}
     >
       {/* Elemento de fundo sempre presente */}
       <div
-        className="bg-animation absolute top-0 left-0 w-full h-full bg-[#646569] z-0"
+        className="bg-animation absolute top-0 left-0 w-20 h-full bg-[#646569] z-0"
         style={{
           transform: 'translateX(-100%)',
           transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
@@ -43,7 +43,9 @@ export const LanguageSwitch: React.FC = () => {
       {/* Conteúdo */}
       <div className="relative z-10 flex items-center space-x-2">
         <Languages size={16} />
-        <span className="font-medium">{language === 'pt' ? 'PT' : 'EN'}</span>
+        <span className="font-bold font-freesans">
+          {language === 'pt' ? 'PT' : 'EN'}
+        </span>
       </div>
     </button>
   )

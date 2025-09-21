@@ -1,4 +1,3 @@
-// src/layouts/MobileHeader.tsx
 import React from 'react'
 import SidebarLogo from './Sidebar/SidebarLogo'
 
@@ -12,8 +11,8 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({
   isMenuOpen
 }) => {
   return (
-    <header className="bg-[#191919] lg:hidden">
-      <div className="flex items-center justify-between p-2">
+    <header className="bg-[#191919] lg:hidden font-freesans">
+      <div className="flex items-center justify-between p-4">
         {/* Logo */}
         <div className="flex-1">
           <SidebarLogo />
@@ -25,13 +24,13 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({
             e.stopPropagation()
             onMenuClick()
           }}
-          className="p-2 text-[#646569] hover:text-white transition-all duration-300"
+          className="p-1 text-[#646569] hover:text-white transition-all duration-300 flex items-center justify-center -mt-3"
           aria-label={isMenuOpen ? 'Close Menu' : 'Open Menu'}
         >
-          <div className="w-6 h-6 relative">
+          <div className="w-8 h-8 relative flex items-center justify-center">
             {/* Hamburger Icon */}
             <div
-              className={`absolute inset-0 transition-all duration-300 ${
+              className={`absolute inset-0 transition-all duration-300 flex items-center justify-center ${
                 isMenuOpen ? 'opacity-0 rotate-180' : 'opacity-100 rotate-0'
               }`}
             >
@@ -52,12 +51,12 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({
 
             {/* Close (X) Icon */}
             <div
-              className={`absolute inset-0 transition-all duration-300 ${
+              className={`absolute inset-0 transition-all duration-300 flex items-center justify-center ${
                 isMenuOpen ? 'opacity-100 rotate-0' : 'opacity-0 rotate-180'
               }`}
             >
               <svg
-                className="w-6 h-6"
+                className="w-8 h-8"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"

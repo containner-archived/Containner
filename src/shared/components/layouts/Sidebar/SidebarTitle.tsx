@@ -43,8 +43,8 @@ const SidebarTitle: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col gap-6">
-      <h2 className="text-base font-semibold text-[#646569] leading-normal uppercase">
+    <div className="flex flex-col gap-6 font-freesans">
+      <h2 className="text-base font-bold text-[#646569] leading-normal uppercase">
         <span className="inline sm:block">{t.sidebar.title.line1}</span>{' '}
         <span className="inline sm:block">{t.sidebar.title.line2}</span>
       </h2>
@@ -59,7 +59,6 @@ const SidebarTitle: React.FC = () => {
         >
           <span className="relative z-10">{t.sidebar.contact.email}</span>
         </a>
-
         <a
           href="https://wa.me/5554993120440"
           target="_blank"
