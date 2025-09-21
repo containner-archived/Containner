@@ -55,12 +55,12 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
         {/* Área do main content - Com margin-left responsivo */}
         <div
           className="
-            flex-1
-            sm:ml-[40%] sm:p-3
-            md:ml-[33.33%] md:p-4
-            lg:ml-[25%] lg:p-5
-            xl:ml-[20%] xl:p-5
-            2xl:ml-[16.67%] 2xl:p-6
+            flex-1 p-5
+            sm:ml-[40%]
+            md:ml-[33.33%]
+            lg:ml-[25%]
+            xl:ml-[20%]
+            2xl:ml-[16.67%]
             overflow-y-auto
           "
         >

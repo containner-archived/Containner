@@ -34,64 +34,16 @@ const SidebarLogo: React.FC = () => {
       aria-label="Voltar para a página inicial"
     >
       {/* First SVG - Bar Chart Icon */}
-      <svg
-        className="h-8 md:h-16 text-[#646569] flex-shrink-0"
-        width="72"
-        height="40"
-        viewBox="0 0 67 60"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+      <img
+        src="/Containner.svg"
+        alt="Logo"
+        className="h-8 md:h-10 flex-shrink-0"
+        style={{
+          filter:
+            'brightness(0) saturate(100%) invert(39%) sepia(6%) saturate(318%) hue-rotate(180deg) brightness(92%) contrast(88%)'
+        }}
         aria-hidden="true"
-      >
-        <path
-          d="M0 19.9252L7.79827 17.5815V0.39456H0V19.9252Z"
-          fill="currentColor"
-        />
-        <path
-          d="M7.79827 39.456V22.269L0 19.9252V39.456H7.79827Z"
-          fill="currentColor"
-        />
-        <path
-          d="M11.6973 19.9252L19.4954 17.5815V0.39456H11.6973V19.9252Z"
-          fill="currentColor"
-        />
-        <path
-          d="M11.6973 39.456H19.4954V22.269L11.6973 19.9252V39.456Z"
-          fill="currentColor"
-        />
-        <path
-          d="M23.3946 16.4098L31.1927 14.0661V0.39456H23.3946V16.4098Z"
-          fill="currentColor"
-        />
-        <path
-          d="M23.3946 39.456H31.1927V25.7844L23.3946 23.4408V39.456Z"
-          fill="currentColor"
-        />
-        <path
-          d="M35.092 19.9252L42.8901 17.5815V0.39456H35.092V19.9252Z"
-          fill="currentColor"
-        />
-        <path
-          d="M35.092 39.456H42.8901V22.269L35.092 19.9252V39.456Z"
-          fill="currentColor"
-        />
-        <path
-          d="M46.7893 16.4098L54.5874 14.0661V0.39456H46.7893V16.4098Z"
-          fill="currentColor"
-        />
-        <path
-          d="M46.7893 39.456H54.5874V25.7844L46.7893 23.4408V39.456Z"
-          fill="currentColor"
-        />
-        <path
-          d="M58.4864 12.8942L66.2847 10.5506V0.39456H58.4864V12.8942Z"
-          fill="currentColor"
-        />
-        <path
-          d="M58.4864 39.456H66.2847V29.3L58.4864 26.9563V39.456Z"
-          fill="currentColor"
-        />
-      </svg>
+      />
 
       {/* Second SVG - Container Text - Escondido no mobile */}
       <div className="hidden md:block flex-shrink-0">

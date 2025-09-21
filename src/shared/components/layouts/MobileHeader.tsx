@@ -12,7 +12,7 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({
 }) => {
   return (
     <header className="bg-[#191919] lg:hidden font-freesans">
-      <div className="flex items-center justify-between p-4">
+      <div className="flex items-center justify-between p-5">
         {/* Logo */}
         <div className="flex-1">
           <SidebarLogo />

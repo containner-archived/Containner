@@ -5,11 +5,8 @@ import { useI18n } from '@/shared/contexts/I18nContext'
 import SidebarNavItem from './SidebarNavItem'
 
 // Importar os SVGs
-import Containner from '@assets/nav/container.svg'
-import Azul from '@assets/nav/azul.svg'
-import Korri from '@assets/nav/korri.svg'
-import C0ffe from '@assets/nav/c0ffe.svg'
-import Trac from '@assets/nav/trac.svg'
+import Vextro from '@assets/nav/Vextro.jpg'
+import Korri from '@assets/nav/Korri.jpg'
 
 const SidebarNav: React.FC = () => {
   const { isActive } = useActiveRoute()
@@ -23,7 +20,7 @@ const SidebarNav: React.FC = () => {
     //   path: '/containner'
     // },
     {
-      icon: <img src={Azul} alt={t.nav.vextro.title} className="w-16 h-16" />,
+      icon: <img src={Vextro} alt={t.nav.vextro.title} className="w-16 h-16" />,
       title: t.nav.vextro.title,
       subtitle: t.nav.vextro.subtitle,
       path: '/vextro'
