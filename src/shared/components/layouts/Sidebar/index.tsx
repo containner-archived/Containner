@@ -48,9 +48,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
             </div>
 
             {/* Language Switch Button - Fixed at bottom */}
-            <div className="mt-auto pt-4 border-t border-gray-700/30">
-              <LanguageSwitch />
-            </div>
+            <LanguageSwitch />
           </div>
         </div>
 
