@@ -2,6 +2,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useActiveRoute } from '@/shared/hooks/useActiveRoute'
+import Containner from '@assets/Containner.svg'
 
 const SidebarLogo: React.FC = () => {
   const navigate = useNavigate()
@@ -35,7 +36,7 @@ const SidebarLogo: React.FC = () => {
     >
       {/* First SVG - Bar Chart Icon */}
       <img
-        src="/Containner.svg"
+        src={Containner}
         alt="Logo"
         className="h-8 md:h-10 flex-shrink-0"
         style={{
