@@ -1,12 +1,6 @@
-// ================================
-// External and Internal Imports
-// ================================
+// routes.ts - Arquivo de configuração das rotas
 import HomePage from '@/pages/Home'
 import { RouteConfig } from '@core/router'
-
-// ================================
-// Route Configuration
-// ================================
 
 /**
  * Application routes configuration
@@ -16,6 +10,7 @@ export const appRoutes: RouteConfig[] = [
   // Main navigation routes
   {
     path: '/',
-    element: HomePage
+    element: HomePage,
+    title: 'Overview - Dashboard'
   }
 ]

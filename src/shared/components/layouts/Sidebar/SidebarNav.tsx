@@ -1,5 +1,6 @@
 // src/layouts/SidebarNav.tsx
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 import SidebarNavItem from './SidebarNavItem'
 
 // Importar os SVGs
@@ -10,31 +11,38 @@ import C0ffe from '@assets/nav/c0ffe.svg'
 import Trac from '@assets/nav/trac.svg'
 
 const SidebarNav: React.FC = () => {
+  const location = useLocation()
+
   const navItems = [
     {
       icon: <img src={Containner} alt="Overview" className="w-16 h-16" />,
       title: 'Overview',
-      subtitle: 'General statistics and insights'
+      subtitle: 'General statistics and insights',
+      path: '/'
     },
     {
       icon: <img src={Azul} alt="Projects" className="w-16 h-16" />,
       title: 'Projects',
-      subtitle: 'Manage your active projects'
+      subtitle: 'Manage your active projects',
+      path: '/projects'
     },
     {
       icon: <img src={Korri} alt="Analytics" className="w-16 h-16" />,
       title: 'Analytics',
-      subtitle: 'Performance metrics and reports'
+      subtitle: 'Performance metrics and reports',
+      path: '/analytics'
     },
     {
       icon: <img src={C0ffe} alt="Team" className="w-16 h-16" />,
       title: 'Team',
-      subtitle: 'Collaborate with team members'
+      subtitle: 'Collaborate with team members',
+      path: '/team'
     },
     {
       icon: <img src={Trac} alt="Settings" className="w-16 h-16" />,
       title: 'Settings',
-      subtitle: 'Configure your preferences'
+      subtitle: 'Configure your preferences',
+      path: '/settings'
     }
   ]
 
@@ -48,6 +56,8 @@ const SidebarNav: React.FC = () => {
                 icon={item.icon}
                 title={item.title}
                 subtitle={item.subtitle}
+                path={item.path}
+                isActive={location.pathname === item.path}
               />
             </li>
           ))}
