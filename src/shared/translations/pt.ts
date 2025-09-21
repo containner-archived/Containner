@@ -3,7 +3,7 @@ import { Translation } from '@/types'
 export const ptTranslations: Translation = {
   pages: {
     Home: {
-      title: 'Jeff'
+      title: ''
     },
     Vextro: {
       title: 'Vextro'
@@ -12,7 +12,7 @@ export const ptTranslations: Translation = {
       title: 'Korri'
     },
     Containner: {
-      title: 'Container'
+      title: 'Containner'
     },
     C0ffe: {
       title: 'Café'
@@ -49,7 +49,7 @@ export const ptTranslations: Translation = {
   sidebar: {
     title: {
       line1: 'pronto para abrir',
-      line2: 'o container?'
+      line2: 'o containner?'
     },
     contact: {
       email: 'open@containner.co',

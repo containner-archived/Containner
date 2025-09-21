@@ -3,7 +3,7 @@ import { Translation } from '@/types'
 export const enTranslations: Translation = {
   pages: {
     Home: {
-      title: 'Jeff'
+      title: ''
     },
     Vextro: {
       title: 'Vextro'
@@ -49,7 +49,7 @@ export const enTranslations: Translation = {
   sidebar: {
     title: {
       line1: 'ready to open',
-      line2: 'the container?'
+      line2: 'the containner?'
     },
     contact: {
       email: 'open@containner.co',
