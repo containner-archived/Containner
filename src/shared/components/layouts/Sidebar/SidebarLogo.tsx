@@ -1,15 +1,43 @@
 // src/shared/components/layouts/SidebarLogo.tsx
 import React from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 const SidebarLogo: React.FC = () => {
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  const handleNavigateHome = () => {
+    navigate('/')
+  }
+
+  const isHomePage = location.pathname === '/'
+
   return (
-    <div className="flex items-center gap-2 md:gap-4 group cursor-pointer">
+    <div
+      className={`
+        flex items-start gap-2 md:gap-4 group cursor-pointer
+        sm:cursor-default
+        md:cursor-pointer
+        ${isHomePage ? 'opacity-100' : 'opacity-90 hover:opacity-100'}
+        transition-opacity duration-300
+      `}
+      onClick={handleNavigateHome}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+          handleNavigateHome()
+        }
+      }}
+      aria-label="Voltar para a página inicial"
+    >
       {/* First SVG - Bar Chart Icon */}
       <svg
-        className="h-6 md:h-10 text-[#646569] flex-shrink-0"
-        width="67"
+        className="h-8 md:h-16 text-[#646569] flex-shrink-0"
+        width="72"
         height="40"
-        viewBox="0 0 67 40"
+        viewBox="0 0 67 60"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
@@ -67,8 +95,10 @@ const SidebarLogo: React.FC = () => {
       {/* Second SVG - Container Text com efeito cortina */}
       <div className="relative flex-shrink-0 overflow-hidden">
         <svg
-          className="h-6 md:h-10 text-[#646569]"
-          viewBox="0 0 216 40"
+          className="h-8 md:h-16 text-[#646569]"
+          width="216"
+          height="90"
+          viewBox="0 0 216 60"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
@@ -117,7 +147,12 @@ const SidebarLogo: React.FC = () => {
 
         {/* Cortina que cobre o texto inicialmente */}
         <div
-          className="absolute inset-0 bg-[#191919] translate-x-0 group-hover:translate-x-full transition-transform duration-500"
+          className="
+            absolute inset-0 bg-[#191919] translate-x-0
+            group-hover:translate-x-full transition-transform duration-500
+            sm:transition-none sm:group-hover:translate-x-0
+            md:transition-transform md:duration-500 md:group-hover:translate-x-full
+          "
           style={{
             transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
           }}

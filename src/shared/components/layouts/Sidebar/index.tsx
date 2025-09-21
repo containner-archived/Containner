@@ -24,10 +24,17 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
   return (
     <div className="min-h-screen bg-[#191919]">
       {/* Desktop Layout */}
-      <div className="hidden lg:flex h-screen">
-        {/* Sidebar fixa - Largura proporcional */}
-        <div className="w-1/6 fixed left-0 top-0 h-full bg-[#191919] p-5 z-10">
-          <div className="flex flex-col gap-14 h-full">
+      <div className="hidden md:flex h-screen">
+        {/* Sidebar fixa - Larguras responsivas por tamanho de tela */}
+        <div
+          className="
+          md:w-1/1 p-5
+          lg:w-1/1 xl:w-1/1 2xl:w-1/1
+          fixed left-0 top-0 h-full bg-[#191919]
+          z-10
+        "
+        >
+          <div className="flex flex-col gap-8 h-full">
             {/* Logo Section */}
             <SidebarLogo />
 
@@ -35,14 +42,24 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
             <SidebarTitle />
 
             {/* Navigation Section */}
-            <div className="flex-1 overflow-y-auto">
+            <div className="flex-1 overflow-y-auto mt-4">
               <SidebarNav />
             </div>
           </div>
         </div>
 
-        {/* Área do main content - Com margin-left para não sobrepor a sidebar */}
-        <div className="flex-1 ml-[16.67%] p-5 overflow-y-auto">
+        {/* Área do main content - Com margin-left responsivo */}
+        <div
+          className="
+    flex-1
+    sm:ml-[40%] sm:p-3
+    md:ml-[33.33%] md:p-4
+    lg:ml-[25%] lg:p-5
+    xl:ml-[20%] xl:p-5
+    2xl:ml-[16.67%] 2xl:p-6
+    overflow-y-auto
+  "
+        >
           <div className="h-full">{children}</div>
         </div>
       </div>

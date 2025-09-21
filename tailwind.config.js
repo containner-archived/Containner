@@ -5,37 +5,30 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
 
-  darkMode: 'class',
-
   theme: {
     extend: {
-      fontFamily: {
-        'sans': ['Inter', 'system-ui', 'sans-serif']
-      },
-      colors: {
-        primary: {
-          white: '#ffffff',
-          black: '#000000',
-        }
-      },
-      transitionProperty: {
-        'theme': 'background-color, border-color, color, fill, stroke',
-      },
-      animation: {
-        'fade-in': 'fadeIn 0.3s ease-in-out',
-        'slide-up': 'slideUp 0.3s ease-out',
-      },
-      keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        slideUp: {
-          '0%': { transform: 'translateY(10px)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
-        }
+      screens: {
+        // Breakpoints padrão do Tailwind (mantidos):
+        // sm: '640px'   // Tablets pequenos
+        // md: '768px'   // Tablets
+        // lg: '1024px'  // Laptops pequenos
+        // xl: '1280px'  // Desktops
+        // 2xl: '1536px' // Desktops grandes
+
+        // Breakpoints customizados adicionais:
+        'laptop-sm': '1200px',    // Laptops pequenos (13-14")
+        'laptop-md': '1366px',    // Laptops médios (15")
+        'desktop-sm': '1440px',   // Desktops pequenos
+        'desktop-md': '1680px',   // Desktops médios
+        'desktop-lg': '1920px',   // Desktops grandes (Full HD)
+        'desktop-xl': '2560px',   // Desktops extra grandes (2K/4K)
+
+        // Orientações específicas
+        'landscape': { 'raw': '(orientation: landscape)' },
+        'portrait': { 'raw': '(orientation: portrait)' },
       }
-    },
+    }
   },
+
   plugins: [],
 }

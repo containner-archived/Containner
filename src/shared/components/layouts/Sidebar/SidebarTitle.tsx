@@ -4,14 +4,24 @@ import React from 'react'
 const SidebarTitle: React.FC = () => {
   return (
     <div className="flex flex-col gap-6">
-      <h2 className="text-base font-semibold text-[#646569] leading-tight uppercase">
-        <span className="block sm:inline">pronto para abrir</span>{' '}
-        <span className="block sm:inline">o containner?</span>
+      <h2
+        className="
+    text-base
+    font-semibold text-[#646569] leading-normal uppercase
+  "
+      >
+        <span className="inline sm:block">pronto para abrir</span>{' '}
+        <span className="inline sm:block">o containner?</span>
       </h2>
       <div className="flex flex-col">
         <a
           href="mailto:open@containner.co"
-          className="text-[#646569] text-base font-normal leading-relaxed uppercase relative overflow-hidden transition-colors duration-500 hover:text-white inline-block"
+          className="
+            text-[#646569]
+             text-base
+            font-normal leading-normal uppercase relative overflow-hidden
+            transition-colors duration-500 hover:text-white inline-block
+          "
           style={{
             position: 'relative'
           }}
@@ -50,7 +60,12 @@ const SidebarTitle: React.FC = () => {
           href="https://wa.me/5554993120440"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[#646569] text-base font-normal leading-relaxed uppercase relative overflow-hidden transition-colors duration-500 hover:text-white inline-block"
+          className="
+            text-[#646569]
+            text-base
+            font-normal leading-normal uppercase relative overflow-hidden
+            transition-colors duration-500 hover:text-white inline-block
+          "
           style={{
             position: 'relative'
           }}

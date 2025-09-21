@@ -13,7 +13,7 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({
 }) => {
   return (
     <header className="bg-[#191919] lg:hidden">
-      <div className="flex items-center justify-between p-1">
+      <div className="flex items-center justify-between p-2">
         {/* Logo */}
         <div className="flex-1">
           <SidebarLogo />
@@ -36,7 +36,7 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({
               }`}
             >
               <svg
-                className="w-6 h-6"
+                className="w-8 h-8"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"

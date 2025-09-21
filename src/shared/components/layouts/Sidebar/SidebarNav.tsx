@@ -14,36 +14,36 @@ const SidebarNav: React.FC = () => {
   const location = useLocation()
 
   const navItems = [
+    // {
+    //   icon: <img src={Containner} alt="Overview" className="w-16 h-16" />,
+    //   title: 'Overview',
+    //   subtitle: 'General statistics and insights',
+    //   path: '/containner'
+    // },
     {
-      icon: <img src={Containner} alt="Overview" className="w-16 h-16" />,
-      title: 'Overview',
-      subtitle: 'General statistics and insights',
-      path: '/containner'
-    },
-    {
-      icon: <img src={Azul} alt="Projects" className="w-16 h-16" />,
-      title: 'Projects',
-      subtitle: 'Manage your active projects',
+      icon: <img src={Azul} alt="Vextro©" className="w-16 h-16" />,
+      title: 'Vextro©',
+      subtitle: 'Marketing contra o mercado',
       path: '/vextro'
     },
     {
-      icon: <img src={Korri} alt="Analytics" className="w-16 h-16" />,
-      title: 'Analytics',
-      subtitle: 'Performance metrics and reports',
+      icon: <img src={Korri} alt="Korri©" className="w-16 h-16" />,
+      title: 'Korri©',
+      subtitle: 'Roupas esportivas para a correria',
       path: '/korri'
-    },
-    {
-      icon: <img src={C0ffe} alt="Team" className="w-16 h-16" />,
-      title: 'Team',
-      subtitle: 'Collaborate with team members',
-      path: '/c0ffe'
-    },
-    {
-      icon: <img src={Trac} alt="Settings" className="w-16 h-16" />,
-      title: 'Settings',
-      subtitle: 'Configure your preferences',
-      path: '/trac'
     }
+    // {
+    //   icon: <img src={C0ffe} alt="Team" className="w-16 h-16" />,
+    //   title: 'Team',
+    //   subtitle: 'Collaborate with team members',
+    //   path: '/c0ffe'
+    // },
+    // {
+    //   icon: <img src={Trac} alt="Settings" className="w-16 h-16" />,
+    //   title: 'Trac',
+    //   subtitle: 'Configure your preferences',
+    //   path: '/trac'
+    // }
   ]
 
   return (
