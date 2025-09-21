@@ -16,7 +16,7 @@ const SidebarLogo: React.FC = () => {
   return (
     <div
       className={`
-        flex items-start gap-2 md:gap-4 group cursor-pointer
+        flex items-start gap-2 md:gap-4 cursor-pointer
         sm:cursor-default
         md:cursor-pointer
         ${isHomePage ? 'opacity-100' : 'opacity-90 hover:opacity-100'}
@@ -93,8 +93,8 @@ const SidebarLogo: React.FC = () => {
         />
       </svg>
 
-      {/* Second SVG - Container Text com efeito cortina */}
-      <div className="relative flex-shrink-0 overflow-hidden">
+      {/* Second SVG - Container Text */}
+      <div className="flex-shrink-0">
         <svg
           className="h-8 md:h-16 text-[#646569]"
           width="216"
@@ -145,19 +145,6 @@ const SidebarLogo: React.FC = () => {
             fill="currentColor"
           />
         </svg>
-
-        {/* Cortina que cobre o texto inicialmente */}
-        <div
-          className="
-            absolute inset-0 bg-[#191919] translate-x-0
-            group-hover:translate-x-full transition-transform duration-500
-            sm:transition-none sm:group-hover:translate-x-0
-            md:transition-transform md:duration-500 md:group-hover:translate-x-full
-          "
-          style={{
-            transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
-          }}
-        ></div>
       </div>
     </div>
   )
