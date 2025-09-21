@@ -1,6 +1,9 @@
 import React from 'react'
+import { useDocumentTitle } from '@/shared/hooks/useDocumentTitle'
 
 const KorriPage: React.FC = () => {
+  useDocumentTitle('Korri')
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-900 to-emerald-900 text-white">
       {/* Header */}

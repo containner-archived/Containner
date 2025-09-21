@@ -1,8 +1,8 @@
 // src/layouts/SidebarNav.tsx
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useActiveRoute } from '@/shared/hooks/useActiveRoute'
+import { useI18n } from '@/shared/contexts/I18nContext'
 import SidebarNavItem from './SidebarNavItem'
-
 // Importar os SVGs
 import Containner from '@assets/nav/container.svg'
 import Azul from '@assets/nav/azul.svg'
@@ -11,37 +11,38 @@ import C0ffe from '@assets/nav/c0ffe.svg'
 import Trac from '@assets/nav/trac.svg'
 
 const SidebarNav: React.FC = () => {
-  const location = useLocation()
+  const { isActive } = useActiveRoute()
+  const { t } = useI18n()
 
   const navItems = [
     // {
-    //   icon: <img src={Containner} alt="Overview" className="w-16 h-16" />,
-    //   title: 'Overview',
-    //   subtitle: 'General statistics and insights',
+    //   icon: <img src={Containner} alt={t.nav.overview.title} className="w-16 h-16" />,
+    //   title: t.nav.overview.title,
+    //   subtitle: t.nav.overview.subtitle,
     //   path: '/containner'
     // },
     {
-      icon: <img src={Azul} alt="Vextro©" className="w-16 h-16" />,
-      title: 'Vextro©',
-      subtitle: 'Marketing contra o mercado',
+      icon: <img src={Azul} alt={t.nav.vextro.title} className="w-16 h-16" />,
+      title: t.nav.vextro.title,
+      subtitle: t.nav.vextro.subtitle,
       path: '/vextro'
     },
     {
-      icon: <img src={Korri} alt="Korri©" className="w-16 h-16" />,
-      title: 'Korri©',
-      subtitle: 'Roupas esportivas para a correria',
+      icon: <img src={Korri} alt={t.nav.korri.title} className="w-16 h-16" />,
+      title: t.nav.korri.title,
+      subtitle: t.nav.korri.subtitle,
       path: '/korri'
     }
     // {
-    //   icon: <img src={C0ffe} alt="Team" className="w-16 h-16" />,
-    //   title: 'Team',
-    //   subtitle: 'Collaborate with team members',
+    //   icon: <img src={C0ffe} alt={t.nav.team.title} className="w-16 h-16" />,
+    //   title: t.nav.team.title,
+    //   subtitle: t.nav.team.subtitle,
     //   path: '/c0ffe'
     // },
     // {
-    //   icon: <img src={Trac} alt="Settings" className="w-16 h-16" />,
-    //   title: 'Trac',
-    //   subtitle: 'Configure your preferences',
+    //   icon: <img src={Trac} alt={t.nav.settings.title} className="w-16 h-16" />,
+    //   title: t.nav.settings.title,
+    //   subtitle: t.nav.settings.subtitle,
     //   path: '/trac'
     // }
   ]
@@ -57,7 +58,7 @@ const SidebarNav: React.FC = () => {
                 title={item.title}
                 subtitle={item.subtitle}
                 path={item.path}
-                isActive={location.pathname === item.path}
+                isActive={isActive(item.path)}
               />
             </li>
           ))}

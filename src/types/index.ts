@@ -2,19 +2,56 @@ export type Language = 'pt' | 'en'
 
 export interface Translation {
   pages: {
-    home: {
+    Home: {
+      title: string
+    }
+    Vextro: {
+      title: string
+    }
+    Korri: {
+      title: string
+    }
+    Containner: {
+      title: string
+    }
+    C0ffe: {
+      title: string
+    }
+    Trac: {
       title: string
     }
   }
-  linktree: {
-    bio: string
-    redbubble: string
-    colab55: string
-    inprnt: string
-    displate: string
-    behance: string
-    portfolio: string
-    donate: string
+  nav: {
+    overview: {
+      title: string
+      subtitle: string
+    }
+    vextro: {
+      title: string
+      subtitle: string
+    }
+    korri: {
+      title: string
+      subtitle: string
+    }
+    team: {
+      title: string
+      subtitle: string
+    }
+    settings: {
+      title: string
+      subtitle: string
+    }
+  }
+  sidebar: {
+    title: {
+      line1: string
+      line2: string
+    }
+    contact: {
+      email: string
+      phone: string
+    }
   }
   footer: {
     language: string

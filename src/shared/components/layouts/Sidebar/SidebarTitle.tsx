@@ -1,24 +1,26 @@
-// src/layouts/SidebarTitle.tsx
 import React from 'react'
+import { useI18n } from '@/shared/contexts/I18nContext'
 
 const SidebarTitle: React.FC = () => {
+  const { t } = useI18n()
+
   return (
     <div className="flex flex-col gap-6">
       <h2
         className="
-    text-base
-    font-semibold text-[#646569] leading-normal uppercase
-  "
+          text-base
+          font-semibold text-[#646569] leading-normal uppercase
+        "
       >
-        <span className="inline sm:block">pronto para abrir</span>{' '}
-        <span className="inline sm:block">o containner?</span>
+        <span className="inline sm:block">{t.sidebar.title.line1}</span>{' '}
+        <span className="inline sm:block">{t.sidebar.title.line2}</span>
       </h2>
       <div className="flex flex-col">
         <a
           href="mailto:open@containner.co"
           className="
             text-[#646569]
-             text-base
+            text-base
             font-normal leading-normal uppercase relative overflow-hidden
             transition-colors duration-500 hover:text-white inline-block
           "
@@ -54,7 +56,7 @@ const SidebarTitle: React.FC = () => {
             if (bg) bg.style.transform = 'translateX(-100%)'
           }}
         >
-          <span className="relative z-10">open@containner.co</span>
+          <span className="relative z-10">{t.sidebar.contact.email}</span>
         </a>
         <a
           href="https://wa.me/5554993120440"
@@ -98,7 +100,7 @@ const SidebarTitle: React.FC = () => {
             if (bg) bg.style.transform = 'translateX(-100%)'
           }}
         >
-          <span className="relative z-10">+55 54 9312-0440</span>
+          <span className="relative z-10">{t.sidebar.contact.phone}</span>
         </a>
       </div>
     </div>

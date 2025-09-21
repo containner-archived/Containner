@@ -12,7 +12,7 @@ export const LanguageSwitch: React.FC = () => {
   return (
     <button
       onClick={toggleLanguage}
-      className="flex items-center space-x-2 px-3 py-2 text-sm text-primary-black dark:text-primary-white hover:text-primary-black/70 dark:hover:text-primary-white/70 transition-colors duration-200"
+      className="flex items-center space-x-2 px-3 py-2 text-sm text-[#646569] hover:text-white transition-colors duration-200"
       aria-label={`${t.footer.language}: ${language === 'pt' ? 'Português' : 'English'}`}
     >
       <Languages size={16} />

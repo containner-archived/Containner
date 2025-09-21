@@ -1,6 +1,9 @@
+import { useDocumentTitle } from '@/shared/hooks/useDocumentTitle'
 import React from 'react'
 
 const VextroPage: React.FC = () => {
+  useDocumentTitle('Vextro')
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 to-pink-900 text-white">
       {/* Header */}

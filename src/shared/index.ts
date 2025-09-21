@@ -7,6 +7,3 @@ export * from './components/ui/Navigation'
 
 // Contexts
 export * from './contexts/I18nContext'
-
-// Hooks
-export * from './hooks/useActiveRoute'

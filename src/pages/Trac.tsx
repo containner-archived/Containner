@@ -1,6 +1,9 @@
 import React from 'react'
+import { useDocumentTitle } from '@/shared/hooks/useDocumentTitle'
 
 const TracPage: React.FC = () => {
+  useDocumentTitle('Trac')
+
   return (
     <div className=" bg-gradient-to-br from-pink-900 to-indigo-900 text-white">
       {/* Header */}

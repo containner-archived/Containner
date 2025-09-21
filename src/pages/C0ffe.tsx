@@ -1,6 +1,8 @@
 import React from 'react'
+import { useDocumentTitle } from '@/shared/hooks/useDocumentTitle'
 
 const C0ffePage: React.FC = () => {
+  useDocumentTitle('C0ffe')
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 to-emerald-900 text-white">
       {/* Header */}

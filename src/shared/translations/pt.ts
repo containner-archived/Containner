@@ -1,23 +1,59 @@
-export const ptTranslations = {
-  pageTitles: {
-    home: 'Início - Dark'
-  },
+import { Translation } from '@/types'
+
+export const ptTranslations: Translation = {
   pages: {
-    home: {
-      title: 'Dark Links'
+    Home: {
+      title: 'Jeff'
+    },
+    Vextro: {
+      title: 'Vextro'
+    },
+    Korri: {
+      title: 'Korri'
+    },
+    Containner: {
+      title: 'Container'
+    },
+    C0ffe: {
+      title: 'Café'
+    },
+    Trac: {
+      title: 'Trac'
     }
-  },
-  linktree: {
-    bio: 'dark ilustrador',
-    redbubble: 'Roupas, adesivos e mais (Redbubble)',
-    colab55: 'Compre minha arte no Brasil (Colab55)',
-    inprnt: 'Prints (INPRNT)',
-    displate: 'Meus pôsteres exclusivos na Displate 🤍',
-    behance: 'Behance',
-    portfolio: 'Portfólio',
-    donate: 'Doar (づ⁠ ᴗ _ᴗ)づ⁠☕'
   },
   footer: {
     language: 'Idioma'
+  },
+  nav: {
+    overview: {
+      title: 'Visão geral',
+      subtitle: 'Estatísticas e insights gerais'
+    },
+    vextro: {
+      title: 'Vextro©',
+      subtitle: 'Marketing contra o mercado'
+    },
+    korri: {
+      title: 'Korri©',
+      subtitle: 'Roupas esportivas para a correria'
+    },
+    team: {
+      title: 'Equipe',
+      subtitle: 'Colabore com membros da equipe'
+    },
+    settings: {
+      title: 'Configurações',
+      subtitle: 'Configure suas preferências'
+    }
+  },
+  sidebar: {
+    title: {
+      line1: 'pronto para abrir',
+      line2: 'o container?'
+    },
+    contact: {
+      email: 'open@containner.co',
+      phone: '+55 54 9312-0440'
+    }
   }
 }

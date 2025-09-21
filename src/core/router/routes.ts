@@ -15,32 +15,26 @@ export const appRoutes: RouteConfig[] = [
   // Main navigation routes
   {
     path: '/',
-    element: HomePage,
-    title: 'Overview - Dashboard'
+    element: HomePage
   },
   {
     path: '/containner',
-    element: ContainnerPage,
-    title: 'Containner'
+    element: ContainnerPage
   },
   {
     path: '/vextro',
-    element: VextroPage,
-    title: 'Vextro'
+    element: VextroPage
   },
   {
     path: '/korri',
-    element: KorriPage,
-    title: 'Korri'
+    element: KorriPage
   },
   {
     path: '/c0ffe',
-    element: C0ffePage,
-    title: 'C0FFE'
+    element: C0ffePage
   },
   {
     path: '/trac',
-    element: TracPage,
-    title: 'Trac'
+    element: TracPage
   }
 ]

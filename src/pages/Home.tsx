@@ -1,6 +1,9 @@
 import React from 'react'
+import { useDocumentTitle } from '@/shared/hooks/useDocumentTitle'
 
 const HomePage: React.FC = () => {
+  useDocumentTitle('Home')
+
   return (
     <div className="space-y-6">
       <div>

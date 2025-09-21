@@ -1,16 +1,17 @@
 // src/shared/components/layouts/SidebarLogo.tsx
 import React from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { useActiveRoute } from '@/shared/hooks/useActiveRoute'
 
 const SidebarLogo: React.FC = () => {
   const navigate = useNavigate()
-  const location = useLocation()
+  const { isActive } = useActiveRoute()
 
   const handleNavigateHome = () => {
     navigate('/')
   }
 
-  const isHomePage = location.pathname === '/'
+  const isHomePage = isActive('/')
 
   return (
     <div

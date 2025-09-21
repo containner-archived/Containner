@@ -1,6 +1,9 @@
 import React from 'react'
+import { useDocumentTitle } from '@/shared/hooks/useDocumentTitle'
 
 const ContainnerPage: React.FC = () => {
+  useDocumentTitle('Containner')
+
   return (
     <div className=" bg-gradient-to-br from-blue-900 to-indigo-900 text-white">
       {/* Header */}
