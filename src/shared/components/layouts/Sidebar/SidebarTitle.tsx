@@ -16,7 +16,7 @@ const SidebarTitle: React.FC = () => {
         top: 0;
         left: 0;
         width: ${span.offsetWidth}px;
-        height: ${span.offsetHeight}px;
+        height: ${target.offsetHeight}px;
         background-color: #646569;
         transform: translateX(-100%);
         transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -48,12 +48,10 @@ const SidebarTitle: React.FC = () => {
         <span className="inline sm:block">{t.sidebar.title.line1}</span>{' '}
         <span className="inline sm:block">{t.sidebar.title.line2}</span>
       </h2>
-
       <div className="flex flex-col">
         <a
           href="mailto:open@containner.co"
-          className="text-[#646569] text-base font-normal leading-normal uppercase relative overflow-hidden transition-colors duration-500 hover:text-[#191919] inline-block"
-          style={{ position: 'relative' }}
+          className="text-[#646569] text-base font-normal leading-normal uppercase relative overflow-hidden transition-colors duration-500 hover:text-[#191919] inline-block w-fit"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
@@ -63,8 +61,7 @@ const SidebarTitle: React.FC = () => {
           href="https://wa.me/5554993120440"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[#646569] text-base font-normal leading-normal uppercase relative overflow-hidden transition-colors duration-500 hover:text-[#191919] inline-block"
-          style={{ position: 'relative' }}
+          className="text-[#646569] text-base font-normal leading-normal uppercase relative overflow-hidden transition-colors duration-500 hover:text-[#191919] inline-block w-fit"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
