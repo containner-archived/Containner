@@ -19,14 +19,10 @@ const VextroPage: React.FC = () => {
   useDocumentTitle('Vextro')
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
+    <div className="">
       {/* Primeira imagem */}
       <div className="mb-8">
-        <img
-          src={img1}
-          alt="Imagem 1"
-          className="w-full rounded-lg shadow-lg"
-        />
+        <img src={img1} alt="Imagem 1" className="w-full shadow-lg" />
       </div>
 
       {/* Duas colunas de texto com gap de 178px */}
@@ -103,65 +99,29 @@ const VextroPage: React.FC = () => {
 
       {/* Duas imagens uma embaixo da outra */}
       <div className="mb-8 space-y-6">
-        <img
-          src={img2}
-          alt="Imagem 2"
-          className="w-full rounded-lg shadow-lg"
-        />
-        <img
-          src={img4}
-          alt="Imagem 4"
-          className="w-full rounded-lg shadow-lg"
-        />
+        <img src={img2} alt="Imagem 2" className="w-full  shadow-lg" />
+        <img src={img4} alt="Imagem 4" className="w-full shadow-lg" />
       </div>
 
       {/* Primeiro GIF */}
       <div className="mb-8">
-        <img src={gif3} alt="GIF 3" className="w-full rounded-lg shadow-lg" />
+        <img src={gif3} alt="GIF 3" className="w-full shadow-lg" />
       </div>
 
       {/* 8 imagens uma embaixo da outra */}
       <div className="mb-8 space-y-6">
-        <img
-          src={img5}
-          alt="Imagem 5"
-          className="w-full rounded-lg shadow-lg"
-        />
-        <img
-          src={img6}
-          alt="Imagem 6"
-          className="w-full rounded-lg shadow-lg"
-        />
-        <img
-          src={img7}
-          alt="Imagem 7"
-          className="w-full rounded-lg shadow-lg"
-        />
-        <img
-          src={img8}
-          alt="Imagem 8"
-          className="w-full rounded-lg shadow-lg"
-        />
-        <img
-          src={img9}
-          alt="Imagem 9"
-          className="w-full rounded-lg shadow-lg"
-        />
-        <img
-          src={img10}
-          alt="Imagem 10"
-          className="w-full rounded-lg shadow-lg"
-        />
-        <img
-          src={img11}
-          alt="Imagem 11"
-          className="w-full rounded-lg shadow-lg"
-        />
+        <img src={img5} alt="Imagem 5" className="w-full shadow-lg" />
+        <img src={img6} alt="Imagem 6" className="w-full shadow-lg" />
+        <img src={img7} alt="Imagem 7" className="w-full shadow-lg" />
+        <img src={img8} alt="Imagem 8" className="w-full shadow-lg" />
+        <img src={img9} alt="Imagem 9" className="w-full shadow-lg" />
+        <img src={img10} alt="Imagem 10" className="w-full shadow-lg" />
+        <img src={img11} alt="Imagem 11" className="w-full shadow-lg" />
       </div>
 
       {/* Segundo GIF */}
       <div className="mb-8">
-        <img src={gif12} alt="GIF 12" className="w-full rounded-lg shadow-lg" />
+        <img src={gif12} alt="GIF 12" className="w-full shadow-lg" />
       </div>
     </div>
   )

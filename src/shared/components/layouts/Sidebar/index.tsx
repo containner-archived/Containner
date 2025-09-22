@@ -25,14 +25,14 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
   return (
     <div className="min-h-screen bg-[#191919] font-freesans">
       {/* Desktop Layout */}
-      <div className="hidden md:flex h-screen">
-        {/* Sidebar fixa - Larguras responsivas por tamanho de tela */}
+      <div className="hidden md:flex h-screen overflow-hidden">
+        {/* Sidebar fixa - SEM scroll */}
         <div
           className="
-            md:w-1/1 p-5
-            lg:w-1/1 xl:w-1/1 2xl:w-1/1
+            md:w-1/3 p-5
+            lg:w-1/4 xl:w-1/5 2xl:w-1/6
             fixed left-0 top-0 h-full bg-[#191919]
-            z-10
+            z-10 overflow-hidden
           "
         >
           <div className="flex flex-col gap-8 h-full">
@@ -42,8 +42,8 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
             {/* Title Section */}
             <SidebarTitle />
 
-            {/* Navigation Section */}
-            <div className="flex-1 overflow-y-auto mt-4">
+            {/* Navigation Section - SEM scroll */}
+            <div className="flex-1 mt-4">
               <SidebarNav />
             </div>
 
@@ -52,31 +52,31 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
           </div>
         </div>
 
-        {/* Área do main content - Com margin-left responsivo */}
+        {/* Área do main content - ÚNICA scrollbar */}
         <div
           className="
-            flex-1 p-5
-            sm:ml-[40%]
+            flex-1
             md:ml-[33.33%]
             lg:ml-[25%]
             xl:ml-[20%]
             2xl:ml-[16.67%]
             overflow-y-auto
+            h-screen
           "
         >
-          <div className="h-full">{children}</div>
+          <div className="p-5">{children}</div>
         </div>
       </div>
 
       {/* Mobile Layout */}
-      <div className="lg:hidden flex flex-col h-screen">
+      <div className="md:hidden flex flex-col h-screen">
         {/* Mobile Header - Fixed at top */}
         <MobileHeader
           onMenuClick={handleMenuToggle}
           isMenuOpen={isMobileMenuOpen}
         />
 
-        {/* Hamburger Menu - Conditional rendering pushes content down */}
+        {/* Hamburger Menu - Conditional rendering */}
         <HamburgerMenu isOpen={isMobileMenuOpen} onClose={handleMenuClose} />
 
         {/* Main content - Takes remaining space */}
