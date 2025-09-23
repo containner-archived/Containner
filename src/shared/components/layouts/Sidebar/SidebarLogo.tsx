@@ -1,8 +1,7 @@
-// src/shared/components/layouts/SidebarLogo.tsx
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useActiveRoute } from '@/shared/hooks/useActiveRoute'
-import Containner from '@assets/Containner.svg'
+import CC from '@assets/CC.svg'
 
 const SidebarLogo: React.FC = () => {
   const navigate = useNavigate()
@@ -17,7 +16,7 @@ const SidebarLogo: React.FC = () => {
   return (
     <div
       className={`
-        flex items-start gap-2 md:gap-4 cursor-pointer
+        flex items-start gap-2 cursor-pointer
         sm:cursor-default
         md:cursor-pointer
         ${isHomePage ? 'opacity-100' : 'opacity-90 hover:opacity-100'}
@@ -36,7 +35,7 @@ const SidebarLogo: React.FC = () => {
     >
       {/* First SVG - Bar Chart Icon */}
       <img
-        src={Containner}
+        src={CC}
         alt="Logo"
         className="h-8 md:h-10 flex-shrink-0"
         style={{
@@ -49,10 +48,10 @@ const SidebarLogo: React.FC = () => {
       {/* Second SVG - Container Text - Escondido no mobile */}
       <div className="hidden md:block flex-shrink-0">
         <svg
-          className="h-8 md:h-16 text-[#646569]"
+          className="h-8 md:h-20 text-[#646569]"
           width="216"
-          height="90"
-          viewBox="0 0 216 60"
+          height="60"
+          viewBox="0 0 216 80"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"

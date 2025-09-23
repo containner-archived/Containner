@@ -44,7 +44,7 @@ const SidebarTitle: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-6 font-freesans">
-      <h2 className="text-base font-bold text-[#646569] leading-normal uppercase">
+      <h2 className="text-base font-bold text-[#646569] leading-tight uppercase">
         <span className="inline sm:block">{t.sidebar.title.line1}</span>{' '}
         <span className="inline sm:block">{t.sidebar.title.line2}</span>
       </h2>

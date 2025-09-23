@@ -29,7 +29,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
         {/* Sidebar fixa - SEM scroll */}
         <div
           className="
-            md:w-1/3 p-5
+            md:w-1/3 pl-5 py-5
             lg:w-1/4 xl:w-1/5 2xl:w-1/6
             fixed left-0 top-0 h-full bg-[#191919]
             z-10 overflow-hidden
