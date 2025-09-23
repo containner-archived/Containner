@@ -28,11 +28,10 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
         {/* Sidebar fixa - SEM scroll */}
         <div
           className="
-            md:w-1/3 pl-5 py-5
-            lg:w-1/4 xl:w-1/5 2xl:w-1/6
-            fixed left-0 top-0 h-full bg-[#191919]
-            z-10 overflow-hidden
-          "
+  md:w-80 pl-5 py-5
+  fixed left-0 top-0 h-full bg-[#191919]
+  z-10 overflow-hidden
+"
         >
           <div className="flex flex-col gap-14 h-full">
             {/* Logo Section */}
@@ -51,14 +50,11 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
         {/* Área do main content - ÚNICA scrollbar */}
         <div
           className="
-            flex-1
-            md:ml-[33.33%]
-            lg:ml-[25%]
-            xl:ml-[20%]
-            2xl:ml-[16.67%]
-            overflow-y-auto
-            h-screen
-          "
+  flex-1
+  md:ml-80                    // 320px de margem
+  overflow-y-auto
+  h-screen
+"
         >
           <div className="p-5">{children}</div>
         </div>
