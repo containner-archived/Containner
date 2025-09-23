@@ -37,7 +37,7 @@ const SidebarLogo: React.FC = () => {
       <img
         src={CC}
         alt="Logo"
-        className="h-8 md:h-10 flex-shrink-0"
+        className="h-8 md:h-14 flex-shrink-0"
         style={{
           filter:
             'brightness(0) saturate(100%) invert(39%) sepia(6%) saturate(318%) hue-rotate(180deg) brightness(92%) contrast(88%)'

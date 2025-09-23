@@ -34,7 +34,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
             z-10 overflow-hidden
           "
         >
-          <div className="flex flex-col gap-8 h-full">
+          <div className="flex flex-col gap-14 h-full">
             {/* Logo Section */}
             <SidebarLogo />
 
@@ -42,7 +42,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
             <SidebarTitle />
 
             {/* Navigation Section - SEM scroll */}
-            <div className="flex-1 mt-4">
+            <div className="flex-1">
               <SidebarNav />
             </div>
           </div>

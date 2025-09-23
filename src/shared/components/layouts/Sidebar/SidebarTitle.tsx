@@ -21,6 +21,8 @@ const SidebarTitle: React.FC = () => {
         transform: translateX(-100%);
         transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 0;
+        display: flex;
+        align-items: center;
       `
       target.insertBefore(bgDiv, target.firstChild)
 
@@ -48,24 +50,30 @@ const SidebarTitle: React.FC = () => {
         <span className="inline sm:block">{t.sidebar.title.line1}</span>{' '}
         <span className="inline sm:block">{t.sidebar.title.line2}</span>
       </h2>
+
       <div className="flex flex-col">
         <a
           href="mailto:open@containner.co"
-          className="text-[#646569] text-base font-normal leading-normal uppercase relative overflow-hidden transition-colors duration-500 hover:text-[#191919] inline-block w-fit"
+          className="text-[#646569] text-base font-normal leading-normal uppercase relative overflow-hidden transition-colors duration-500 hover:text-[#191919] inline-block w-fit flex items-center"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <span className="relative z-10">{t.sidebar.contact.email}</span>
+          <span className="relative z-10 flex items-center h-full">
+            {t.sidebar.contact.email}
+          </span>
         </a>
+
         <a
           href="https://wa.me/5554993120440"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[#646569] text-base font-normal leading-normal uppercase relative overflow-hidden transition-colors duration-500 hover:text-[#191919] inline-block w-fit"
+          className="text-[#646569] text-base font-normal leading-normal uppercase relative overflow-hidden transition-colors duration-500 hover:text-[#191919] inline-block w-fit flex items-center"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <span className="relative z-10">{t.sidebar.contact.phone}</span>
+          <span className="relative z-10 flex items-center h-full">
+            {t.sidebar.contact.phone}
+          </span>
         </a>
       </div>
     </div>

@@ -44,7 +44,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ isOpen, onClose }) => {
       ref={menuRef}
       className="bg-[#191919] lg:hidden max-h-[50vh] overflow-y-auto font-freesans"
     >
-      <div className="p-4">
+      <div className="p-5">
         <div className="flex flex-col gap-6">
           {/* Title Section */}
           <SidebarTitle />

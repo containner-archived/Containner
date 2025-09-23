@@ -24,7 +24,7 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({
             e.stopPropagation()
             onMenuClick()
           }}
-          className="p-1 text-[#646569] hover:text-white transition-all duration-300 flex items-center justify-center -mt-3"
+          className="p-1 text-[#646569] hover:text-white transition-all duration-300 flex items-center justify-center"
           aria-label={isMenuOpen ? 'Close Menu' : 'Open Menu'}
         >
           <div className="w-8 h-8 relative flex items-center justify-center">
