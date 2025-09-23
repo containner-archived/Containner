@@ -30,11 +30,11 @@ export const ptTranslations: Translation = {
       subtitle: 'Estatísticas e insights gerais'
     },
     vextro: {
-      title: 'Vextro©',
+      title: 'Vextro®',
       subtitle: 'Marketing contra o mercado'
     },
     korri: {
-      title: 'Korri©',
+      title: 'Korri®',
       subtitle: 'Roupas esportivas para a correria'
     },
     team: {

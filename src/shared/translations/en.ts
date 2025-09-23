@@ -30,11 +30,11 @@ export const enTranslations: Translation = {
       subtitle: 'General statistics and insights'
     },
     vextro: {
-      title: 'Vextro©',
+      title: 'Vextro®',
       subtitle: 'Marketing against the market'
     },
     korri: {
-      title: 'Korri©',
+      title: 'Korri®',
       subtitle: 'Sportswear for the hustle'
     },
     team: {

@@ -3,7 +3,7 @@ import { useI18n } from '../contexts/I18nContext'
 
 export const useDocumentTitle = (
   pageKey: keyof typeof import('../translations/pt').ptTranslations.pages,
-  container: string = 'CONTAINNER©' // valor padrão para o container
+  container: string = 'CONTAINNER®' // valor padrão para o container
 ) => {
   const { t } = useI18n()
 
@@ -20,7 +20,7 @@ export const useDocumentTitle = (
 // Alternativa mais robusta que verifica se o título não é vazio
 export const useDocumentTitleRobust = (
   pageKey: keyof typeof import('../translations/pt').ptTranslations.pages,
-  container: string = 'CONTAINNER©'
+  container: string = 'CONTAINNER®'
 ) => {
   const { t } = useI18n()
 
