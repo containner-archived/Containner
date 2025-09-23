@@ -5,7 +5,6 @@ import SidebarTitle from './SidebarTitle'
 import SidebarNav from './SidebarNav'
 import MobileHeader from '../MobileHeader'
 import HamburgerMenu from './HamburguerMenu'
-import { LanguageSwitch } from '../../ui/LanguageSwitch'
 
 interface SidebarProps {
   children?: React.ReactNode
@@ -46,9 +45,6 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
             <div className="flex-1 mt-4">
               <SidebarNav />
             </div>
-
-            {/* Language Switch Button - Fixed at bottom */}
-            <LanguageSwitch />
           </div>
         </div>
 

@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import SidebarTitle from './SidebarTitle'
 import SidebarNav from './SidebarNav'
-import { LanguageSwitch } from '../../ui/LanguageSwitch'
 
 interface HamburgerMenuProps {
   isOpen: boolean
@@ -58,9 +57,6 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ isOpen, onClose }) => {
           >
             <SidebarNav />
           </div>
-
-          {/* Language Switch - No final do menu */}
-          <LanguageSwitch />
         </div>
       </div>
     </div>
