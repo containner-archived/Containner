@@ -87,7 +87,7 @@ export const AppRouter: React.FC<AppRouterProps> = ({ routes }) => {
     ))
 
   const renderFallbackRoute = () => (
-    <Route path="*" element={<Navigate to="/" replace />} />
+    <Route path="*" element={<Navigate to="/Vextro" replace />} />
   )
 
   // ================================
