@@ -5,11 +5,10 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
+  html,
   body {
+    background-color: #191919;
+    scroll-behavior: smooth;
     @apply antialiased;
   }
 }
@@ -25,7 +24,7 @@
   }
 
   .sidebar-scrollbar::-webkit-scrollbar-track {
-    background: #f1f5f9;
+    background: #f9f1f1;
   }
 
   .sidebar-scrollbar::-webkit-scrollbar-thumb {

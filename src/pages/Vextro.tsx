@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   ReactCompareSlider,
   ReactCompareSliderImage
@@ -23,24 +23,18 @@ import gif13 from '@/assets/pages/Vextro/13.gif'
 
 // --- COMPONENTE CUSTOMIZADO PARA O HANDLE ---
 const CustomHandle = () => (
-  // O contêiner principal do handle
   <div
     style={{
-      // Importante: garante que o componente ocupe toda a altura
       height: '100%',
-      // Esta borda cria a linha vertical divisória
       borderLeft: '2px solid #333333',
-      // Garante que o ícone esteja exatamente no centro vertical e horizontal
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      // Ajusta o handle para ficar no centro da linha vertical
       transform: 'translateX(-1px)',
-      width: '0', // Ocupa zero espaço, a largura é dada pela borda
-      pointerEvents: 'none' // Permite que o arrasto funcione
+      width: '0',
+      pointerEvents: 'none'
     }}
   >
-    {/* Este é o círculo que contém o SVG, sobreposto à linha */}
     <div
       style={{
         display: 'flex',
@@ -51,7 +45,6 @@ const CustomHandle = () => (
         pointerEvents: 'auto'
       }}
     >
-      {/* SVG Padrão de Duas Setas */}
       <svg
         width="32"
         height="32"
@@ -60,8 +53,8 @@ const CustomHandle = () => (
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M32 32H0V0H32V32ZM2 30H30V2H2V30Z"
           fill="#646569"
         />
@@ -81,15 +74,56 @@ const CustomHandle = () => (
     </div>
   </div>
 )
-// --- FIM DO COMPONENTE CUSTOMIZADO ---
 
-const VextroPage: React.FC = () => {
+// Loading spinner mais elaborado
+const LoadingSpinner = () => (
+  <div className="w-full h-screen flex items-center justify-center bg-transparent">
+    <div className="flex flex-col items-center space-y-4">
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-400"></div>
+    </div>
+  </div>
+)
+
+const VextroPage = () => {
   useDocumentTitle('Vextro')
+
+  // Estado para controlar o carregamento da primeira imagem
+  const [firstImageLoaded, setFirstImageLoaded] = useState(false)
+
+  // Preload da primeira imagem
+  useEffect(() => {
+    const preloadImage = new Image()
+    preloadImage.src = img1
+
+    // Adiciona prioridade alta para o preload
+    preloadImage.fetchPriority = 'high'
+
+    preloadImage.onload = () => {
+      setFirstImageLoaded(true)
+    }
+
+    // Tratamento de erro opcional
+    preloadImage.onerror = () => {
+      console.error('Erro ao carregar a primeira imagem')
+      setFirstImageLoaded(true) // Continua mesmo com erro
+    }
+  }, [])
+
+  // Se a primeira imagem não carregou, mostra apenas o loading
+  if (!firstImageLoaded) {
+    return <LoadingSpinner />
+  }
 
   return (
     <div className="space-y-40">
       {/* Primeira imagem */}
-      <img src={img1} alt="Imagem 1" className="w-full shadow-lg" />
+      <img
+        src={img1}
+        alt="Imagem 1"
+        className="w-full shadow-lg"
+        loading="eager"
+        fetchPriority="high"
+      />
 
       {/* Duas colunas de texto com gap de 178px */}
       <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-44 mx-auto max-w-7xl">
@@ -104,7 +138,6 @@ const VextroPage: React.FC = () => {
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat.
           </p>
-          {/* ... resto dos parágrafos ... */}
           <p
             className="font-freesans font-normal text-base leading-snug tracking-normal"
             style={{ color: '#646569' }}
@@ -149,6 +182,7 @@ const VextroPage: React.FC = () => {
             nihil molestiae consequatur.
           </p>
         </div>
+
         {/* Segunda coluna - H3 + parágrafo, H3 + parágrafo */}
         <div className="space-y-16 max-w-md">
           <div>
@@ -195,35 +229,32 @@ const VextroPage: React.FC = () => {
         </div>
       </div>
 
-      <div>
-        <ReactCompareSlider
-          itemOne={<ReactCompareSliderImage src={img2a} alt="Antes" />}
-          itemTwo={<ReactCompareSliderImage src={img2b} alt="Depois" />}
-          position={50}
-          // Usamos o CustomHandle
-          handle={<CustomHandle />}
-          // REMOVEMOS lineStyle (a linha agora está no CustomHandle)
-          style={{
-            display: 'flex',
-            width: '100%',
-            height: 'auto'
-          }}
-          changePositionOnHover={false}
-          onlyHandleDraggable={false}
-        />
+      {/* Resto do conteúdo */}
+      <ReactCompareSlider
+        itemOne={<ReactCompareSliderImage src={img2a} alt="Antes" />}
+        itemTwo={<ReactCompareSliderImage src={img2b} alt="Depois" />}
+        position={50}
+        handle={<CustomHandle />}
+        style={{
+          display: 'flex',
+          width: '100%',
+          height: 'auto'
+        }}
+        changePositionOnHover={false}
+        onlyHandleDraggable={false}
+      />
 
-        <img src={img3} alt="Imagem 2" className="w-full shadow-lg" />
-        <img src={gif4} alt="GIF 4" className="w-full shadow-lg" />
-        <img src={img5} alt="Imagem 5" className="w-full shadow-lg" />
-        <img src={img6} alt="Imagem 6" className="w-full shadow-lg" />
-        <img src={img7} alt="Imagem 7" className="w-full shadow-lg" />
-        <img src={img8} alt="Imagem 8" className="w-full shadow-lg" />
-        <img src={img9} alt="Imagem 9" className="w-full shadow-lg" />
-        <img src={img10} alt="Imagem 10" className="w-full shadow-lg" />
-        <img src={img11} alt="Imagem 11" className="w-full shadow-lg" />
-        <img src={img12} alt="GIF 12" className="w-full shadow-lg" />
-        <img src={gif13} alt="GIF 4" className="w-full shadow-lg" />
-      </div>
+      <img src={img3} alt="Imagem 2" className="w-full shadow-lg" />
+      <img src={gif4} alt="GIF 4" className="w-full shadow-lg" />
+      <img src={img5} alt="Imagem 5" className="w-full shadow-lg" />
+      <img src={img6} alt="Imagem 6" className="w-full shadow-lg" />
+      <img src={img7} alt="Imagem 7" className="w-full shadow-lg" />
+      <img src={img8} alt="Imagem 8" className="w-full shadow-lg" />
+      <img src={img9} alt="Imagem 9" className="w-full shadow-lg" />
+      <img src={img10} alt="Imagem 10" className="w-full shadow-lg" />
+      <img src={img11} alt="Imagem 11" className="w-full shadow-lg" />
+      <img src={img12} alt="GIF 12" className="w-full shadow-lg" />
+      <img src={gif13} alt="GIF 4" className="w-full shadow-lg" />
     </div>
   )
 }

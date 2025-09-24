@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDocumentTitle } from '@/shared/hooks/useDocumentTitle'
 
 // Importando as imagens e GIFs
@@ -19,16 +19,58 @@ import img14 from '@assets/pages/Korri/14.jpg'
 import img15 from '@assets/pages/Korri/15.png'
 import img16 from '@assets/pages/Korri/16.jpg'
 
+// Loading spinner
+const LoadingSpinner = () => (
+  <div className="w-full h-screen flex items-center justify-center bg-transparent">
+    <div className="flex flex-col items-center space-y-4">
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-400"></div>
+    </div>
+  </div>
+)
+
 const KorriPage: React.FC = () => {
   useDocumentTitle('Korri')
 
+  // Estado para controlar o carregamento da primeira imagem (GIF)
+  const [firstImageLoaded, setFirstImageLoaded] = useState(false)
+
+  // Preload da primeira imagem (GIF)
+  useEffect(() => {
+    const preloadImage = new Image()
+    preloadImage.src = gif1
+
+    // Adiciona prioridade alta para o preload
+    preloadImage.fetchPriority = 'high'
+
+    preloadImage.onload = () => {
+      setFirstImageLoaded(true)
+    }
+
+    // Tratamento de erro opcional
+    preloadImage.onerror = () => {
+      console.error('Erro ao carregar a primeira imagem')
+      setFirstImageLoaded(true) // Continua mesmo com erro
+    }
+  }, [])
+
+  // Se a primeira imagem não carregou, mostra apenas o loading
+  if (!firstImageLoaded) {
+    return <LoadingSpinner />
+  }
+
   return (
     <div className="space-y-40">
-      <img src={gif1} alt="GIF 1" className="w-full  shadow-lg" />
+      <img
+        src={gif1}
+        alt="GIF 1"
+        className="w-full shadow-lg"
+        loading="eager"
+        fetchPriority="high"
+      />
 
       {/* Duas colunas de texto com gap de 178px */}
       <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-44 mx-auto max-w-7xl">
-        {/* Primeira coluna - 6 parágrafos */}
+        {/* Primeira coluna - 3 parágrafos */}
         <div className="space-y-6 max-w-xl">
           <p
             className="font-freesans font-normal text-base leading-snug tracking-normal"
@@ -42,7 +84,7 @@ const KorriPage: React.FC = () => {
             className="font-freesans font-normal text-base leading-snug tracking-normal"
             style={{ color: '#646569' }}
           >
-            O símbolo representa um “sopro” de alívio após um dia intenso — um
+            O símbolo representa um "sopro" de alívio após um dia intenso — um
             momento de respiro. Com um tom amarelo vibrante, ele expressa a
             energia pulsante do Brasil. Todo o universo visual da Korri® foi
             pensado para dialogar com a juventude da periferia, traduzindo
@@ -97,22 +139,24 @@ const KorriPage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Resto do conteúdo */}
       <div>
-        <img src={gif2} alt="GIF 2" className="w-full  shadow-lg" />
-        <img src={img3} alt="Imagem 3" className="w-full  shadow-lg" />
-        <img src={gif4} alt="GIF 4" className="w-full  shadow-lg" />
-        <img src={img5} alt="Imagem 5" className="w-full  shadow-lg" />
-        <img src={img6} alt="Imagem 6" className="w-full  shadow-lg" />
-        <img src={gif7} alt="GIF 7" className="w-full  shadow-lg" />
-        <img src={img8} alt="Imagem 8" className="w-full  shadow-lg" />
-        <img src={img9} alt="Imagem 9" className="w-full  shadow-lg" />
-        <img src={img10} alt="Imagem 10" className="w-full  shadow-lg" />
-        <img src={gif11} alt="GIF 11" className="w-full  shadow-lg" />
-        <img src={img12} alt="Imagem 12" className="w-full  shadow-lg" />
-        <img src={img13} alt="Imagem 13" className="w-full  shadow-lg" />
-        <img src={img14} alt="Imagem 14" className="w-full  shadow-lg" />
-        <img src={img15} alt="Imagem 15" className="w-full  shadow-lg" />
-        <img src={img16} alt="Imagem 16" className="w-full  shadow-lg" />
+        <img src={gif2} alt="GIF 2" className="w-full shadow-lg" />
+        <img src={img3} alt="Imagem 3" className="w-full shadow-lg" />
+        <img src={gif4} alt="GIF 4" className="w-full shadow-lg" />
+        <img src={img5} alt="Imagem 5" className="w-full shadow-lg" />
+        <img src={img6} alt="Imagem 6" className="w-full shadow-lg" />
+        <img src={gif7} alt="GIF 7" className="w-full shadow-lg" />
+        <img src={img8} alt="Imagem 8" className="w-full shadow-lg" />
+        <img src={img9} alt="Imagem 9" className="w-full shadow-lg" />
+        <img src={img10} alt="Imagem 10" className="w-full shadow-lg" />
+        <img src={gif11} alt="GIF 11" className="w-full shadow-lg" />
+        <img src={img12} alt="Imagem 12" className="w-full shadow-lg" />
+        <img src={img13} alt="Imagem 13" className="w-full shadow-lg" />
+        <img src={img14} alt="Imagem 14" className="w-full shadow-lg" />
+        <img src={img15} alt="Imagem 15" className="w-full shadow-lg" />
+        <img src={img16} alt="Imagem 16" className="w-full shadow-lg" />
       </div>
     </div>
   )
