@@ -42,19 +42,27 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
                   d="M32 32H0V0H32V32ZM2 30H30V2H2V30Z"
-                  fill="currentColor"
+                  fill="#646569"
                 />
                 <path
-                  d="M14.75 14L13 16L14.75 18H17.25L19 16L17.25 14H14.75Z"
-                  fill="currentColor"
+                  d="M11 14L9 16L11 18V23L9 20.666V11.333L11 9V14Z"
+                  fill="#646569"
                 />
+                <path d="M15 20V23H13V20H15Z" fill="#646569" />
+                <path d="M19 20V23H17V20H19Z" fill="#646569" />
                 <path
-                  d="M11 14.8564L10 16L11 17.1426V23L9 21V11L11 9V14.8564ZM13.5 20H15V23H13V19.4277L13.5 20ZM19 23H17V20H18.5L19 19.4277V23ZM23 11V21L21 23V17.1426L22 16L21 14.8564V9L23 11ZM7 19L5 17V15L7 13V19ZM27 15V17L25 19V13L27 15ZM15 12H13.5L13 12.5713V9H15V12ZM19 12.5713L18.5 12H17V9H19V12.5713Z"
-                  fill="currentColor"
+                  d="M23 11.333V20.666L21 23V18L23 16L21 14V9L23 11.333Z"
+                  fill="#646569"
                 />
+                <path d="M7 18.333L5 16L7 13.666V18.333Z" fill="#646569" />
+                <path d="M27 16L25 18.333V13.666L27 16Z" fill="#646569" />
+                <path d="M15 18L13 16L15 14V18Z" fill="#646569" />
+                <path d="M19 16L17 18V14L19 16Z" fill="#646569" />
+                <path d="M19 12H17V9H19V12Z" fill="#646569" />
+                <path d="M15 12H13V9H15V12Z" fill="#646569" />
               </svg>
             </div>
 
@@ -72,21 +80,21 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
                   d="M32 32H0V0H32V32ZM2 30H30V2H2V30Z"
-                  fill="currentColor"
+                  fill="#646569"
                 />
-                <path d="M11 24L9 26V20L11 18V24Z" fill="currentColor" />
-                <path d="M23 20V26L21 24V18L23 20Z" fill="currentColor" />
-                <path d="M7 24L6 23L7 22V24Z" fill="currentColor" />
-                <path d="M26 23L25 24V22L26 23Z" fill="currentColor" />
-                <path d="M15 12V20L13 22V10L15 12Z" fill="currentColor" />
-                <path d="M19 22L17 20V12L19 10V22Z" fill="currentColor" />
-                <path d="M11 8V14L9 12V6L11 8Z" fill="currentColor" />
-                <path d="M23 12L21 14V8L23 6V12Z" fill="currentColor" />
-                <path d="M7 10L6 9L7 8V10Z" fill="currentColor" />
-                <path d="M26 9L25 10V8L26 9Z" fill="currentColor" />
+                <path d="M7 26L5 24L7 22V26Z" fill="#646569" />
+                <path d="M11 24L9 26V20L11 18V24Z" fill="#646569" />
+                <path d="M23 20V26L21 24V18L23 20Z" fill="#646569" />
+                <path d="M27 24L25 26V22L27 24Z" fill="#646569" />
+                <path d="M15 12V20L13 22V10L15 12Z" fill="#646569" />
+                <path d="M19 22L17 20V12L19 10V22Z" fill="#646569" />
+                <path d="M11 8V14L9 12V6L11 8Z" fill="#646569" />
+                <path d="M23 12L21 14V8L23 6V12Z" fill="#646569" />
+                <path d="M7 10L5 8L7 6V10Z" fill="#646569" />
+                <path d="M27 8L25 10V6L27 8Z" fill="#646569" />
               </svg>
             </div>
           </div>

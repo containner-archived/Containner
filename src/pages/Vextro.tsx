@@ -46,36 +46,37 @@ const CustomHandle = () => (
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        width: '40px',
-        height: '40px',
-        borderRadius: '50%',
-        background: '#FFFFFF', // Cor do fundo do círculo
-        border: '2px solid #333333', // Borda
-        boxShadow: '0 2px 4px rgba(0,0,0,0.3)',
-        cursor: 'grab', // Indica que é arrastável
-        zIndex: 10, // Garante que fique acima de tudo
-        // Desfaz o 'pointerEvents: none' do pai, para que possamos arrastar
+        cursor: 'grab',
+        zIndex: 10,
         pointerEvents: 'auto'
       }}
     >
       {/* SVG Padrão de Duas Setas */}
       <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
+        width="32"
+        height="32"
+        viewBox="0 0 32 32"
         fill="none"
-        stroke="#333333" // Cor do contorno do emoji
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        // Para emojis mais coloridos, você pode usar 'fill' em vez de 'stroke'
-        // e definir as cores diretamente nos elementos do SVG (path, circle, etc.)
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <circle cx="12" cy="12" r="10" />
-        <path d="M8 14s1.5 2 4 2 4-2 4-2" />
-        <line x1="9" y1="9" x2="9.01" y2="9" />
-        <line x1="15" y1="9" x2="15.01" y2="9" />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M32 32H0V0H32V32ZM2 30H30V2H2V30Z"
+          fill="#646569"
+        />
+        <path d="M23 17.666V24.333L21 26V16L23 17.666Z" fill="#646569" />
+        <path d="M19 23H17V19H19V23Z" fill="#646569" />
+        <path d="M15 23H13V19H15V23Z" fill="#646569" />
+        <path d="M11 23H9V19H11V23Z" fill="#646569" />
+        <path d="M7 23H5V19H7V23Z" fill="#646569" />
+        <path d="M27 21L25 22.666V19.333L27 21Z" fill="#646569" />
+        <path d="M11 16L9 14.333V7.66602L11 6V16Z" fill="#646569" />
+        <path d="M15 9V13H13V9H15Z" fill="#646569" />
+        <path d="M19 9V13H17V9H19Z" fill="#646569" />
+        <path d="M23 9V13H21V9H23Z" fill="#646569" />
+        <path d="M27 9V13H25V9H27Z" fill="#646569" />
+        <path d="M7 12.666L5 11L7 9.33301V12.666Z" fill="#646569" />
       </svg>
     </div>
   </div>
