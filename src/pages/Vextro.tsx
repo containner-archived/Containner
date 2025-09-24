@@ -1,5 +1,8 @@
 import React from 'react'
-import 'img-comparison-slider'
+import {
+  ReactCompareSlider,
+  ReactCompareSliderImage
+} from 'react-compare-slider'
 import { useDocumentTitle } from '@/shared/hooks/useDocumentTitle'
 
 // Importando as imagens
@@ -99,9 +102,9 @@ const VextroPage: React.FC = () => {
               <br />
               Refinamento Tipográfico — Jean Rosa
               <br />
-              Tipografia “Avantique” — Casloop Studio
+              Tipografia "Avantique" — Casloop Studio
               <br />
-              Tipografia “Plus Jakarta Sans” — Tokotipo
+              Tipografia "Plus Jakarta Sans" — Tokotipo
             </p>
           </div>
 
@@ -129,11 +132,20 @@ const VextroPage: React.FC = () => {
       </div>
 
       <div>
-        <img-comparison-slider>
-          <img slot="first" src={img2} alt="Antes" />
-          <img slot="second" src={img3} alt="Depois" />
-        </img-comparison-slider>
-        <img src={img3} alt="Imagem 2" className="w-full  shadow-lg" />
+        <ReactCompareSlider
+          itemOne={<ReactCompareSliderImage src={img2} alt="Antes" />}
+          itemTwo={<ReactCompareSliderImage src={img3} alt="Depois" />}
+          position={50}
+          style={{
+            display: 'flex',
+            width: '100%',
+            height: 'auto'
+          }}
+          changePositionOnHover={false}
+          onlyHandleDraggable={false}
+        />
+
+        <img src={img3} alt="Imagem 2" className="w-full shadow-lg" />
         <img src={gif4} alt="GIF 4" className="w-full shadow-lg" />
         <img src={img5} alt="Imagem 5" className="w-full shadow-lg" />
         <img src={img6} alt="Imagem 6" className="w-full shadow-lg" />
