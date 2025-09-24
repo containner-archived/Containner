@@ -33,7 +33,6 @@ const RouteRenderer: React.FC<RouteRendererProps> = ({ route }) => {
   // ================================
   // EFFECTS
   // ================================
-
   useEffect(() => {
     if (title) {
       document.title = title
@@ -43,7 +42,6 @@ const RouteRenderer: React.FC<RouteRendererProps> = ({ route }) => {
   // ================================
   // RENDER
   // ================================
-
   return <Element />
 }
 
@@ -59,24 +57,58 @@ export const AppRouter: React.FC<AppRouterProps> = ({ routes }) => {
   // ================================
   // HOOKS
   // ================================
-
   const location = useLocation()
 
   // ================================
   // EFFECTS
   // ================================
-
   useEffect(() => {
-    // Force scroll to top with multiple methods
-    window.scrollTo(0, 0)
-    document.documentElement.scrollTop = 0
-    document.body.scrollTop = 0
+    // Função para fazer scroll to top nos elementos corretos
+    const scrollToTop = () => {
+      // Tenta fazer scroll no window primeiro (fallback)
+      window.scrollTo(0, 0)
+      document.documentElement.scrollTop = 0
+      document.body.scrollTop = 0
+
+      // Desktop: busca pela div com scroll do desktop
+      const desktopScrollContainer = document.querySelector(
+        '.md\\:ml-80.overflow-y-auto'
+      )
+      if (desktopScrollContainer) {
+        desktopScrollContainer.scrollTop = 0
+      }
+
+      // Mobile: busca pela div com scroll do mobile
+      const mobileScrollContainer = document.querySelector(
+        '.flex-1.px-5.pb-5.overflow-y-auto'
+      )
+      if (mobileScrollContainer) {
+        mobileScrollContainer.scrollTop = 0
+      }
+
+      // Alternativa mais robusta: busca por qualquer elemento com overflow-y-auto
+      const scrollContainers = document.querySelectorAll(
+        '[class*="overflow-y-auto"]'
+      )
+      scrollContainers.forEach((container) => {
+        if (container.scrollTop > 0) {
+          container.scrollTop = 0
+        }
+      })
+    }
+
+    // Executa imediatamente
+    scrollToTop()
+
+    // Executa após um pequeno delay para garantir que a navegação foi completada
+    const timeoutId = setTimeout(scrollToTop, 100)
+
+    return () => clearTimeout(timeoutId)
   }, [location.pathname])
 
   // ================================
   // RENDER HELPERS
   // ================================
-
   const renderRoutes = () =>
     routes.map((route) => (
       <Route
@@ -93,7 +125,6 @@ export const AppRouter: React.FC<AppRouterProps> = ({ routes }) => {
   // ================================
   // MAIN RENDER
   // ================================
-
   return (
     <Routes>
       {renderRoutes()}
