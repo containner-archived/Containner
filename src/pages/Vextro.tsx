@@ -4,6 +4,7 @@ import {
   ReactCompareSliderImage
 } from 'react-compare-slider'
 import { useDocumentTitle } from '@/shared/hooks/useDocumentTitle'
+import { useI18n } from '@/shared/contexts/I18nContext'
 
 // Importando as imagens
 import img1 from '@/assets/pages/Vextro/01.jpg'
@@ -85,6 +86,7 @@ const LoadingSpinner = () => (
 )
 
 const VextroPage = () => {
+  const { t } = useI18n()
   useDocumentTitle('Vextro')
 
   // Estado para controlar o carregamento da primeira imagem
@@ -115,11 +117,11 @@ const VextroPage = () => {
   }
 
   return (
-    <div className="space-y-40">
+    <div className="lg:space-y-40 md:space-y-40 sm:space-y-20 space-y-20">
       {/* Primeira imagem */}
       <img
         src={img1}
-        alt="Imagem 1"
+        alt={t.vextro.images.img1}
         className="w-full shadow-lg"
         loading="eager"
         fetchPriority="high"
@@ -133,53 +135,37 @@ const VextroPage = () => {
             className="font-freesans font-normal text-base leading-snug tracking-normal"
             style={{ color: '#646569' }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            {t.vextro.content.paragraph1}
           </p>
           <p
             className="font-freesans font-normal text-base leading-snug tracking-normal"
             style={{ color: '#646569' }}
           >
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
+            {t.vextro.content.paragraph2}
           </p>
           <p
             className="font-freesans font-normal text-base leading-snug tracking-normal"
             style={{ color: '#646569' }}
           >
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-            quae ab illo inventore veritatis et quasi architecto beatae vitae
-            dicta sunt explicabo.
+            {t.vextro.content.paragraph3}
           </p>
           <p
             className="font-freesans font-normal text-base leading-snug tracking-normal"
             style={{ color: '#646569' }}
           >
-            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-            fugit, sed quia consequuntur magni dolores eos qui ratione
-            voluptatem sequi nesciunt.
+            {t.vextro.content.paragraph4}
           </p>
           <p
             className="font-freesans font-normal text-base leading-snug tracking-normal"
             style={{ color: '#646569' }}
           >
-            Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-            consectetur, adipisci velit, sed quia non numquam eius modi tempora
-            incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+            {t.vextro.content.paragraph5}
           </p>
           <p
             className="font-freesans font-normal text-base leading-snug tracking-normal"
             style={{ color: '#646569' }}
           >
-            Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-            suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis
-            autem vel eum iure reprehenderit qui in ea voluptate velit esse quam
-            nihil molestiae consequatur.
+            {t.vextro.content.paragraph6}
           </p>
         </div>
 
@@ -190,19 +176,19 @@ const VextroPage = () => {
               className="font-freesans font-semibold text-base leading-snug tracking-normal lg:mt-0 mt-16"
               style={{ color: '#646569' }}
             >
-              Créditos:
+              {t.vextro.credits.title}
             </h3>
             <p
               className="font-freesans font-normal text-base leading-snug tracking-normal"
               style={{ color: '#646569' }}
             >
-              Estratégia & Design — Jeferson Gonçalves
+              {t.vextro.credits.strategy}
               <br />
-              Refinamento Tipográfico — Jean Rosa
+              {t.vextro.credits.typography}
               <br />
-              Tipografia "Avantique" — Casloop Studio
+              {t.vextro.credits.avantique}
               <br />
-              Tipografia "Plus Jakarta Sans" — Tokotipo
+              {t.vextro.credits.jakarta}
             </p>
           </div>
 
@@ -211,50 +197,99 @@ const VextroPage = () => {
               className="font-freesans font-semibold text-base leading-snug tracking-normal"
               style={{ color: '#646569' }}
             >
-              Ficha Técnica:
+              {t.vextro.details.title}
             </h3>
             <p
               className="font-freesans font-normal text-base leading-snug tracking-normal"
               style={{ color: '#646569' }}
             >
-              Publicado — 28 de agosto de 2025
+              {t.vextro.details.published}
               <br />
-              Responsável — Filipi Lima
+              {t.vextro.details.responsible}
               <br />
-              Localização — Alvorada, Brasil
+              {t.vextro.details.location}
               <br />
-              Segmento — Marketing
+              {t.vextro.details.segment}
             </p>
           </div>
         </div>
       </div>
 
-      {/* Resto do conteúdo */}
-      <ReactCompareSlider
-        itemOne={<ReactCompareSliderImage src={img2a} alt="Antes" />}
-        itemTwo={<ReactCompareSliderImage src={img2b} alt="Depois" />}
-        position={50}
-        handle={<CustomHandle />}
-        style={{
-          display: 'flex',
-          width: '100%',
-          height: 'auto'
-        }}
-        changePositionOnHover={false}
-        onlyHandleDraggable={false}
-      />
+      <div>
+        <ReactCompareSlider
+          itemOne={
+            <ReactCompareSliderImage src={img2a} alt={t.vextro.images.before} />
+          }
+          itemTwo={
+            <ReactCompareSliderImage src={img2b} alt={t.vextro.images.after} />
+          }
+          position={50}
+          handle={<CustomHandle />}
+          style={{
+            display: 'flex',
+            width: '100%',
+            height: 'auto'
+          }}
+          changePositionOnHover={false}
+          onlyHandleDraggable={false}
+        />
 
-      <img src={img3} alt="Imagem 2" className="w-full shadow-lg" />
-      <img src={gif4} alt="GIF 4" className="w-full shadow-lg" />
-      <img src={img5} alt="Imagem 5" className="w-full shadow-lg" />
-      <img src={img6} alt="Imagem 6" className="w-full shadow-lg" />
-      <img src={img7} alt="Imagem 7" className="w-full shadow-lg" />
-      <img src={img8} alt="Imagem 8" className="w-full shadow-lg" />
-      <img src={img9} alt="Imagem 9" className="w-full shadow-lg" />
-      <img src={img10} alt="Imagem 10" className="w-full shadow-lg" />
-      <img src={img11} alt="Imagem 11" className="w-full shadow-lg" />
-      <img src={img12} alt="GIF 12" className="w-full shadow-lg" />
-      <img src={gif13} alt="GIF 4" className="w-full shadow-lg" />
+        <img
+          src={img3}
+          alt={t.vextro.images.img3}
+          className="w-full shadow-lg"
+        />
+        <img
+          src={gif4}
+          alt={t.vextro.images.gif4}
+          className="w-full shadow-lg"
+        />
+        <img
+          src={img5}
+          alt={t.vextro.images.img5}
+          className="w-full shadow-lg"
+        />
+        <img
+          src={img6}
+          alt={t.vextro.images.img6}
+          className="w-full shadow-lg"
+        />
+        <img
+          src={img7}
+          alt={t.vextro.images.img7}
+          className="w-full shadow-lg"
+        />
+        <img
+          src={img8}
+          alt={t.vextro.images.img8}
+          className="w-full shadow-lg"
+        />
+        <img
+          src={img9}
+          alt={t.vextro.images.img9}
+          className="w-full shadow-lg"
+        />
+        <img
+          src={img10}
+          alt={t.vextro.images.img10}
+          className="w-full shadow-lg"
+        />
+        <img
+          src={img11}
+          alt={t.vextro.images.img11}
+          className="w-full shadow-lg"
+        />
+        <img
+          src={img12}
+          alt={t.vextro.images.img12}
+          className="w-full shadow-lg"
+        />
+        <img
+          src={gif13}
+          alt={t.vextro.images.gif13}
+          className="w-full shadow-lg"
+        />
+      </div>
     </div>
   )
 }

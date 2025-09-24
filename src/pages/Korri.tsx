@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDocumentTitle } from '@/shared/hooks/useDocumentTitle'
+import { useI18n } from '@/shared/contexts/I18nContext'
 
 // Importando as imagens e GIFs
 import gif1 from '@assets/pages/Korri/01.gif'
@@ -29,6 +30,7 @@ const LoadingSpinner = () => (
 )
 
 const KorriPage: React.FC = () => {
+  const { t } = useI18n()
   useDocumentTitle('Korri')
 
   // Estado para controlar o carregamento da primeira imagem (GIF)
@@ -59,10 +61,10 @@ const KorriPage: React.FC = () => {
   }
 
   return (
-    <div className="space-y-40">
+    <div className="lg:space-y-40 md:space-y-40 sm:space-y-20 space-y-20">
       <img
         src={gif1}
-        alt="GIF 1"
+        alt={t.korri.images.gif1}
         className="w-full shadow-lg"
         loading="eager"
         fetchPriority="high"
@@ -76,30 +78,22 @@ const KorriPage: React.FC = () => {
             className="font-freesans font-normal text-base leading-snug tracking-normal"
             style={{ color: '#646569' }}
           >
-            Korri® é uma marca de moda esportiva criada para jovens que
-            valorizam o conforto das camisetas de time, mas preferem um visual
-            mais discreto e versátil para o dia a dia.
+            {t.korri.content.paragraph1}
           </p>
           <p
             className="font-freesans font-normal text-base leading-snug tracking-normal"
             style={{ color: '#646569' }}
           >
-            O símbolo representa um "sopro" de alívio após um dia intenso — um
-            momento de respiro. Com um tom amarelo vibrante, ele expressa a
-            energia pulsante do Brasil. Todo o universo visual da Korri® foi
-            pensado para dialogar com a juventude da periferia, traduzindo
-            identidade, atitude e originalidade em uma estética própria.
+            {t.korri.content.paragraph2}
           </p>
           <p
             className="font-freesans font-normal text-base leading-snug tracking-normal"
             style={{ color: '#646569' }}
           >
-            O nome é derivado da gíria brasileira "corre", amplamente usada por
-            jovens como uma expressão para trabalho. Também possui um duplo
-            sentido relacionado à atividade de "correr", referindo-se à prática
-            esportiva.
+            {t.korri.content.paragraph3}
           </p>
         </div>
+
         {/* Segunda coluna - H3 + parágrafo, H3 + parágrafo */}
         <div className="space-y-16 max-w-md">
           <div>
@@ -107,15 +101,15 @@ const KorriPage: React.FC = () => {
               className="font-freesans font-semibold text-base leading-snug tracking-normal lg:mt-0 mt-16"
               style={{ color: '#646569' }}
             >
-              Créditos:
+              {t.korri.credits.title}
             </h3>
             <p
               className="font-freesans font-normal text-base leading-snug tracking-normal"
               style={{ color: '#646569' }}
             >
-              Estratégia & Design — Jeferson Gonçalves
+              {t.korri.credits.strategy}
               <br />
-              Naming — Jeferson Gonçalves
+              {t.korri.credits.naming}
             </p>
           </div>
 
@@ -124,17 +118,17 @@ const KorriPage: React.FC = () => {
               className="font-freesans font-semibold text-base leading-snug tracking-normal"
               style={{ color: '#646569' }}
             >
-              Ficha Técnica:
+              {t.korri.details.title}
             </h3>
             <p
               className="font-freesans font-normal text-base leading-snug tracking-normal"
               style={{ color: '#646569' }}
             >
-              Publicado — 7 de outubro de 2023
+              {t.korri.details.published}
               <br />
-              Localização — Alvorada, Brasil
+              {t.korri.details.location}
               <br />
-              Segmento — Vestuário
+              {t.korri.details.segment}
             </p>
           </div>
         </div>
@@ -142,21 +136,81 @@ const KorriPage: React.FC = () => {
 
       {/* Resto do conteúdo */}
       <div>
-        <img src={gif2} alt="GIF 2" className="w-full shadow-lg" />
-        <img src={img3} alt="Imagem 3" className="w-full shadow-lg" />
-        <img src={gif4} alt="GIF 4" className="w-full shadow-lg" />
-        <img src={img5} alt="Imagem 5" className="w-full shadow-lg" />
-        <img src={img6} alt="Imagem 6" className="w-full shadow-lg" />
-        <img src={gif7} alt="GIF 7" className="w-full shadow-lg" />
-        <img src={img8} alt="Imagem 8" className="w-full shadow-lg" />
-        <img src={img9} alt="Imagem 9" className="w-full shadow-lg" />
-        <img src={img10} alt="Imagem 10" className="w-full shadow-lg" />
-        <img src={gif11} alt="GIF 11" className="w-full shadow-lg" />
-        <img src={img12} alt="Imagem 12" className="w-full shadow-lg" />
-        <img src={img13} alt="Imagem 13" className="w-full shadow-lg" />
-        <img src={img14} alt="Imagem 14" className="w-full shadow-lg" />
-        <img src={img15} alt="Imagem 15" className="w-full shadow-lg" />
-        <img src={img16} alt="Imagem 16" className="w-full shadow-lg" />
+        <img
+          src={gif2}
+          alt={t.korri.images.gif2}
+          className="w-full shadow-lg"
+        />
+        <img
+          src={img3}
+          alt={t.korri.images.img3}
+          className="w-full shadow-lg"
+        />
+        <img
+          src={gif4}
+          alt={t.korri.images.gif4}
+          className="w-full shadow-lg"
+        />
+        <img
+          src={img5}
+          alt={t.korri.images.img5}
+          className="w-full shadow-lg"
+        />
+        <img
+          src={img6}
+          alt={t.korri.images.img6}
+          className="w-full shadow-lg"
+        />
+        <img
+          src={gif7}
+          alt={t.korri.images.gif7}
+          className="w-full shadow-lg"
+        />
+        <img
+          src={img8}
+          alt={t.korri.images.img8}
+          className="w-full shadow-lg"
+        />
+        <img
+          src={img9}
+          alt={t.korri.images.img9}
+          className="w-full shadow-lg"
+        />
+        <img
+          src={img10}
+          alt={t.korri.images.img10}
+          className="w-full shadow-lg"
+        />
+        <img
+          src={gif11}
+          alt={t.korri.images.gif11}
+          className="w-full shadow-lg"
+        />
+        <img
+          src={img12}
+          alt={t.korri.images.img12}
+          className="w-full shadow-lg"
+        />
+        <img
+          src={img13}
+          alt={t.korri.images.img13}
+          className="w-full shadow-lg"
+        />
+        <img
+          src={img14}
+          alt={t.korri.images.img14}
+          className="w-full shadow-lg"
+        />
+        <img
+          src={img15}
+          alt={t.korri.images.img15}
+          className="w-full shadow-lg"
+        />
+        <img
+          src={img16}
+          alt={t.korri.images.img16}
+          className="w-full shadow-lg"
+        />
       </div>
     </div>
   )

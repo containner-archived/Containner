@@ -42,8 +42,8 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M32 32H0V0H32V32ZM2 30H30V2H2V30Z"
                   fill="#646569"
                 />
@@ -80,8 +80,8 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M32 32H0V0H32V32ZM2 30H30V2H2V30Z"
                   fill="#646569"
                 />
