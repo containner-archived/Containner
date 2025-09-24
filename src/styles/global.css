@@ -37,35 +37,3 @@
     background-color: #94a3b8;
   }
 }
-
-img-comparison-slider {
-  outline: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  display: block !important;
-}
-
-img-comparison-slider:focus {
-  outline: none !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-img-comparison-slider img {
-  outline: none !important;
-  border: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  display: block !important;
-}
-
-img-comparison-slider img:focus {
-  outline: none !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-img-comparison-slider::part(slider) {
-  outline: none !important;
-  border: none !important;
-}

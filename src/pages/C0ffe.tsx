@@ -2,18 +2,23 @@ import React from 'react'
 import { useDocumentTitle } from '@/shared/hooks/useDocumentTitle'
 
 // Importando as imagens
-import img1 from '@/assets/pages/Vextro/1.jpg'
-import img2 from '@/assets/pages/Vextro/2.jpg'
-import gif3 from '@/assets/pages/Vextro/4.gif'
-import img4 from '@/assets/pages/Vextro/3.jpg'
-import img5 from '@/assets/pages/Vextro/5.jpg'
-import img6 from '@/assets/pages/Vextro/6.jpg'
-import img7 from '@/assets/pages/Vextro/7.jpg'
-import img8 from '@/assets/pages/Vextro/8.jpg'
-import img9 from '@/assets/pages/Vextro/9.jpg'
-import img10 from '@/assets/pages/Vextro/10.jpg'
-import img11 from '@/assets/pages/Vextro/11.jpg'
-import gif12 from '@/assets/pages/Vextro/13.gif'
+// Importando as imagens e GIFs
+import gif1 from '@assets/pages/Korri/01.gif'
+import gif2 from '@assets/pages/Korri/02.gif'
+import img3 from '@assets/pages/Korri/03.jpg'
+import gif4 from '@assets/pages/Korri/04.gif'
+import img5 from '@assets/pages/Korri/05.jpg'
+import img6 from '@assets/pages/Korri/06.jpg'
+import gif7 from '@assets/pages/Korri/07.gif'
+import img8 from '@assets/pages/Korri/08.jpg'
+import img9 from '@assets/pages/Korri/09.jpg'
+import img10 from '@assets/pages/Korri/10.jpg'
+import gif11 from '@assets/pages/Korri/11.gif'
+import img12 from '@assets/pages/Korri/12.jpg'
+import img13 from '@assets/pages/Korri/13.jpg'
+import img14 from '@assets/pages/Korri/14.jpg'
+import img15 from '@assets/pages/Korri/15.png'
+import img16 from '@assets/pages/Korri/16.jpg'
 
 const C0ffePage: React.FC = () => {
   useDocumentTitle('C0ffe')
@@ -23,7 +28,7 @@ const C0ffePage: React.FC = () => {
       {/* Primeira imagem */}
       <div className="mb-8">
         <img
-          src={img1}
+          src={img3}
           alt="Imagem 1"
           className="w-full rounded-lg shadow-lg"
         />
@@ -104,12 +109,12 @@ const C0ffePage: React.FC = () => {
       {/* Duas imagens uma embaixo da outra */}
       <div className="mb-8 space-y-6">
         <img
-          src={img2}
+          src={img3}
           alt="Imagem 2"
           className="w-full rounded-lg shadow-lg"
         />
         <img
-          src={img4}
+          src={img5}
           alt="Imagem 4"
           className="w-full rounded-lg shadow-lg"
         />
@@ -117,7 +122,7 @@ const C0ffePage: React.FC = () => {
 
       {/* Primeiro GIF */}
       <div className="mb-8">
-        <img src={gif3} alt="GIF 3" className="w-full rounded-lg shadow-lg" />
+        <img src={gif1} alt="GIF 3" className="w-full rounded-lg shadow-lg" />
       </div>
 
       {/* 8 imagens uma embaixo da outra */}
@@ -133,7 +138,7 @@ const C0ffePage: React.FC = () => {
           className="w-full rounded-lg shadow-lg"
         />
         <img
-          src={img7}
+          src={img12}
           alt="Imagem 7"
           className="w-full rounded-lg shadow-lg"
         />
@@ -153,7 +158,7 @@ const C0ffePage: React.FC = () => {
           className="w-full rounded-lg shadow-lg"
         />
         <img
-          src={img11}
+          src={img13}
           alt="Imagem 11"
           className="w-full rounded-lg shadow-lg"
         />
@@ -161,7 +166,7 @@ const C0ffePage: React.FC = () => {
 
       {/* Segundo GIF */}
       <div className="mb-8">
-        <img src={gif12} alt="GIF 12" className="w-full rounded-lg shadow-lg" />
+        <img src={gif1} alt="GIF 12" className="w-full rounded-lg shadow-lg" />
       </div>
     </div>
   )

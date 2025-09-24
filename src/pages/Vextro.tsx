@@ -6,19 +6,81 @@ import {
 import { useDocumentTitle } from '@/shared/hooks/useDocumentTitle'
 
 // Importando as imagens
-import img1 from '@/assets/pages/Vextro/1.jpg'
-import img2 from '@/assets/pages/Vextro/2.jpg'
-import img3 from '@/assets/pages/Vextro/3.jpg'
-import gif4 from '@/assets/pages/Vextro/4.gif'
-import img5 from '@/assets/pages/Vextro/5.jpg'
-import img6 from '@/assets/pages/Vextro/6.jpg'
-import img7 from '@/assets/pages/Vextro/7.jpg'
-import img8 from '@/assets/pages/Vextro/8.jpg'
-import img9 from '@/assets/pages/Vextro/9.jpg'
+import img1 from '@/assets/pages/Vextro/01.jpg'
+import img2a from '@/assets/pages/Vextro/02.1.jpg'
+import img2b from '@/assets/pages/Vextro/02.2.jpg'
+import img3 from '@/assets/pages/Vextro/03.jpg'
+import gif4 from '@/assets/pages/Vextro/04.gif'
+import img5 from '@/assets/pages/Vextro/05.jpg'
+import img6 from '@/assets/pages/Vextro/06.jpg'
+import img7 from '@/assets/pages/Vextro/07.jpg'
+import img8 from '@/assets/pages/Vextro/08.jpg'
+import img9 from '@/assets/pages/Vextro/09.jpg'
 import img10 from '@/assets/pages/Vextro/10.jpg'
 import img11 from '@/assets/pages/Vextro/11.jpg'
 import img12 from '@/assets/pages/Vextro/12.jpg'
 import gif13 from '@/assets/pages/Vextro/13.gif'
+
+// --- COMPONENTE CUSTOMIZADO PARA O HANDLE ---
+const CustomHandle = () => (
+  // O contêiner principal do handle
+  <div
+    style={{
+      // Importante: garante que o componente ocupe toda a altura
+      height: '100%',
+      // Esta borda cria a linha vertical divisória
+      borderLeft: '2px solid #333333',
+      // Garante que o ícone esteja exatamente no centro vertical e horizontal
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      // Ajusta o handle para ficar no centro da linha vertical
+      transform: 'translateX(-1px)',
+      width: '0', // Ocupa zero espaço, a largura é dada pela borda
+      pointerEvents: 'none' // Permite que o arrasto funcione
+    }}
+  >
+    {/* Este é o círculo que contém o SVG, sobreposto à linha */}
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '40px',
+        height: '40px',
+        borderRadius: '50%',
+        background: '#FFFFFF', // Cor do fundo do círculo
+        border: '2px solid #333333', // Borda
+        boxShadow: '0 2px 4px rgba(0,0,0,0.3)',
+        cursor: 'grab', // Indica que é arrastável
+        zIndex: 10, // Garante que fique acima de tudo
+        // Desfaz o 'pointerEvents: none' do pai, para que possamos arrastar
+        pointerEvents: 'auto'
+      }}
+    >
+      {/* SVG Padrão de Duas Setas */}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#333333" // Cor do contorno do emoji
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        // Para emojis mais coloridos, você pode usar 'fill' em vez de 'stroke'
+        // e definir as cores diretamente nos elementos do SVG (path, circle, etc.)
+      >
+        <circle cx="12" cy="12" r="10" />
+        <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+        <line x1="9" y1="9" x2="9.01" y2="9" />
+        <line x1="15" y1="9" x2="15.01" y2="9" />
+      </svg>
+    </div>
+  </div>
+)
+// --- FIM DO COMPONENTE CUSTOMIZADO ---
 
 const VextroPage: React.FC = () => {
   useDocumentTitle('Vextro')
@@ -41,6 +103,7 @@ const VextroPage: React.FC = () => {
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat.
           </p>
+          {/* ... resto dos parágrafos ... */}
           <p
             className="font-freesans font-normal text-base leading-snug tracking-normal"
             style={{ color: '#646569' }}
@@ -133,9 +196,12 @@ const VextroPage: React.FC = () => {
 
       <div>
         <ReactCompareSlider
-          itemOne={<ReactCompareSliderImage src={img2} alt="Antes" />}
-          itemTwo={<ReactCompareSliderImage src={img3} alt="Depois" />}
+          itemOne={<ReactCompareSliderImage src={img2a} alt="Antes" />}
+          itemTwo={<ReactCompareSliderImage src={img2b} alt="Depois" />}
           position={50}
+          // Usamos o CustomHandle
+          handle={<CustomHandle />}
+          // REMOVEMOS lineStyle (a linha agora está no CustomHandle)
           style={{
             display: 'flex',
             width: '100%',
