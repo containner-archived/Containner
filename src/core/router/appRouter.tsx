@@ -67,8 +67,10 @@ export const AppRouter: React.FC<AppRouterProps> = ({ routes }) => {
   // ================================
 
   useEffect(() => {
-    // Scroll to top when route changes
+    // Force scroll to top with multiple methods
     window.scrollTo(0, 0)
+    document.documentElement.scrollTop = 0
+    document.body.scrollTop = 0
   }, [location.pathname])
 
   // ================================
