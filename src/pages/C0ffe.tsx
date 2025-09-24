@@ -4,8 +4,8 @@ import { useDocumentTitle } from '@/shared/hooks/useDocumentTitle'
 // Importando as imagens
 import img1 from '@/assets/pages/Vextro/1.jpg'
 import img2 from '@/assets/pages/Vextro/2.jpg'
-import gif3 from '@/assets/pages/Vextro/3.gif'
-import img4 from '@/assets/pages/Vextro/4.jpg'
+import gif3 from '@/assets/pages/Vextro/4.gif'
+import img4 from '@/assets/pages/Vextro/3.jpg'
 import img5 from '@/assets/pages/Vextro/5.jpg'
 import img6 from '@/assets/pages/Vextro/6.jpg'
 import img7 from '@/assets/pages/Vextro/7.jpg'
@@ -13,7 +13,7 @@ import img8 from '@/assets/pages/Vextro/8.jpg'
 import img9 from '@/assets/pages/Vextro/9.jpg'
 import img10 from '@/assets/pages/Vextro/10.jpg'
 import img11 from '@/assets/pages/Vextro/11.jpg'
-import gif12 from '@/assets/pages/Vextro/12.gif'
+import gif12 from '@/assets/pages/Vextro/13.gif'
 
 const C0ffePage: React.FC = () => {
   useDocumentTitle('C0ffe')

@@ -1,11 +1,12 @@
 import React from 'react'
+import 'img-comparison-slider'
 import { useDocumentTitle } from '@/shared/hooks/useDocumentTitle'
 
 // Importando as imagens
 import img1 from '@/assets/pages/Vextro/1.jpg'
 import img2 from '@/assets/pages/Vextro/2.jpg'
-import gif3 from '@/assets/pages/Vextro/3.gif'
-import img4 from '@/assets/pages/Vextro/4.jpg'
+import img3 from '@/assets/pages/Vextro/3.jpg'
+import gif4 from '@/assets/pages/Vextro/4.gif'
 import img5 from '@/assets/pages/Vextro/5.jpg'
 import img6 from '@/assets/pages/Vextro/6.jpg'
 import img7 from '@/assets/pages/Vextro/7.jpg'
@@ -13,7 +14,8 @@ import img8 from '@/assets/pages/Vextro/8.jpg'
 import img9 from '@/assets/pages/Vextro/9.jpg'
 import img10 from '@/assets/pages/Vextro/10.jpg'
 import img11 from '@/assets/pages/Vextro/11.jpg'
-import gif12 from '@/assets/pages/Vextro/12.gif'
+import img12 from '@/assets/pages/Vextro/12.jpg'
+import gif13 from '@/assets/pages/Vextro/13.gif'
 
 const VextroPage: React.FC = () => {
   useDocumentTitle('Vextro')
@@ -127,11 +129,12 @@ const VextroPage: React.FC = () => {
       </div>
 
       <div>
-        <img src={img2} alt="Imagem 2" className="w-full  shadow-lg" />
-        <img src={img4} alt="Imagem 4" className="w-full shadow-lg" />
-
-        <img src={gif3} alt="GIF 3" className="w-full shadow-lg" />
-
+        <img-comparison-slider>
+          <img slot="first" src={img2} alt="Antes" />
+          <img slot="second" src={img3} alt="Depois" />
+        </img-comparison-slider>
+        <img src={img3} alt="Imagem 2" className="w-full  shadow-lg" />
+        <img src={gif4} alt="GIF 4" className="w-full shadow-lg" />
         <img src={img5} alt="Imagem 5" className="w-full shadow-lg" />
         <img src={img6} alt="Imagem 6" className="w-full shadow-lg" />
         <img src={img7} alt="Imagem 7" className="w-full shadow-lg" />
@@ -139,8 +142,8 @@ const VextroPage: React.FC = () => {
         <img src={img9} alt="Imagem 9" className="w-full shadow-lg" />
         <img src={img10} alt="Imagem 10" className="w-full shadow-lg" />
         <img src={img11} alt="Imagem 11" className="w-full shadow-lg" />
-
-        <img src={gif12} alt="GIF 12" className="w-full shadow-lg" />
+        <img src={img12} alt="GIF 12" className="w-full shadow-lg" />
+        <img src={gif13} alt="GIF 4" className="w-full shadow-lg" />
       </div>
     </div>
   )

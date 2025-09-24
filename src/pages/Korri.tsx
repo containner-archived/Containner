@@ -23,157 +23,96 @@ const KorriPage: React.FC = () => {
   useDocumentTitle('Korri')
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
-      {/* Primeiro GIF */}
-      <div className="mb-8">
-        <img src={gif1} alt="GIF 1" className="w-full rounded-lg shadow-lg" />
-      </div>
+    <div className="space-y-40">
+      <img src={gif1} alt="GIF 1" className="w-full  shadow-lg" />
 
       {/* Duas colunas de texto com gap de 178px */}
-      <div
-        className="grid grid-cols-1 lg:grid-cols-2 mb-8"
-        style={{ gap: '178px' }}
-      >
-        {/* Primeira coluna - 3 parágrafos */}
-        <div className="space-y-4">
-          <p className="text-gray-700 leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+      <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-44 mx-auto max-w-7xl">
+        {/* Primeira coluna - 6 parágrafos */}
+        <div className="space-y-6 max-w-xl">
+          <p
+            className="font-freesans font-normal text-base leading-snug tracking-normal"
+            style={{ color: '#646569' }}
+          >
+            Korri® é uma marca de moda esportiva criada para jovens que
+            valorizam o conforto das camisetas de time, mas preferem um visual
+            mais discreto e versátil para o dia a dia.
           </p>
-          <p className="text-gray-700 leading-relaxed">
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
+          <p
+            className="font-freesans font-normal text-base leading-snug tracking-normal"
+            style={{ color: '#646569' }}
+          >
+            O símbolo representa um “sopro” de alívio após um dia intenso — um
+            momento de respiro. Com um tom amarelo vibrante, ele expressa a
+            energia pulsante do Brasil. Todo o universo visual da Korri® foi
+            pensado para dialogar com a juventude da periferia, traduzindo
+            identidade, atitude e originalidade em uma estética própria.
           </p>
-          <p className="text-gray-700 leading-relaxed">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-            quae ab illo inventore veritatis et quasi architecto beatae vitae
-            dicta sunt explicabo.
+          <p
+            className="font-freesans font-normal text-base leading-snug tracking-normal"
+            style={{ color: '#646569' }}
+          >
+            O nome é derivado da gíria brasileira "corre", amplamente usada por
+            jovens como uma expressão para trabalho. Também possui um duplo
+            sentido relacionado à atividade de "correr", referindo-se à prática
+            esportiva.
           </p>
         </div>
-
         {/* Segunda coluna - H3 + parágrafo, H3 + parágrafo */}
-        <div className="space-y-6">
+        <div className="space-y-16 max-w-md">
           <div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-3">
-              Primeiro Tópico
+            <h3
+              className="font-freesans font-semibold text-base leading-snug tracking-normal lg:mt-0 mt-16"
+              style={{ color: '#646569' }}
+            >
+              Créditos:
             </h3>
-            <p className="text-gray-700 leading-relaxed">
-              At vero eos et accusamus et iusto odio dignissimos ducimus qui
-              blanditiis praesentium voluptatum deleniti atque corrupti quos
-              dolores et quas molestias excepturi sint occaecati cupiditate non
-              provident, similique sunt in culpa qui officia deserunt mollitia
-              animi.
+            <p
+              className="font-freesans font-normal text-base leading-snug tracking-normal"
+              style={{ color: '#646569' }}
+            >
+              Estratégia & Design — Jeferson Gonçalves
+              <br />
+              Naming — Jeferson Gonçalves
             </p>
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-3">
-              Segundo Tópico
+            <h3
+              className="font-freesans font-semibold text-base leading-snug tracking-normal"
+              style={{ color: '#646569' }}
+            >
+              Ficha Técnica:
             </h3>
-            <p className="text-gray-700 leading-relaxed">
-              Et harum quidem rerum facilis est et expedita distinctio. Nam
-              libero tempore, cum soluta nobis est eligendi optio cumque nihil
-              impedit quo minus id quod maxime placeat facere possimus, omnis
-              voluptas assumenda est, omnis dolor repellendus.
+            <p
+              className="font-freesans font-normal text-base leading-snug tracking-normal"
+              style={{ color: '#646569' }}
+            >
+              Publicado — 7 de outubro de 2023
+              <br />
+              Localização — Alvorada, Brasil
+              <br />
+              Segmento — Vestuário
             </p>
           </div>
         </div>
       </div>
-
-      {/* Segundo GIF */}
-      <div className="mb-8">
-        <img src={gif2} alt="GIF 2" className="w-full rounded-lg shadow-lg" />
-      </div>
-
-      {/* Uma imagem */}
-      <div className="mb-8">
-        <img
-          src={img3}
-          alt="Imagem 3"
-          className="w-full rounded-lg shadow-lg"
-        />
-      </div>
-
-      {/* Terceiro GIF */}
-      <div className="mb-8">
-        <img src={gif4} alt="GIF 4" className="w-full rounded-lg shadow-lg" />
-      </div>
-
-      {/* Duas imagens uma embaixo da outra */}
-      <div className="mb-8 space-y-6">
-        <img
-          src={img5}
-          alt="Imagem 5"
-          className="w-full rounded-lg shadow-lg"
-        />
-        <img
-          src={img6}
-          alt="Imagem 6"
-          className="w-full rounded-lg shadow-lg"
-        />
-      </div>
-
-      {/* Quarto GIF */}
-      <div className="mb-8">
-        <img src={gif7} alt="GIF 7" className="w-full rounded-lg shadow-lg" />
-      </div>
-
-      {/* Três imagens uma embaixo da outra */}
-      <div className="mb-8 space-y-6">
-        <img
-          src={img8}
-          alt="Imagem 8"
-          className="w-full rounded-lg shadow-lg"
-        />
-        <img
-          src={img9}
-          alt="Imagem 9"
-          className="w-full rounded-lg shadow-lg"
-        />
-        <img
-          src={img10}
-          alt="Imagem 10"
-          className="w-full rounded-lg shadow-lg"
-        />
-      </div>
-
-      {/* Quinto GIF */}
-      <div className="mb-8">
-        <img src={gif11} alt="GIF 11" className="w-full rounded-lg shadow-lg" />
-      </div>
-
-      {/* Cinco imagens uma embaixo da outra */}
-      <div className="mb-8 space-y-6">
-        <img
-          src={img12}
-          alt="Imagem 12"
-          className="w-full rounded-lg shadow-lg"
-        />
-        <img
-          src={img13}
-          alt="Imagem 13"
-          className="w-full rounded-lg shadow-lg"
-        />
-        <img
-          src={img14}
-          alt="Imagem 14"
-          className="w-full rounded-lg shadow-lg"
-        />
-        <img
-          src={img15}
-          alt="Imagem 15"
-          className="w-full rounded-lg shadow-lg"
-        />
-        <img
-          src={img16}
-          alt="Imagem 16"
-          className="w-full rounded-lg shadow-lg"
-        />
+      <div>
+        <img src={gif2} alt="GIF 2" className="w-full  shadow-lg" />
+        <img src={img3} alt="Imagem 3" className="w-full  shadow-lg" />
+        <img src={gif4} alt="GIF 4" className="w-full  shadow-lg" />
+        <img src={img5} alt="Imagem 5" className="w-full  shadow-lg" />
+        <img src={img6} alt="Imagem 6" className="w-full  shadow-lg" />
+        <img src={gif7} alt="GIF 7" className="w-full  shadow-lg" />
+        <img src={img8} alt="Imagem 8" className="w-full  shadow-lg" />
+        <img src={img9} alt="Imagem 9" className="w-full  shadow-lg" />
+        <img src={img10} alt="Imagem 10" className="w-full  shadow-lg" />
+        <img src={gif11} alt="GIF 11" className="w-full  shadow-lg" />
+        <img src={img12} alt="Imagem 12" className="w-full  shadow-lg" />
+        <img src={img13} alt="Imagem 13" className="w-full  shadow-lg" />
+        <img src={img14} alt="Imagem 14" className="w-full  shadow-lg" />
+        <img src={img15} alt="Imagem 15" className="w-full  shadow-lg" />
+        <img src={img16} alt="Imagem 16" className="w-full  shadow-lg" />
       </div>
     </div>
   )
