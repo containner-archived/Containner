@@ -1,11 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/favicon.png",
-      "destination": "/favicon.png"
-    },
-    {
-      "source": "/(.*)",
+      "source": "/([^.]*)",
       "destination": "/"
     }
   ]
