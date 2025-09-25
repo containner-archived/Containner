@@ -1,8 +1,7 @@
 {
   "routes": [
     {
-      "src": "/favicon\\.png",
-      "dest": "/favicon.png"
+      "handle": "filesystem"
     },
     {
       "src": "/(.*)",
