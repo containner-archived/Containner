@@ -4,9 +4,9 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import { I18nProvider } from '@/shared/contexts/I18nContext'
 import '@styles/global.css'
-import faviconUrl from '/favicon.png'
 
-// Atualiza o favicon imediatamente
+const faviconUrl = '/favicon.png'
+
 const updateFavicon = () => {
   const existingFavicon = document.querySelector('link[rel="icon"]')
   if (existingFavicon) {
@@ -20,7 +20,6 @@ const updateFavicon = () => {
   document.head.appendChild(link)
 }
 
-// Executa antes do render
 updateFavicon()
 
 createRoot(document.getElementById('root')!).render(
