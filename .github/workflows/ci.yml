@@ -62,12 +62,12 @@ jobs:
 
   deploy-preview:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/develop'
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/develop'
     needs: test
 
     steps:
       - name: Deploy to Vercel Preview
-        run: echo "Deploy to Vercel triggered for develop branch"
+        run: echo "Deploy to Vercel triggered for develop branch or PR"
 
   deploy-production:
     runs-on: ubuntu-latest
