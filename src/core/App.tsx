@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { AppRouter, appRoutes } from '@core/router'
-import { initializeAnalytics } from '@/features/ga'
-import MainLayout from '@/shared/components/layouts/MainLayout'
+import { initializeAnalytics } from '@features/ga'
+import { MainLayout } from '@shared/components/layouts'
 
 const App: React.FC = () => {
   useEffect(() => {

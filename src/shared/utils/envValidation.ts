@@ -1,35 +1,35 @@
 // ================================
-// TYPES & INTERFACES
+// INTERFACES & TYPES
 // ================================
 
 /**
- * Environment variables validation configuration
- * Defines required and optional environment variables
+ * Configuração de validação das variáveis de ambiente
+ * Define as variáveis obrigatórias e opcionais
  */
 interface EnvConfig {
-  /** List of required environment variables */
+  /** Lista de variáveis de ambiente obrigatórias */
   required: string[]
-  /** List of optional environment variables */
+  /** Lista de variáveis de ambiente opcionais */
   optional: string[]
 }
 
 /**
- * Validation result structure
+ * Estrutura do resultado de validação
  */
 interface ValidationResult {
-  /** List of validation errors */
+  /** Lista de erros de validação */
   errors: string[]
-  /** List of validation warnings */
+  /** Lista de avisos de validação */
   warnings: string[]
 }
 
 // ================================
-// CONFIGURATION
+// CONSTANTS
 // ================================
 
 /**
- * Complete project environment variables configuration
- * Centralizes all environment variable requirements
+ * Configuração completa das variáveis de ambiente do projeto
+ * Centraliza todos os requisitos de variáveis de ambiente
  */
 const ENV_CONFIG: EnvConfig = {
   required: [
@@ -40,24 +40,41 @@ const ENV_CONFIG: EnvConfig = {
   optional: ['VITE_GA_MEASUREMENT_ID']
 }
 
+const GA_PREFIX = 'G-' as const
+const GA_PLACEHOLDER = 'G-XXXXXXXXXX' as const
+
 // ================================
 // HELPER FUNCTIONS
 // ================================
 
 /**
- * Validates if an environment variable is defined and not empty
- * @param {string | undefined} value - Environment variable value
- * @returns {boolean} True if variable is valid
+ * Valida se uma variável de ambiente está definida e não está vazia
  */
 const isValidEnvVar = (value: string | undefined): boolean => {
   return typeof value === 'string' && value.trim().length > 0
 }
 
 /**
- * Validates environment variables and collects errors/warnings
- * @param {string[]} variables - Array of variable names to validate
- * @param {boolean} isRequired - Whether variables are required or optional
- * @returns {string[]} Array of validation messages
+ * Valida o formato do ID do Google Analytics
+ */
+const isValidGAFormat = (measurementId: string): boolean => {
+  if (!measurementId.startsWith(GA_PREFIX)) {
+    console.error(
+      `Analytics: VITE_GA_MEASUREMENT_ID deve começar com "${GA_PREFIX}"`
+    )
+    return false
+  }
+
+  if (measurementId === GA_PLACEHOLDER) {
+    console.warn('Analytics: Usando ID de placeholder - substitua pelo ID real')
+    return false
+  }
+
+  return true
+}
+
+/**
+ * Valida variáveis de ambiente e coleta erros/avisos
  */
 const validateVariables = (
   variables: string[],
@@ -79,8 +96,7 @@ const validateVariables = (
 }
 
 /**
- * Logs validation results to console
- * @param {ValidationResult} result - Validation errors and warnings
+ * Registra os resultados de validação no console
  */
 const logValidationResults = ({ errors, warnings }: ValidationResult): void => {
   if (errors.length > 0) {
@@ -98,32 +114,13 @@ const logValidationResults = ({ errors, warnings }: ValidationResult): void => {
   }
 }
 
-/**
- * Validates Google Analytics measurement ID format
- * @param {string} measurementId - GA4 measurement ID
- * @returns {boolean} True if format is valid
- */
-const isValidGAFormat = (measurementId: string): boolean => {
-  if (!measurementId.startsWith('G-')) {
-    console.error('Analytics: VITE_GA_MEASUREMENT_ID deve começar com "G-"')
-    return false
-  }
-
-  if (measurementId === 'G-XXXXXXXXXX') {
-    console.warn('Analytics: Usando ID de placeholder - substitua pelo ID real')
-    return false
-  }
-
-  return true
-}
-
 // ================================
 // MAIN FUNCTIONS
 // ================================
 
 /**
- * Validates all necessary environment variables
- * Shows warnings for missing variables but doesn't break the application
+ * Valida todas as variáveis de ambiente necessárias
+ * Mostra avisos para variáveis ausentes mas não quebra a aplicação
  */
 export const validateEnvironment = (): void => {
   const errors = validateVariables(ENV_CONFIG.required, true)
@@ -133,8 +130,9 @@ export const validateEnvironment = (): void => {
 }
 
 /**
- * Specific function to validate Analytics configuration
- * @returns {boolean} True if analytics environment is properly configured
+ * Função específica para validar configuração do Analytics
+ *
+ * @returns True se o ambiente do analytics está configurado corretamente
  */
 export const validateAnalyticsEnv = (): boolean => {
   const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID

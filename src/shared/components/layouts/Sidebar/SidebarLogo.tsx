@@ -3,37 +3,59 @@ import { useNavigate } from 'react-router-dom'
 import { useActiveRoute } from '@/shared/hooks/useActiveRoute'
 import CC from '@assets/CC.svg'
 
+// ================================
+// Main Component
+// ================================
+/**
+ * Sidebar logo component with navigation functionality
+ * Handles home navigation with keyboard accessibility
+ * Shows different opacity states based on current route
+ */
 const SidebarLogo: React.FC = () => {
   const navigate = useNavigate()
   const { isActive } = useActiveRoute()
 
-  const handleNavigateHome = () => {
+  // ================================
+  // Handlers
+  // ================================
+  const handleNavigateHome = (): void => {
     navigate('/')
   }
 
-  const isHomePage = isActive('/')
+  const handleKeyDown = (e: React.KeyboardEvent): void => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      handleNavigateHome()
+    }
+  }
 
+  // ================================
+  // Computed Values
+  // ================================
+  const isHomePage = isActive('/')
+  const logoOpacityClass = isHomePage
+    ? 'opacity-100'
+    : 'opacity-90 hover:opacity-100'
+
+  // ================================
+  // Render
+  // ================================
   return (
     <div
       className={`
         flex items-start gap-2 cursor-pointer
         sm:cursor-default
         md:cursor-pointer
-        ${isHomePage ? 'opacity-100' : 'opacity-90 hover:opacity-100'}
+        ${logoOpacityClass}
         transition-opacity duration-300
       `}
       onClick={handleNavigateHome}
       role="button"
       tabIndex={0}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault()
-          handleNavigateHome()
-        }
-      }}
+      onKeyDown={handleKeyDown}
       aria-label="Voltar para a página inicial"
     >
-      {/* First SVG - Bar Chart Icon */}
+      {/* Logo Icon */}
       <img
         src={CC}
         alt="Logo"
@@ -45,8 +67,9 @@ const SidebarLogo: React.FC = () => {
         aria-hidden="true"
       />
 
-      {/* Second SVG - Container Text - Escondido no mobile */}
-      {/* <div className="hidden md:block flex-shrink-0">
+      {/* Container Text SVG - Hidden on mobile */}
+      {/*
+      <div className="hidden md:block flex-shrink-0">
         <svg
           className="h-8 md:h-20 text-[#646569]"
           width="216"
@@ -97,9 +120,13 @@ const SidebarLogo: React.FC = () => {
             fill="currentColor"
           />
         </svg>
-      </div> */}
+      </div>
+      */}
     </div>
   )
 }
 
+// ================================
+// Exports
+// ================================
 export default SidebarLogo

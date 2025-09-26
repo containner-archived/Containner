@@ -1,48 +1,111 @@
+// ================================
+// TYPES
+// ================================
+
+/**
+ * Idiomas suportados pela aplicação
+ */
 export type Language = 'pt' | 'en'
 
+// ================================
+// INTERFACES
+// ================================
+
+/**
+ * Interface para conteúdo de páginas específicas
+ */
+interface PageContent {
+  /** Título da página */
+  title: string
+}
+
+/**
+ * Interface para itens de navegação
+ */
+interface NavigationItem {
+  /** Título do item */
+  title: string
+  /** Subtítulo descritivo */
+  subtitle: string
+}
+
+/**
+ * Interface para créditos de projetos
+ */
+interface ProjectCredits {
+  /** Título da seção de créditos */
+  title: string
+  /** Crédito de estratégia */
+  strategy: string
+}
+
+/**
+ * Interface para detalhes de projetos
+ */
+interface ProjectDetails {
+  /** Título da seção de detalhes */
+  title: string
+  /** Data de publicação */
+  published: string
+  /** Localização do projeto */
+  location: string
+  /** Segmento do projeto */
+  segment: string
+}
+
+/**
+ * Interface para créditos específicos do Vextro
+ */
+interface VextroCredits extends ProjectCredits {
+  /** Crédito de tipografia */
+  typography: string
+  /** Fonte Avantique */
+  avantique: string
+  /** Fonte Jakarta */
+  jakarta: string
+}
+
+/**
+ * Interface para detalhes específicos do Vextro
+ */
+interface VextroDetails extends ProjectDetails {
+  /** Responsável pelo projeto */
+  responsible: string
+}
+
+/**
+ * Interface para créditos específicos do Korri
+ */
+interface KorriCredits extends ProjectCredits {
+  /** Crédito de naming */
+  naming: string
+}
+
+/**
+ * Interface principal de tradução
+ * Define toda a estrutura de conteúdo multilíngue da aplicação
+ */
 export interface Translation {
+  /** Títulos das páginas */
   pages: {
-    Home: {
-      title: string
-    }
-    Vextro: {
-      title: string
-    }
-    Korri: {
-      title: string
-    }
-    Containner: {
-      title: string
-    }
-    C0ffe: {
-      title: string
-    }
-    Trac: {
-      title: string
-    }
+    Home: PageContent
+    Vextro: PageContent
+    Korri: PageContent
+    Containner: PageContent
+    C0ffe: PageContent
+    Trac: PageContent
   }
+
+  /** Itens de navegação */
   nav: {
-    overview: {
-      title: string
-      subtitle: string
-    }
-    vextro: {
-      title: string
-      subtitle: string
-    }
-    korri: {
-      title: string
-      subtitle: string
-    }
-    team: {
-      title: string
-      subtitle: string
-    }
-    settings: {
-      title: string
-      subtitle: string
-    }
+    overview: NavigationItem
+    vextro: NavigationItem
+    korri: NavigationItem
+    team: NavigationItem
+    settings: NavigationItem
   }
+
+  /** Conteúdo da barra lateral */
   sidebar: {
     title: {
       line1: string
@@ -53,6 +116,8 @@ export interface Translation {
       phone: string
     }
   }
+
+  /** Conteúdo específico do Vextro */
   vextro: {
     content: {
       paragraph1: string
@@ -62,20 +127,8 @@ export interface Translation {
       paragraph5: string
       paragraph6: string
     }
-    credits: {
-      title: string
-      strategy: string
-      typography: string
-      avantique: string
-      jakarta: string
-    }
-    details: {
-      title: string
-      published: string
-      responsible: string
-      location: string
-      segment: string
-    }
+    credits: VextroCredits
+    details: VextroDetails
     images: {
       img1: string
       before: string
@@ -93,23 +146,16 @@ export interface Translation {
       gif13: string
     }
   }
+
+  /** Conteúdo específico do Korri */
   korri: {
     content: {
       paragraph1: string
       paragraph2: string
       paragraph3: string
     }
-    credits: {
-      title: string
-      strategy: string
-      naming: string
-    }
-    details: {
-      title: string
-      published: string
-      location: string
-      segment: string
-    }
+    credits: KorriCredits
+    details: ProjectDetails
     images: {
       gif1: string
       gif2: string
@@ -129,6 +175,8 @@ export interface Translation {
       img16: string
     }
   }
+
+  /** Conteúdo do rodapé */
   footer: {
     language: string
   }

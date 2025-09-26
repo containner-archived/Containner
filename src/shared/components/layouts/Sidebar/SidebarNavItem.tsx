@@ -1,7 +1,9 @@
-// src/layouts/SidebarNavItem.tsx
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+// ================================
+// Types & Interfaces
+// ================================
 interface SidebarNavItemProps {
   icon: React.ReactNode
   title: string
@@ -10,6 +12,28 @@ interface SidebarNavItemProps {
   isActive?: boolean
 }
 
+// ================================
+// Constants
+// ================================
+const TRANSITION_CONFIG = {
+  duration: 'duration-500',
+  timing: 'cubic-bezier(0.4, 0, 0.2, 1)'
+}
+
+const COLORS = {
+  background: '#646569',
+  activeText: '#191919',
+  inactiveText: '#646569',
+  activeIcon: 'white'
+}
+
+// ================================
+// Main Component
+// ================================
+/**
+ * Sidebar navigation item component with animated background and hover effects
+ * Features smooth transitions for active/inactive states and hover interactions
+ */
 const SidebarNavItem: React.FC<SidebarNavItemProps> = ({
   icon,
   title,
@@ -17,63 +41,80 @@ const SidebarNavItem: React.FC<SidebarNavItemProps> = ({
   path,
   isActive = false
 }) => {
+  // ================================
+  // Computed Classes
+  // ================================
+  const linkClasses = `
+    flex items-center gap-4 py-3 relative overflow-hidden transition-all ${TRANSITION_CONFIG.duration} group cursor-pointer font-freesans
+    ${isActive ? 'pl-3' : 'pl-0 hover:pl-3'}
+  `
+
+  const backgroundClasses = `
+    absolute inset-0 bg-[${COLORS.background}] transition-transform ${TRANSITION_CONFIG.duration} group
+    ${isActive ? 'translate-x-0' : 'transform -translate-x-full group-hover:translate-x-0'}
+  `
+
+  const iconClasses = `
+    flex-shrink-0 transition-colors ${TRANSITION_CONFIG.duration}
+    ${isActive ? `text-${COLORS.activeIcon}` : `text-[${COLORS.inactiveText}] group-hover:text-${COLORS.activeIcon}`}
+  `
+
+  const titleClasses = `
+    font-bold transition-colors ${TRANSITION_CONFIG.duration} text-sm
+    ${isActive ? `text-[${COLORS.activeText}]` : `text-[${COLORS.inactiveText}] group-hover:text-[${COLORS.activeText}]`}
+  `
+
+  const subtitleClasses = `
+    text-xs leading-tight mt-1 transition-colors ${TRANSITION_CONFIG.duration}
+    ${isActive ? `text-[${COLORS.activeText}]` : `text-[${COLORS.inactiveText}] group-hover:text-[${COLORS.activeText}]`}
+  `
+
+  // ================================
+  // Render
+  // ================================
   return (
     <Link
       to={path}
-      className={`
-        flex items-center gap-4 py-3 relative overflow-hidden transition-all duration-500 group cursor-pointer font-freesans
-        ${isActive ? 'pl-3' : 'pl-0 hover:pl-3'}
-      `}
+      className={linkClasses}
       style={{
-        transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+        transitionTimingFunction: TRANSITION_CONFIG.timing
       }}
     >
-      {/* Background animado */}
+      {/* Animated Background */}
       <div
-        className={`
-          absolute inset-0 bg-[#646569] transition-transform duration-500 group
-          ${isActive ? 'translate-x-0' : 'transform -translate-x-full group-hover:translate-x-0'}
-        `}
+        className={backgroundClasses}
         style={{
-          transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+          transitionTimingFunction: TRANSITION_CONFIG.timing
         }}
-      ></div>
+      />
 
-      {/* Conteúdo por cima do background */}
+      {/* Content Above Background */}
       <div className="relative z-10 flex items-center gap-4 w-full">
         {/* Icon Section */}
         <div
-          className={`
-            flex-shrink-0 transition-colors duration-500
-            ${isActive ? 'text-white' : 'text-[#646569] group-hover:text-white'}
-          `}
+          className={iconClasses}
           style={{
-            transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+            transitionTimingFunction: TRANSITION_CONFIG.timing
           }}
         >
           {icon}
         </div>
 
-        {/* Text Content - Vertically Centered */}
+        {/* Text Content */}
         <div className="flex flex-col justify-center min-w-0">
           <h3
-            className={`
-              font-bold transition-colors duration-500 text-sm
-              ${isActive ? 'text-[#191919]' : 'text-[#646569] group-hover:text-[#191919]'}
-            `}
+            className={titleClasses}
             style={{
-              transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+              transitionTimingFunction: TRANSITION_CONFIG.timing
             }}
           >
             {title}
           </h3>
+
           <span
-            className={`
-              text-xs leading-tight mt-1 transition-colors duration-500
-              ${isActive ? 'text-[#191919]' : 'text-[#646569] group-hover:text-[#191919]'}
-            `}
+            className={subtitleClasses}
             style={{
-              transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+              transitionTimingFunction: TRANSITION_CONFIG.timing
             }}
           >
             {subtitle}
@@ -84,4 +125,7 @@ const SidebarNavItem: React.FC<SidebarNavItemProps> = ({
   )
 }
 
+// ================================
+// Exports
+// ================================
 export default SidebarNavItem
