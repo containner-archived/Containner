@@ -1,18 +1,39 @@
-// src/layouts/SidebarNav.tsx
 import React from 'react'
 import { useActiveRoute } from '@/shared/hooks/useActiveRoute'
 import { useI18n } from '@/shared/contexts/I18nContext'
 import SidebarNavItem from './SidebarNavItem'
 
-// Importar os SVGs
+// ================================
+// Assets
+// ================================
 import Vextro from '@assets/nav/Vextro.jpg'
 import Korri from '@assets/nav/Korri.jpg'
 
+// ================================
+// Types & Interfaces
+// ================================
+interface NavItem {
+  icon: React.ReactNode
+  title: string
+  subtitle: string
+  path: string
+}
+
+// ================================
+// Main Component
+// ================================
+/**
+ * Sidebar navigation component
+ * Renders a list of navigation items with active state management
+ */
 const SidebarNav: React.FC = () => {
   const { isActive } = useActiveRoute()
   const { t } = useI18n()
 
-  const navItems = [
+  // ================================
+  // Data
+  // ================================
+  const navItems: NavItem[] = [
     // {
     //   icon: <img src={Containner} alt={t.nav.overview.title} className="w-16 h-16" />,
     //   title: t.nav.overview.title,
@@ -45,6 +66,9 @@ const SidebarNav: React.FC = () => {
     // }
   ]
 
+  // ================================
+  // Render
+  // ================================
   return (
     <div className="font-freesans">
       <nav>
@@ -66,4 +90,7 @@ const SidebarNav: React.FC = () => {
   )
 }
 
+// ================================
+// Exports
+// ================================
 export default SidebarNav

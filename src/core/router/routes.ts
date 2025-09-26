@@ -1,21 +1,17 @@
-// routes.ts - Arquivo de configuração das rotas
 import { RouteConfig } from '@core/router'
-import C0ffePage from '@/pages/C0ffe'
-import ContainnerPage from '@/pages/Containner'
 import KorriPage from '@/pages/Korri'
-import TracPage from '@/pages/Trac'
 import VextroPage from '@/pages/Vextro'
 
+// ================================
+// CONFIGURAÇÃO DE ROTAS
+// ================================
+
 /**
- * Application routes configuration
- * Defines all available routes and their corresponding page components
+ * Configuração das rotas da aplicação
+ * Define todas as rotas disponíveis e seus componentes de página correspondentes
  */
 export const appRoutes: RouteConfig[] = [
-  // Main navigation routes
-  {
-    path: '/containner',
-    element: ContainnerPage
-  },
+  // Rotas principais de navegação
   {
     path: '/vextro',
     element: VextroPage
@@ -23,13 +19,5 @@ export const appRoutes: RouteConfig[] = [
   {
     path: '/korri',
     element: KorriPage
-  },
-  {
-    path: '/c0ffe',
-    element: C0ffePage
-  },
-  {
-    path: '/trac',
-    element: TracPage
   }
 ]

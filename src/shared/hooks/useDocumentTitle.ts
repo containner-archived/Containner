@@ -1,35 +1,75 @@
 import { useEffect } from 'react'
 import { useI18n } from '../contexts/I18nContext'
 
+// ================================
+// TYPES
+// ================================
+
+/**
+ * Tipo para as chaves de páginas disponíveis nas traduções
+ */
+type PageKey = keyof typeof import('../translations/pt').ptTranslations.pages
+
+// ================================
+// CONSTANTS
+// ================================
+
+const DEFAULT_CONTAINER = 'CONTAINNER®' as const
+
+// ================================
+// HELPER FUNCTIONS
+// ================================
+
+/**
+ * Formata o título do documento baseado no título da página e container
+ */
+const formatDocumentTitle = (
+  pageTitle: string | undefined,
+  container: string
+): string => {
+  const trimmedTitle = pageTitle?.trim()
+  return trimmedTitle && trimmedTitle.length > 0
+    ? `${trimmedTitle} | ${container}`
+    : container
+}
+
+// ================================
+// HOOKS
+// ================================
+
+/**
+ * Hook para definir o título do documento baseado na página atual
+ * Usa formato "título | CONTAINER" ou apenas "CONTAINER" se não houver título
+ *
+ * @param pageKey - Chave da página nas traduções
+ * @param container - Nome do container/aplicação (padrão: 'CONTAINNER®')
+ */
 export const useDocumentTitle = (
-  pageKey: keyof typeof import('../translations/pt').ptTranslations.pages,
-  container: string = 'CONTAINNER®' // valor padrão para o container
-) => {
+  pageKey: PageKey,
+  container: string = DEFAULT_CONTAINER
+): void => {
   const { t } = useI18n()
 
   useEffect(() => {
-    const pageData = t.pages[pageKey]
-    const title = pageData?.title
-
-    // Se existe título, usa "título | CONTAINER"
-    // Se não existe título, usa apenas "CONTAINER"
-    document.title = title ? `${title} | ${container}` : container
+    const pageTitle = t.pages[pageKey]?.title
+    document.title = formatDocumentTitle(pageTitle, container)
   }, [t, pageKey, container])
 }
 
-// Alternativa mais robusta que verifica se o título não é vazio
+/**
+ * Versão mais robusta do hook que verifica se o título não está vazio
+ *
+ * @param pageKey - Chave da página nas traduções
+ * @param container - Nome do container/aplicação (padrão: 'CONTAINNER®')
+ */
 export const useDocumentTitleRobust = (
-  pageKey: keyof typeof import('../translations/pt').ptTranslations.pages,
-  container: string = 'CONTAINNER®'
-) => {
+  pageKey: PageKey,
+  container: string = DEFAULT_CONTAINER
+): void => {
   const { t } = useI18n()
 
   useEffect(() => {
-    const pageData = t.pages[pageKey]
-    const title = pageData?.title?.trim()
-
-    // Verifica se existe título E se não está vazio
-    document.title =
-      title && title.length > 0 ? `${title} | ${container}` : container
+    const pageTitle = t.pages[pageKey]?.title
+    document.title = formatDocumentTitle(pageTitle, container)
   }, [t, pageKey, container])
 }

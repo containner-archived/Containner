@@ -2,17 +2,29 @@ import React, { useEffect, useRef } from 'react'
 import SidebarTitle from './SidebarTitle'
 import SidebarNav from './SidebarNav'
 
+// ================================
+// Types & Interfaces
+// ================================
 interface HamburgerMenuProps {
   isOpen: boolean
   onClose: () => void
 }
 
+// ================================
+// Main Component
+// ================================
+/**
+ * Hamburger menu component for mobile navigation
+ * Handles outside click detection and menu visibility
+ */
 const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ isOpen, onClose }) => {
   const menuRef = useRef<HTMLDivElement>(null)
 
-  // Detecta cliques fora do menu
+  // ================================
+  // Effects
+  // ================================
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = (event: MouseEvent): void => {
       const target = event.target as Element
 
       // Verifica se o clique foi no botão do header (X ou hambúrguer)
@@ -34,11 +46,16 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ isOpen, onClose }) => {
     }
   }, [isOpen, onClose])
 
-  // Se não está aberto, retorna null (não renderiza nada)
+  // ================================
+  // Early Return
+  // ================================
   if (!isOpen) {
     return null
   }
 
+  // ================================
+  // Render
+  // ================================
   return (
     <div
       ref={menuRef}
@@ -50,11 +67,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ isOpen, onClose }) => {
           <SidebarTitle />
 
           {/* Navigation Section */}
-          <div
-            onClick={() => {
-              onClose()
-            }}
-          >
+          <div onClick={onClose}>
             <SidebarNav />
           </div>
         </div>
@@ -63,4 +76,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ isOpen, onClose }) => {
   )
 }
 
+// ================================
+// Exports
+// ================================
 export default HamburgerMenu
