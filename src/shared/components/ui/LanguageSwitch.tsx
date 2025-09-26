@@ -3,13 +3,7 @@ import { Languages } from 'lucide-react'
 import { useI18n } from '@/shared/contexts/I18nContext'
 
 // ================================
-// Tipos e Interfaces
-// ================================
-
-interface LanguageSwitchProps {}
-
-// ================================
-// Helpers e Funções Auxiliares
+// HELPERS E FUNÇÕES AUXILIARES
 // ================================
 
 /**
@@ -38,14 +32,14 @@ const hideBackground = (backgroundElement: HTMLDivElement) => {
 }
 
 // ================================
-// Componente Principal
+// COMPONENTE PRINCIPAL
 // ================================
 
 /**
  * Componente de troca de idioma com animação hover
  * Alterna entre português e inglês com feedback visual
  */
-export const LanguageSwitch: React.FC<LanguageSwitchProps> = () => {
+export const LanguageSwitch: React.FC = () => {
   const { language, setLanguage, t } = useI18n()
   const contentRef = useRef<HTMLDivElement>(null)
   const bgRef = useRef<HTMLDivElement>(null)
@@ -117,7 +111,7 @@ export const LanguageSwitch: React.FC<LanguageSwitchProps> = () => {
 }
 
 // ================================
-// Exportações
+// EXPORTAÇÕES
 // ================================
 
 export default LanguageSwitch

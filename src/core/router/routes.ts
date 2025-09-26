@@ -1,6 +1,5 @@
 import { RouteConfig } from '@core/router'
-import KorriPage from '@/pages/Korri'
-import VextroPage from '@/pages/Vextro'
+import { VextroPage, KorriPage } from '@pages'
 
 // ================================
 // CONFIGURAÇÃO DE ROTAS

@@ -1,2 +1,4 @@
-export * from './Korri'
-export * from './Vextro'
+import KorriPage from './Korri'
+import VextroPage from './Vextro'
+
+export { KorriPage, VextroPage }

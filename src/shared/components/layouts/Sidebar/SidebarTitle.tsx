@@ -2,13 +2,7 @@ import React from 'react'
 import { useI18n } from '@/shared/contexts/I18nContext'
 
 // ================================
-// Tipos e Interfaces
-// ================================
-
-interface SidebarTitleProps {}
-
-// ================================
-// Helpers e Funções Auxiliares
+// HELPERS E FUNÇÕES AUXILIARES
 // ================================
 
 /**
@@ -45,14 +39,14 @@ const createBackgroundAnimation = (
 }
 
 // ================================
-// Componente Principal
+// COMPONENTE PRINCIPAL
 // ================================
 
 /**
  * Componente de título e contatos da sidebar
  * Renderiza o título da empresa e links de contato com animação hover
  */
-const SidebarTitle: React.FC<SidebarTitleProps> = () => {
+const SidebarTitle: React.FC = () => {
   const { t } = useI18n()
 
   const handleMouseEnter = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -116,7 +110,7 @@ const SidebarTitle: React.FC<SidebarTitleProps> = () => {
 }
 
 // ================================
-// Exportações
+// EXPORTAÇÕES
 // ================================
 
 export default SidebarTitle
