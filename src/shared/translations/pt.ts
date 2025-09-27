@@ -86,20 +86,26 @@ export const ptTranslations: Translation = {
       segment: 'Segmento — Marketing'
     },
     images: {
-      img1: 'Imagem 1',
-      before: 'Antes',
-      after: 'Depois',
-      img3: 'Imagem 3',
-      gif4: 'GIF 4',
-      img5: 'Imagem 5',
-      img6: 'Imagem 6',
-      img7: 'Imagem 7',
-      img8: 'Imagem 8',
-      img9: 'Imagem 9',
-      img10: 'Imagem 10',
-      img11: 'Imagem 11',
-      img12: 'Imagem 12',
-      gif13: 'GIF 13'
+      img1: 'Mockup de camiseta preta com estampa em azul, aplicada com logotipo Vextro, projeto de identidade visual e branding',
+      before:
+        'Logotipo tipográfico Vextro em processo de construção vetorial, grid e pontos de ancoragem para identidade visual',
+      after:
+        'Logotipo tipográfico Vextro em processo de construção vetorial, grid e pontos de ancoragem para identidade visual',
+      img3: 'Paleta de cores da identidade visual Vextro, com azul #0B6AF4, preto #101010 e branco #FFFFFF',
+      gif4: 'Símbolo gráfico da marca Vextro em azul e preto, explorando construção geométrica da identidade visual',
+      img5: 'Padrão gráfico da identidade visual Vextro, com formas geométricas em azul e preto aplicadas como textura',
+      img6: 'Pôsteres de campanha da Vextro com tipografia ousada e identidade visual em azul e preto, destacando mensagens estratégicas',
+      img7: 'Identidade visual Vextro aplicada em redes sociais e favicon de navegador, mostrando consistência da marca',
+      img8: 'Cartões de visita da Vextro com tipografia branca sobre fundo preto e azul, destacando design de marca e branding',
+      img9: 'Crachá corporativo da Vextro para equipe, aplicando logotipo e identidade visual em azul e preto',
+      img10:
+        'Painel publicitário da Vextro em ambiente urbano, com slogan e identidade visual em azul e preto',
+      img11:
+        'Projeto de identidade visual e web design exibido na tela de um laptop, destacando o posicionamento de marca com uma estética moderna.',
+      img12:
+        'Campanha de branding com mensagem estratégica em um painel publicitário luminoso, demonstrando a criação de uma comunicação visual impactante.',
+      gif13:
+        'Animação de logotipo para estúdio de branding e posicionamento, mostrando um exemplo de identidade visual dinâmica e profissional.'
     }
   },
   korri: {
@@ -123,7 +129,7 @@ export const ptTranslations: Translation = {
       segment: 'Segmento — Vestuário'
     },
     images: {
-      gif1: 'Image 1',
+      gif1: 'Animação do logotipo da marca de roupas esportivas KORRI, com o nome surgindo em preto sobre um fundo amarelo.',
       gif2: 'Before',
       img3: 'After',
       gif4: 'Image 3',

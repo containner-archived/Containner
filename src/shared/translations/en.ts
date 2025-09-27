@@ -86,20 +86,26 @@ export const enTranslations: Translation = {
       segment: 'Segment — Marketing'
     },
     images: {
-      img1: 'Image 1',
-      before: 'Before',
-      after: 'After',
-      img3: 'Image 3',
-      gif4: 'GIF 4',
-      img5: 'Image 5',
-      img6: 'Image 6',
-      img7: 'Image 7',
-      img8: 'Image 8',
-      img9: 'Image 9',
-      img10: 'Image 10',
-      img11: 'Image 11',
-      img12: 'Image 12',
-      gif13: 'GIF 13'
+      img1: 'Black t-shirt mockup with blue print, applied with Vextro logo, visual identity and branding project',
+      before:
+        'Vextro typographic logo in vector construction process, grid and anchor points for visual identity',
+      after:
+        'Vextro typographic logo in vector construction process, grid and anchor points for visual identity',
+      img3: 'Vextro visual identity color palette, with blue #0B6AF4, black #101010 and white #FFFFFF',
+      gif4: 'Vextro brand graphic symbol in blue and black, exploring geometric construction of visual identity',
+      img5: 'Vextro visual identity graphic pattern, with geometric shapes in blue and black applied as texture',
+      img6: 'Vextro campaign posters with bold typography and visual identity in blue and black, highlighting strategic messages',
+      img7: 'Vextro visual identity applied to social media and browser favicon, showing brand consistency',
+      img8: 'Vextro business cards with white typography on black and blue background, highlighting brand design and branding',
+      img9: 'Vextro corporate badge for team, applying logo and visual identity in blue and black',
+      img10:
+        'Vextro advertising panel in urban environment, with slogan and visual identity in blue and black',
+      img11:
+        'Visual identity and web design project displayed on laptop screen, highlighting brand positioning with modern aesthetics.',
+      img12:
+        'Branding campaign with strategic message on illuminated advertising panel, demonstrating creation of impactful visual communication.',
+      gif13:
+        'Logo animation for branding and positioning studio, showing an example of dynamic and professional visual identity.'
     }
   },
   korri: {
@@ -123,22 +129,29 @@ export const enTranslations: Translation = {
       segment: 'Segment — Apparel'
     },
     images: {
-      gif1: 'Image 1',
-      gif2: 'Before',
-      img3: 'After',
-      gif4: 'Image 3',
-      img5: 'GIF 4',
-      img6: 'Image 5',
-      gif7: 'Image 6',
-      img8: 'Image 7',
-      img9: 'Image 8',
-      img10: 'Image 9',
-      gif11: 'Image 10',
-      img12: 'Image 11',
-      img13: 'Image 12',
-      img14: 'GIF 13',
-      img15: 'test',
-      img16: 'test'
+      gif1: 'Animation of the KORRI sportswear brand logo, with the name appearing in black on a yellow background.',
+      gif2: 'KORRI logo creation process, showing an initial sketch of the symbol being hand-drawn on paper.',
+      img3: 'Conceptual panel defining brand positioning with the words "Rush, Brazilian and Create" over everyday life photos.',
+      gif4: 'Animation of KORRI logo geometric construction, displaying the guides and grids used for typography design.',
+      img5: "Visual identity inspiration panel, associating the brand's yellow color with passion for football and Brazilian culture.",
+      img6: 'Final KORRI brand logo in black, presented cleanly on a vibrant yellow background.',
+      gif7: 'Animation of KORRI brand products: sweatshirt, base layer and t-shirt from the "Advance" line with their respective prices.',
+      img8: 'Creative branding application on products, with a personalized clothes hanger and brand t-shirts hanging on the line.',
+      img9: 'Social media post layouts highlighting KORRI clothing benefits: Quick Dry, Anti Sweat and Light Fabric.',
+      img10:
+        'Branding concept connecting the brand to daily rush, with an image of a bus next to a personalized KORRI bag.',
+      gif11:
+        'KORRI logo overlaid on a Brazil football shirt hanging on the line, connecting the brand to national culture and passion.',
+      img12:
+        'KORRI welcome card inside a yellow envelope, creating an unboxing experience and sense of community for the customer.',
+      img13:
+        'KORRI street poster with the phrase "Clothes for your busy daily life", showing brand communication in urban environment.',
+      img14:
+        'KORRI advertising campaign banner with a model and the self-affirmation phrase "This is Brazil, damn it!", reinforcing the brand\'s national identity.',
+      img15:
+        'KORRI brand symbol applied on a garage door with light effect, conveying the idea of speed, attitude and urban movement.',
+      img16:
+        'Label of a KORRI clothing piece with logo and phrase "Made with pride in Brazil", highlighting the brand\'s production and national pride.'
     }
   }
 }
