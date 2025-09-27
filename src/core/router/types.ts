@@ -15,4 +15,6 @@ export interface RouteConfig {
   element: React.ComponentType
   /** Título opcional para a rota (ex: para título da página ou navegação) */
   title?: string
+  /** Define se usa ou nao o mainlayout */
+  useLayout?: boolean
 }

@@ -1,4 +1,5 @@
 import KorriPage from './Korri'
 import VextroPage from './Vextro'
+import PatternGenerator from './Pattern'
 
-export { KorriPage, VextroPage }
+export { KorriPage, VextroPage, PatternGenerator }

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { RouteConfig } from './types'
+import { MainLayout } from '@/shared/components/layouts'
 
 // ================================
 // INTERFACES & TIPOS
@@ -69,7 +70,7 @@ const scrollToTop = (): void => {
  * e configuração do título do documento
  */
 const RouteRenderer: React.FC<RouteRendererProps> = ({ route }) => {
-  const { element: Element, title } = route
+  const { element: Element, title, useLayout = true } = route
 
   useEffect(() => {
     if (title) {
@@ -77,7 +78,17 @@ const RouteRenderer: React.FC<RouteRendererProps> = ({ route }) => {
     }
   }, [title])
 
-  return <Element />
+  // Se useLayout for false, renderiza só o componente
+  if (!useLayout) {
+    return <Element />
+  }
+
+  // Se useLayout for true (padrão), usa o MainLayout
+  return (
+    <MainLayout>
+      <Element />
+    </MainLayout>
+  )
 }
 
 // ================================
