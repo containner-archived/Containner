@@ -59,7 +59,7 @@ const SidebarLogo: React.FC = () => {
       <h1>
         <img
           src={CC}
-          alt="Containner"
+          alt="Containner Logo"
           className="h-8 md:h-14 flex-shrink-0"
           style={{
             filter:
