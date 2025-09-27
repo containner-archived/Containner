@@ -8,11 +8,7 @@ const App: React.FC = () => {
     initializeAnalytics()
   }, [])
 
-  return (
-    <MainLayout>
-      <AppRouter routes={appRoutes} />
-    </MainLayout>
-  )
+  return <AppRouter routes={appRoutes} />
 }
 
 export default App

@@ -1,5 +1,5 @@
 import { RouteConfig } from '@core/router'
-import { VextroPage, KorriPage } from '@pages'
+import { VextroPage, KorriPage, PatternGenerator } from '@pages'
 
 // ================================
 // CONFIGURAÇÃO DE ROTAS
@@ -10,7 +10,6 @@ import { VextroPage, KorriPage } from '@pages'
  * Define todas as rotas disponíveis e seus componentes de página correspondentes
  */
 export const appRoutes: RouteConfig[] = [
-  // Rotas principais de navegação
   {
     path: '/vextro',
     element: VextroPage
@@ -18,5 +17,12 @@ export const appRoutes: RouteConfig[] = [
   {
     path: '/korri',
     element: KorriPage
+  },
+
+  // Rota SEM layout
+  {
+    path: '/pattern-generator',
+    element: PatternGenerator,
+    useLayout: false
   }
 ]
