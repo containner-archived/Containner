@@ -56,16 +56,18 @@ const SidebarLogo: React.FC = () => {
       aria-label="Voltar para a página inicial"
     >
       {/* Logo Icon */}
-      <img
-        src={CC}
-        alt="Logo"
-        className="h-8 md:h-14 flex-shrink-0"
-        style={{
-          filter:
-            'brightness(0) saturate(100%) invert(39%) sepia(6%) saturate(318%) hue-rotate(180deg) brightness(92%) contrast(88%)'
-        }}
-        aria-hidden="true"
-      />
+      <h1>
+        <img
+          src={CC}
+          alt="Containner"
+          className="h-8 md:h-14 flex-shrink-0"
+          style={{
+            filter:
+              'brightness(0) saturate(100%) invert(39%) sepia(6%) saturate(318%) hue-rotate(180deg) brightness(92%) contrast(88%)'
+          }}
+          aria-hidden="true"
+        />
+      </h1>
 
       {/* Container Text SVG - Hidden on mobile */}
       {/*
