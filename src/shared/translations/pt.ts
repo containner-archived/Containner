@@ -130,21 +130,28 @@ export const ptTranslations: Translation = {
     },
     images: {
       gif1: 'Animação do logotipo da marca de roupas esportivas KORRI, com o nome surgindo em preto sobre um fundo amarelo.',
-      gif2: 'Before',
-      img3: 'After',
-      gif4: 'Image 3',
-      img5: 'GIF 4',
-      img6: 'Image 5',
-      gif7: 'Image 6',
-      img8: 'Image 7',
-      img9: 'Image 8',
-      img10: 'Image 9',
-      gif11: 'Image 10',
-      img12: 'Image 11',
-      img13: 'Image 12',
-      img14: 'GIF 13',
-      img15: 'test',
-      img16: 'test'
+      gif2: 'Processo de criação do logotipo KORRI, mostrando um esboço inicial do símbolo sendo desenhado à mão em papel.',
+      img3: 'Painel conceitual que define o posicionamento da marca com as palavras "Correria, Brasileira e Cria" sobre fotos do cotidiano.',
+      gif4: 'Animação da construção geométrica do logotipo KORRI, exibindo as guias e grades usadas para o design da tipografia.',
+      img5: 'Painel de inspiração da identidade visual, associando a cor amarela da marca à paixão do futebol e da cultura brasileira.',
+      img6: 'Logotipo final da marca KORRI em preto, apresentado de forma limpa sobre um fundo amarelo vibrante.',
+      gif7: 'Animação de produtos da marca KORRI: blusão, segunda pele e camiseta da linha "Avanço" com seus respectivos preços.',
+      img8: 'Aplicação criativa do branding em produtos, com um prendedor de roupas personalizado e camisetas da marca secando no varal.',
+      img9: 'Layouts de posts para redes sociais destacando os benefícios das roupas KORRI: Seca Rápido, Anti Suor e Malha Leve.',
+      img10:
+        'Conceito de branding que conecta a marca à correria do dia a dia, com uma imagem de um ônibus ao lado de uma sacola personalizada KORRI.',
+      gif11:
+        'Logotipo da KORRI sobreposto a uma camisa de futebol do Brasil secando no varal, conectando a marca à cultura e paixão nacional.',
+      img12:
+        'Cartão de boas-vindas da KORRI dentro de um envelope amarelo, criando uma experiência de unboxing e um senso de comunidade para o cliente.',
+      img13:
+        'Cartaz de rua da KORRI com a frase "Roupas para o seu cotidiano corrido", mostrando a comunicação da marca no ambiente urbano.',
+      img14:
+        'Banner de campanha publicitária da KORRI com um modelo e a frase de autoafirmação "Aqui é Brasil, porr@!", reforçando a identidade nacional da marca.',
+      img15:
+        'Símbolo da marca KORRI aplicado em uma porta de garagem com efeito de luz, transmitindo a ideia de velocidade, atitude e movimento urbano.',
+      img16:
+        'Etiqueta de uma peça de roupa KORRI com o logotipo e a frase "Feito com orgulho no Brasil", destacando a produção e o orgulho nacional da marca.'
     }
   }
 }
