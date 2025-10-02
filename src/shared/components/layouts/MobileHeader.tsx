@@ -34,8 +34,8 @@ const HamburgerIcon: React.FC = () => (
     <path d="M26 18H6V14H26V18Z" fill="#646569" />
     <path d="M26 11H6V7H26V11Z" fill="#646569" />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M32 32H0V0H32V32ZM2 30H30V2H2V30Z"
       fill="#646569"
     />
@@ -58,8 +58,8 @@ const CloseIcon: React.FC = () => (
       fill="#646569"
     />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M32 32H0V0H32V32ZM2 30H30V2H2V30Z"
       fill="#646569"
     />
