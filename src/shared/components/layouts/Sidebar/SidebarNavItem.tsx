@@ -1,16 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
-// ================================
-// Types & Interfaces
-// ================================
-interface SidebarNavItemProps {
-  icon: React.ReactNode
-  title: string
-  subtitle: string
-  path: string
-  isActive?: boolean
-}
+import { SidebarNavItemProps } from '@types'
 
 // ================================
 // Constants
@@ -50,23 +40,20 @@ const SidebarNavItem: React.FC<SidebarNavItemProps> = ({
   `
 
   const backgroundClasses = `
-    absolute inset-0 bg-[${COLORS.background}] transition-transform ${TRANSITION_CONFIG.duration} group
+    absolute inset-0 transition-transform ${TRANSITION_CONFIG.duration} group
     ${isActive ? 'translate-x-0' : 'transform -translate-x-full group-hover:translate-x-0'}
   `
 
   const iconClasses = `
     flex-shrink-0 transition-colors ${TRANSITION_CONFIG.duration}
-    ${isActive ? `text-${COLORS.activeIcon}` : `text-[${COLORS.inactiveText}] group-hover:text-${COLORS.activeIcon}`}
   `
 
   const titleClasses = `
     font-bold transition-colors ${TRANSITION_CONFIG.duration} text-sm
-    ${isActive ? `text-[${COLORS.activeText}]` : `text-[${COLORS.inactiveText}] group-hover:text-[${COLORS.activeText}]`}
   `
 
   const subtitleClasses = `
     text-xs leading-tight mt-1 transition-colors ${TRANSITION_CONFIG.duration}
-    ${isActive ? `text-[${COLORS.activeText}]` : `text-[${COLORS.inactiveText}] group-hover:text-[${COLORS.activeText}]`}
   `
 
   // ================================
@@ -79,11 +66,46 @@ const SidebarNavItem: React.FC<SidebarNavItemProps> = ({
       style={{
         transitionTimingFunction: TRANSITION_CONFIG.timing
       }}
+      onMouseEnter={(e) => {
+        if (!isActive) {
+          const icon = e.currentTarget.querySelector(
+            '[data-icon]'
+          ) as HTMLElement
+          const title = e.currentTarget.querySelector(
+            '[data-title]'
+          ) as HTMLElement
+          const subtitle = e.currentTarget.querySelector(
+            '[data-subtitle]'
+          ) as HTMLElement
+
+          if (icon) icon.style.color = COLORS.activeIcon
+          if (title) title.style.color = COLORS.activeText
+          if (subtitle) subtitle.style.color = COLORS.activeText
+        }
+      }}
+      onMouseLeave={(e) => {
+        if (!isActive) {
+          const icon = e.currentTarget.querySelector(
+            '[data-icon]'
+          ) as HTMLElement
+          const title = e.currentTarget.querySelector(
+            '[data-title]'
+          ) as HTMLElement
+          const subtitle = e.currentTarget.querySelector(
+            '[data-subtitle]'
+          ) as HTMLElement
+
+          if (icon) icon.style.color = COLORS.inactiveText
+          if (title) title.style.color = COLORS.inactiveText
+          if (subtitle) subtitle.style.color = COLORS.inactiveText
+        }
+      }}
     >
       {/* Animated Background */}
       <div
         className={backgroundClasses}
         style={{
+          backgroundColor: COLORS.background,
           transitionTimingFunction: TRANSITION_CONFIG.timing
         }}
       />
@@ -92,8 +114,10 @@ const SidebarNavItem: React.FC<SidebarNavItemProps> = ({
       <div className="relative z-10 flex items-center gap-4 w-full">
         {/* Icon Section */}
         <div
+          data-icon
           className={iconClasses}
           style={{
+            color: isActive ? COLORS.activeIcon : COLORS.inactiveText,
             transitionTimingFunction: TRANSITION_CONFIG.timing
           }}
         >
@@ -103,8 +127,10 @@ const SidebarNavItem: React.FC<SidebarNavItemProps> = ({
         {/* Text Content */}
         <div className="flex flex-col justify-center min-w-0">
           <h3
+            data-title
             className={titleClasses}
             style={{
+              color: isActive ? COLORS.activeText : COLORS.inactiveText,
               transitionTimingFunction: TRANSITION_CONFIG.timing
             }}
           >
@@ -112,8 +138,10 @@ const SidebarNavItem: React.FC<SidebarNavItemProps> = ({
           </h3>
 
           <span
+            data-subtitle
             className={subtitleClasses}
             style={{
+              color: isActive ? COLORS.activeText : COLORS.inactiveText,
               transitionTimingFunction: TRANSITION_CONFIG.timing
             }}
           >

@@ -1,16 +1,5 @@
 import { useLocation } from 'react-router-dom'
-
-// ================================
-// INTERFACES & TYPES
-// ================================
-
-/**
- * Tipo de retorno para o hook useActiveRoute
- */
-interface UseActiveRouteReturn {
-  currentPath: string
-  isActive: (href: string) => boolean
-}
+import { UseActiveRouteReturn } from '@types'
 
 // ================================
 // CONSTANTS

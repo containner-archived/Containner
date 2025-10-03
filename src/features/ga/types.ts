@@ -1,10 +1,9 @@
 // ================================
-// TIPOS E INTERFACES ANALYTICS
+// INTERFACES
 // ================================
 
 /**
  * Interface de configuração do Google Analytics
- * Define a estrutura para configuração e controle do analytics
  */
 export interface AnalyticsConfig {
   /** ID de medição do Google Analytics (GA4) */
@@ -15,7 +14,6 @@ export interface AnalyticsConfig {
 
 /**
  * Estrutura de dados do evento de visualização de página
- * Usado para rastrear navegação e visitas de página
  */
 export interface PageViewEvent {
   /** Título da página atual */
@@ -26,7 +24,6 @@ export interface PageViewEvent {
 
 /**
  * Estrutura de dados de evento customizado
- * Interface flexível para rastrear interações e comportamentos do usuário
  */
 export interface CustomEvent {
   /** Nome do evento customizado */
@@ -37,7 +34,6 @@ export interface CustomEvent {
 
 /**
  * Estrutura de dados das preferências do usuário
- * Rastreia configurações e escolhas de personalização do usuário
  */
 export interface UserPreferences {
   /** Preferência de tema selecionada */
@@ -46,4 +42,14 @@ export interface UserPreferences {
   language: 'pt' | 'en'
   /** Localização do usuário (opcional) */
   location?: string
+}
+
+/**
+ * Opções de configuração do hook de analytics
+ */
+export interface UseAnalyticsOptions {
+  /** Se deve rastrear visualizações de página automaticamente */
+  trackPageViews?: boolean
+  /** Título personalizado da página para sobrescrever o padrão */
+  pageTitle?: string
 }

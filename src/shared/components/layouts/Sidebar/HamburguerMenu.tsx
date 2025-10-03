@@ -1,14 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import SidebarTitle from './SidebarTitle'
 import SidebarNav from './SidebarNav'
-
-// ================================
-// Types & Interfaces
-// ================================
-interface HamburgerMenuProps {
-  isOpen: boolean
-  onClose: () => void
-}
+import { HamburgerMenuProps } from '@types'
 
 // ================================
 // Main Component

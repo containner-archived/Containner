@@ -1,27 +1,4 @@
-// ================================
-// INTERFACES & TYPES
-// ================================
-
-/**
- * Configuração de validação das variáveis de ambiente
- * Define as variáveis obrigatórias e opcionais
- */
-interface EnvConfig {
-  /** Lista de variáveis de ambiente obrigatórias */
-  required: string[]
-  /** Lista de variáveis de ambiente opcionais */
-  optional: string[]
-}
-
-/**
- * Estrutura do resultado de validação
- */
-interface ValidationResult {
-  /** Lista de erros de validação */
-  errors: string[]
-  /** Lista de avisos de validação */
-  warnings: string[]
-}
+import { EnvConfig, ValidationResult } from '@types'
 
 // ================================
 // CONSTANTS

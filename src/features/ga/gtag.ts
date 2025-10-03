@@ -2,19 +2,6 @@ import { ANALYTICS_CONFIG } from './config'
 import type { PageViewEvent, CustomEvent, UserPreferences } from './types'
 
 // ================================
-// DECLARAÇÕES GLOBAIS
-// ================================
-
-/**
- * Declaração global do gtag para Google Analytics
- */
-declare global {
-  interface Window {
-    gtag: (...args: any[]) => void
-  }
-}
-
-// ================================
 // FUNÇÕES AUXILIARES
 // ================================
 

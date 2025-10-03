@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useActiveRoute } from '@/shared/hooks/useActiveRoute'
+import { useActiveRoute } from '@shared'
 import CC from '@assets/CC.svg'
 
 // ================================
