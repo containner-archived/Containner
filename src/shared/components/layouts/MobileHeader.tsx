@@ -1,19 +1,6 @@
 import React from 'react'
 import SidebarLogo from './Sidebar/SidebarLogo'
-
-// ================================
-// Tipos e Interfaces
-// ================================
-
-/**
- * Props do componente MobileHeader
- */
-interface MobileHeaderProps {
-  /** Função callback chamada ao clicar no botão do menu */
-  onMenuClick: () => void
-  /** Estado atual do menu (aberto/fechado) */
-  isMenuOpen: boolean
-}
+import { MobileHeaderProps } from '@types'
 
 // ================================
 // Componentes Auxiliares

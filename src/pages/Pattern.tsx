@@ -1,24 +1,43 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
+import { Rectangle } from '@types'
 
-interface Rectangle {
-  id: string
-  x: number
-  y: number
-  width: number
-  height: number
-  rotation: number
+// ================================
+// CONSTANTES
+// ================================
+
+const SVG_NAMESPACE = 'http://www.w3.org/2000/svg'
+const CANVAS_WIDTH = 1080
+const CANVAS_HEIGHT = 1080
+const RECT_COLOR = '#191919'
+const BACKGROUND_COLOR = '#646569'
+const OVERLAP = 4
+
+// ================================
+// HELPER FUNCTIONS
+// ================================
+
+/**
+ * Gera um número inteiro aleatório entre min e max (inclusive)
+ */
+const getRandomInt = (min: number, max: number): number => {
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
-const PatternGenerator: React.FC = () => {
-  // --- CONSTANTES ---
-  const SVG_NAMESPACE = 'http://www.w3.org/2000/svg'
-  const CANVAS_WIDTH = 1080
-  const CANVAS_HEIGHT = 1080
-  const RECT_COLOR = '#191919'
-  const BACKGROUND_COLOR = '#646569'
-  const OVERLAP = 4
+// ================================
+// MAIN COMPONENT
+// ================================
 
-  // --- ESTADO ---
+/**
+ * Componente gerador de padrões geométricos
+ * Permite criar, editar e exportar padrões SVG com retângulos aleatórios
+ */
+const PatternGenerator: React.FC = () => {
+  // ================================
+  // ESTADO
+  // ================================
+
   const [rectangles, setRectangles] = useState<Rectangle[]>([])
   const [history, setHistory] = useState<Rectangle[][]>([])
   const [historyIndex, setHistoryIndex] = useState(-1)
@@ -26,13 +45,13 @@ const PatternGenerator: React.FC = () => {
 
   const svgRef = useRef<SVGSVGElement>(null)
 
-  // --- FUNÇÕES AUXILIARES ---
-  const getRandomInt = (min: number, max: number): number => {
-    min = Math.ceil(min)
-    max = Math.floor(max)
-    return Math.floor(Math.random() * (max - min + 1)) + min
-  }
+  // ================================
+  // FUNÇÕES AUXILIARES
+  // ================================
 
+  /**
+   * Gera um array de retângulos aleatórios
+   */
   const generateRectangles = useCallback((): Rectangle[] => {
     const numberOfRects = getRandomInt(15, 40)
     const newRectangles: Rectangle[] = []
@@ -57,6 +76,9 @@ const PatternGenerator: React.FC = () => {
     return newRectangles
   }, [])
 
+  /**
+   * Gera um novo padrão e atualiza o histórico
+   */
   const generateNewPattern = useCallback(() => {
     const newRectangles = generateRectangles()
     setRectangles(newRectangles)
@@ -68,6 +90,9 @@ const PatternGenerator: React.FC = () => {
     setHistoryIndex(newHistory.length - 1)
   }, [history, historyIndex, generateRectangles])
 
+  /**
+   * Exibe um padrão do histórico
+   */
   const displayPatternFromHistory = useCallback(
     (index: number) => {
       if (index >= 0 && index < history.length) {
@@ -78,6 +103,9 @@ const PatternGenerator: React.FC = () => {
     [history]
   )
 
+  /**
+   * Remove um retângulo específico do padrão
+   */
   const removeRectangle = useCallback(
     (id: string) => {
       const updatedRectangles = rectangles.filter((rect) => rect.id !== id)
@@ -91,6 +119,9 @@ const PatternGenerator: React.FC = () => {
     [rectangles, history, historyIndex]
   )
 
+  /**
+   * Exporta o padrão atual como arquivo SVG
+   */
   const exportSVG = useCallback(() => {
     if (!svgRef.current) return
 
@@ -121,7 +152,13 @@ const PatternGenerator: React.FC = () => {
     URL.revokeObjectURL(url)
   }, [])
 
-  // --- HANDLERS DE EVENTOS ---
+  // ================================
+  // EVENT HANDLERS
+  // ================================
+
+  /**
+   * Manipula eventos de teclado para atalhos
+   */
   const handleKeyDown = useCallback(
     (event: KeyboardEvent) => {
       switch (event.key) {
@@ -152,7 +189,10 @@ const PatternGenerator: React.FC = () => {
     ]
   )
 
-  // --- EFFECTS ---
+  // ================================
+  // EFFECTS
+  // ================================
+
   useEffect(() => {
     generateNewPattern()
   }, []) // Inicialização
@@ -161,6 +201,10 @@ const PatternGenerator: React.FC = () => {
     document.addEventListener('keydown', handleKeyDown)
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [handleKeyDown])
+
+  // ================================
+  // RENDERIZAÇÃO
+  // ================================
 
   return (
     <div
@@ -223,5 +267,9 @@ const PatternGenerator: React.FC = () => {
     </div>
   )
 }
+
+// ================================
+// EXPORTAÇÕES
+// ================================
 
 export default PatternGenerator

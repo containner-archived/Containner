@@ -4,13 +4,7 @@ import SidebarTitle from './SidebarTitle'
 import SidebarNav from './SidebarNav'
 import MobileHeader from '../MobileHeader'
 import HamburgerMenu from './HamburguerMenu'
-
-// ================================
-// Types & Interfaces
-// ================================
-interface SidebarProps {
-  children?: React.ReactNode
-}
+import { SidebarProps } from '@types'
 
 // ================================
 // Main Component

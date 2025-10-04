@@ -1,4 +1,4 @@
-import { validateAnalyticsEnv } from '@/shared/utils/envValidation'
+import { validateAnalyticsEnv } from '@shared'
 import { AnalyticsConfig } from './types'
 
 // ================================

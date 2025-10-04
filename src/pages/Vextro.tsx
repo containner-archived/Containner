@@ -3,8 +3,9 @@ import {
   ReactCompareSlider,
   ReactCompareSliderImage
 } from 'react-compare-slider'
-import { useDocumentTitle } from '@/shared/hooks/useDocumentTitle'
-import { useI18n } from '@/shared/contexts/I18nContext'
+import { useI18n } from '@core'
+import { useDocumentTitle } from '@shared'
+import { MediaItem, MediaImageProps, TextProps } from '@types'
 
 // ================================
 // ASSETS
@@ -23,36 +24,6 @@ import img10 from '@/assets/pages/Vextro/10.jpg'
 import img11 from '@/assets/pages/Vextro/11.jpg'
 import img12 from '@/assets/pages/Vextro/12.jpg'
 import gif13 from '@/assets/pages/Vextro/13.gif'
-
-// ================================
-// INTERFACES
-// ================================
-
-/**
- * Interface para itens de mídia na galeria
- */
-interface MediaItem {
-  src: string
-  alt: string
-}
-
-/**
- * Props para o componente MediaImage
- */
-interface MediaImageProps {
-  src: string
-  alt: string
-  loading?: 'eager' | 'lazy'
-  fetchPriority?: 'high' | 'low' | 'auto'
-}
-
-/**
- * Props para componentes de texto
- */
-interface TextProps {
-  children: React.ReactNode
-  className?: string
-}
 
 // ================================
 // HELPER COMPONENTS

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useI18n } from '@/shared/contexts/I18nContext'
+import { useI18n } from '@core'
 
 // ================================
 // HELPERS E FUNÇÕES AUXILIARES
@@ -83,7 +83,7 @@ const SidebarTitle: React.FC = () => {
       <div className="flex flex-col">
         <a
           href="mailto:open@containner.co"
-          className="text-[#646569] text-base font-normal leading-normal uppercase relative overflow-hidden transition-colors duration-500 hover:text-[#191919] inline-block w-fit flex items-center"
+          className="text-[#646569] text-base font-normal leading-normal uppercase relative overflow-hidden transition-colors duration-500 hover:text-[#191919] inline-flex w-fit items-center"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
@@ -96,7 +96,7 @@ const SidebarTitle: React.FC = () => {
           href="https://wa.me/5554993120440"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[#646569] text-base font-normal leading-normal uppercase relative overflow-hidden transition-colors duration-500 hover:text-[#191919] inline-block w-fit flex items-center"
+          className="text-[#646569] text-base font-normal leading-normal uppercase relative overflow-hidden transition-colors duration-500 hover:text-[#191919] inline-flex w-fit items-center"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >

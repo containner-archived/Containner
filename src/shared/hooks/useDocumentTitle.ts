@@ -1,14 +1,6 @@
 import { useEffect } from 'react'
-import { useI18n } from '../contexts/I18nContext'
-
-// ================================
-// TYPES
-// ================================
-
-/**
- * Tipo para as chaves de páginas disponíveis nas traduções
- */
-type PageKey = keyof typeof import('../translations/pt').ptTranslations.pages
+import { useI18n } from '@core'
+import { PageKey } from '@types'
 
 // ================================
 // CONSTANTS
@@ -51,7 +43,7 @@ export const useDocumentTitle = (
   const { t } = useI18n()
 
   useEffect(() => {
-    const pageTitle = t.pages[pageKey]?.title
+    const pageTitle = t.pages[pageKey as keyof typeof t.pages]?.title
     document.title = formatDocumentTitle(pageTitle, container)
   }, [t, pageKey, container])
 }
@@ -69,7 +61,7 @@ export const useDocumentTitleRobust = (
   const { t } = useI18n()
 
   useEffect(() => {
-    const pageTitle = t.pages[pageKey]?.title
+    const pageTitle = t.pages[pageKey as keyof typeof t.pages]?.title
     document.title = formatDocumentTitle(pageTitle, container)
   }, [t, pageKey, container])
 }

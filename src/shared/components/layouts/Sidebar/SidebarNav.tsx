@@ -1,23 +1,14 @@
 import React from 'react'
-import { useActiveRoute } from '@/shared/hooks/useActiveRoute'
-import { useI18n } from '@/shared/contexts/I18nContext'
+import { useI18n } from '@core'
+import { useActiveRoute } from '@shared'
 import SidebarNavItem from './SidebarNavItem'
+import { SidebarNavItem as SidebarNavItemType } from '@types'
 
 // ================================
 // Assets
 // ================================
 import Vextro from '@assets/nav/Vextro.jpg'
 import Korri from '@assets/nav/Korri.jpg'
-
-// ================================
-// Types & Interfaces
-// ================================
-interface NavItem {
-  icon: React.ReactNode
-  title: string
-  subtitle: string
-  path: string
-}
 
 // ================================
 // Main Component
@@ -33,7 +24,7 @@ const SidebarNav: React.FC = () => {
   // ================================
   // Data
   // ================================
-  const navItems: NavItem[] = [
+  const navItems: SidebarNavItemType[] = [
     // {
     //   icon: <img src={Containner} alt={t.nav.overview.title} className="w-16 h-16" />,
     //   title: t.nav.overview.title,

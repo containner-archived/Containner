@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import { Languages } from 'lucide-react'
-import { useI18n } from '@/shared/contexts/I18nContext'
+import { useI18n } from '@core'
 
 // ================================
 // HELPERS E FUNÇÕES AUXILIARES

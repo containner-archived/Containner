@@ -1,17 +1,6 @@
 import React from 'react'
 import Sidebar from './Sidebar'
-
-// ================================
-// Tipos e Interfaces
-// ================================
-
-/**
- * Props do componente MainLayout
- */
-interface MainLayoutProps {
-  /** Conteúdo filho a ser renderizado dentro do layout */
-  children: React.ReactNode
-}
+import { MainLayoutProps } from '@types'
 
 // ================================
 // Componente Principal

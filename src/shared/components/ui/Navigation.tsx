@@ -1,19 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { NavItem } from '../layouts/types'
-import { useActiveRoute } from '../../hooks/useActiveRoute'
-
-// ================================
-// Tipos e Interfaces
-// ================================
-
-/**
- * Props do componente Navigation
- */
-interface NavigationProps {
-  /** Lista de itens de navegação */
-  items: NavItem[]
-}
+import { useActiveRoute } from '@shared'
+import { NavItem, NavigationProps } from '@types'
 
 // ================================
 // Constantes

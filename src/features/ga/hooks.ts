@@ -1,20 +1,7 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { trackPageView } from './gtag'
-
-// ================================
-// INTERFACES
-// ================================
-
-/**
- * Opções de configuração do hook de analytics
- */
-interface UseAnalyticsOptions {
-  /** Se deve rastrear visualizações de página automaticamente */
-  trackPageViews?: boolean
-  /** Título personalizado da página para sobrescrever o padrão */
-  pageTitle?: string
-}
+import { UseAnalyticsOptions } from './types'
 
 // ================================
 // HOOKS

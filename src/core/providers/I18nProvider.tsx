@@ -1,36 +1,9 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react'
-import { ptTranslations } from '../translations/pt'
-import { enTranslations } from '../translations/en'
-import { Language, Translation } from '@/types'
+import React, { createContext, useContext, useState } from 'react'
+import { Language, I18nContextType, I18nProviderProps } from '@/types'
+import { ptTranslations, enTranslations } from '@/shared/translations'
 
 // ================================
-// Tipos e Interfaces
-// ================================
-
-/**
- * Tipo do contexto de internacionalização
- */
-interface I18nContextType {
-  /** Idioma atual selecionado */
-  language: Language
-  /** Traduções do idioma atual */
-  translations: Translation
-  /** Função para alterar o idioma */
-  setLanguage: (language: Language) => void
-  /** Alias para translations - traduções do idioma atual */
-  t: Translation
-}
-
-/**
- * Props do provider de internacionalização
- */
-interface I18nProviderProps {
-  /** Componentes filhos que terão acesso ao contexto */
-  children: ReactNode
-}
-
-// ================================
-// Constantes
+// CONSTANTES
 // ================================
 
 /**
@@ -42,7 +15,7 @@ const translations = {
 }
 
 // ================================
-// Helpers e Funções Auxiliares
+// HELPER FUNCTIONS
 // ================================
 
 /**
@@ -91,13 +64,13 @@ const saveLanguageToStorage = (language: Language) => {
 }
 
 // ================================
-// Context
+// CONTEXT
 // ================================
 
 const I18nContext = createContext<I18nContextType | undefined>(undefined)
 
 // ================================
-// Provider
+// PROVIDER
 // ================================
 
 /**
@@ -125,7 +98,7 @@ export const I18nProvider: React.FC<I18nProviderProps> = ({ children }) => {
 }
 
 // ================================
-// Hook
+// HOOK
 // ================================
 
 /**
@@ -144,7 +117,7 @@ export const useI18n = (): I18nContextType => {
 }
 
 // ================================
-// Exportações
+// EXPORTAÇÕES
 // ================================
 
 export default I18nProvider

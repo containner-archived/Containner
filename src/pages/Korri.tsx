@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { useDocumentTitle } from '@/shared/hooks/useDocumentTitle'
-import { useI18n } from '@/shared/contexts/I18nContext'
+import { useI18n } from '@core'
+import { useDocumentTitle } from '@shared'
+import { MediaItem, MediaImageProps, TextProps } from '@types'
 
 // ================================
 // ASSETS
@@ -21,36 +22,6 @@ import img13 from '@assets/pages/Korri/13.jpg'
 import img14 from '@assets/pages/Korri/14.jpg'
 import img15 from '@assets/pages/Korri/15.png'
 import img16 from '@assets/pages/Korri/16.jpg'
-
-// ================================
-// INTERFACES
-// ================================
-
-/**
- * Interface para itens de mídia na galeria
- */
-interface MediaItem {
-  src: string
-  alt: string
-}
-
-/**
- * Props para o componente MediaImage
- */
-interface MediaImageProps {
-  src: string
-  alt: string
-  loading?: 'eager' | 'lazy'
-  fetchPriority?: 'high' | 'low' | 'auto'
-}
-
-/**
- * Props para componentes de texto
- */
-interface TextProps {
-  children: React.ReactNode
-  className?: string
-}
 
 // ================================
 // HELPER COMPONENTS
