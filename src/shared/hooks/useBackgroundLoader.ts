@@ -7,9 +7,10 @@ import { UseBackgroundLoaderReturn } from '@/types/shared'
 // ================================
 const BACKGROUND_LOAD_DELAY = 1000 // 1 segundo após o carregamento inicial
 
-// Imagens da página Korri para carregamento em background
-const KORRI_IMAGES = [
-  '/src/assets/pages/Korri/01.gif',
+// Todas as imagens para carregamento em background após o site aparecer
+// (As imagens prioritárias já foram carregadas pelo useAppLoader)
+const ALL_REMAINING_IMAGES = [
+  // Todas as imagens das páginas (exceto as prioritárias)
   '/src/assets/pages/Korri/02.gif',
   '/src/assets/pages/Korri/03.jpg',
   '/src/assets/pages/Korri/04.gif',
@@ -24,14 +25,28 @@ const KORRI_IMAGES = [
   '/src/assets/pages/Korri/13.jpg',
   '/src/assets/pages/Korri/14.jpg',
   '/src/assets/pages/Korri/15.png',
-  '/src/assets/pages/Korri/16.jpg'
+  '/src/assets/pages/Korri/16.jpg',
+
+  '/src/assets/pages/Vextro/02.1.jpg',
+  '/src/assets/pages/Vextro/02.2.jpg',
+  '/src/assets/pages/Vextro/03.jpg',
+  '/src/assets/pages/Vextro/04.gif',
+  '/src/assets/pages/Vextro/05.jpg',
+  '/src/assets/pages/Vextro/06.jpg',
+  '/src/assets/pages/Vextro/07.jpg',
+  '/src/assets/pages/Vextro/08.jpg',
+  '/src/assets/pages/Vextro/09.jpg',
+  '/src/assets/pages/Vextro/10.jpg',
+  '/src/assets/pages/Vextro/11.jpg',
+  '/src/assets/pages/Vextro/12.jpg',
+  '/src/assets/pages/Vextro/13.gif'
 ]
 
 // ================================
 // Hook
 // ================================
 /**
- * Hook para carregamento em background das imagens da página Korri
+ * Hook para carregamento em background de todas as imagens restantes
  * Inicia o carregamento após um delay para não interferir no carregamento inicial
  */
 export const useBackgroundLoader = (): UseBackgroundLoaderReturn => {
@@ -46,7 +61,7 @@ export const useBackgroundLoader = (): UseBackgroundLoaderReturn => {
   const {
     isLoading: isBackgroundLoading,
     progress: backgroundProgress
-  } = useImagePreloader(shouldStartLoading ? KORRI_IMAGES : [])
+  } = useImagePreloader(shouldStartLoading ? ALL_REMAINING_IMAGES : [])
 
   // ================================
   // Effects
@@ -56,30 +71,12 @@ export const useBackgroundLoader = (): UseBackgroundLoaderReturn => {
    */
   useEffect(() => {
     const backgroundTimeout = setTimeout(() => {
-      console.log('🚀 Iniciando carregamento em background das imagens da página Korri...')
       setShouldStartLoading(true)
     }, BACKGROUND_LOAD_DELAY)
 
     return () => clearTimeout(backgroundTimeout)
   }, [])
 
-  /**
-   * Efeito para log do progresso do carregamento em background
-   */
-  useEffect(() => {
-    if (shouldStartLoading && backgroundProgress > 0 && backgroundProgress % 25 === 0) {
-      console.log(`📦 Carregamento em background: ${backgroundProgress}%`)
-    }
-  }, [backgroundProgress, shouldStartLoading])
-
-  /**
-   * Efeito para log quando o carregamento em background terminar
-   */
-  useEffect(() => {
-    if (shouldStartLoading && !isBackgroundLoading && backgroundProgress === 100) {
-      console.log('✅ Carregamento em background concluído! Todas as imagens da página Korri estão prontas.')
-    }
-  }, [isBackgroundLoading, backgroundProgress, shouldStartLoading])
 
   // ================================
   // Return

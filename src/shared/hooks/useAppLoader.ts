@@ -5,16 +5,28 @@ import { UseAppLoaderReturn } from '@/types/shared'
 // ================================
 // Constants
 // ================================
-const MINIMUM_LOADING_TIME = 2000 // 2 segundos mínimo
+const MINIMUM_LOADING_TIME = 300 // 0.3 segundos mínimo
 const REQUIRED_RESOURCES = [
-  'fonts',
-  'images',
+  'priority_images', // Apenas imagens essenciais
   'routes',
   'translations'
+  // Fontes removidas para acelerar - carregam em background
 ]
 
-// Lista de todas as imagens das páginas para pré-carregamento
-const PAGE_IMAGES = [
+// Imagens prioritárias (apenas as mais importantes para carregar primeiro)
+const PRIORITY_IMAGES = [
+  // Logo e navegação (essenciais)
+  '/src/assets/logo.jpg',
+  '/src/assets/nav/Korri.jpg',
+  '/src/assets/nav/Vextro.jpg',
+
+  // Primeiras imagens de cada página (para preview rápido)
+  '/src/assets/pages/Korri/01.gif',
+  '/src/assets/pages/Vextro/01.jpg'
+]
+
+// Todas as outras imagens (carregadas em background após o site aparecer)
+const ALL_IMAGES = [
   // Korri images
   '/src/assets/pages/Korri/01.gif',
   '/src/assets/pages/Korri/02.gif',
@@ -69,11 +81,12 @@ export const useAppLoader = (): UseAppLoaderReturn => {
   const [isLoading, setIsLoading] = useState(true)
   const [loadedResources, setLoadedResources] = useState<Set<string>>(new Set())
   const [startTime] = useState(Date.now())
+  const [loadingDuration, setLoadingDuration] = useState<number>(0)
 
   // ================================
   // Hooks
   // ================================
-  const { isLoading: imagesLoading } = useImagePreloader(PAGE_IMAGES)
+  const { isLoading: priorityImagesLoading } = useImagePreloader(PRIORITY_IMAGES)
 
   // ================================
   // Helper Functions
@@ -89,6 +102,8 @@ export const useAppLoader = (): UseAppLoaderReturn => {
    * Força o fim do carregamento (para casos de emergência)
    */
   const forceFinishLoading = (): void => {
+    const duration = Date.now() - startTime
+    setLoadingDuration(duration)
     setIsLoading(false)
   }
 
@@ -113,49 +128,46 @@ export const useAppLoader = (): UseAppLoaderReturn => {
    * Efeito para carregar recursos automaticamente
    */
   useEffect(() => {
-    // Carregar fontes
+    // Carregar fontes em background (não bloqueia o carregamento)
     const loadFonts = async (): Promise<void> => {
       try {
-        // Verificar se as fontes já estão carregadas
+        // Iniciar carregamento das fontes sem aguardar
         if (document.fonts && document.fonts.ready) {
-          await document.fonts.ready
+          document.fonts.ready.catch(() => {
+            // Ignorar erros de fontes
+          })
         }
-        markResourceLoaded('fonts')
+        // Não marcamos como recurso necessário - carrega em background
       } catch (error) {
-        console.warn('Erro ao carregar fontes:', error)
-        markResourceLoaded('fonts') // Marcar como carregado mesmo com erro
+        // Ignorar erros de fontes
       }
     }
 
-    // Carregar imagens (usando o hook de pré-carregamento)
-    const loadImages = (): void => {
+    // Carregar imagens prioritárias (usando o hook de pré-carregamento)
+    const loadPriorityImages = (): void => {
       // O hook useImagePreloader já gerencia o carregamento
       // Aqui apenas marcamos como carregado quando o hook indica que terminou
-      if (!imagesLoading) {
-        markResourceLoaded('images')
+      if (!priorityImagesLoading) {
+        markResourceLoaded('priority_images')
       }
     }
 
     // Carregar rotas (simulado - as rotas já estão carregadas)
     const loadRoutes = (): void => {
-      setTimeout(() => {
-        markResourceLoaded('routes')
-      }, 500)
+      markResourceLoaded('routes')
     }
 
     // Carregar traduções (simulado - as traduções já estão carregadas)
     const loadTranslations = (): void => {
-      setTimeout(() => {
-        markResourceLoaded('translations')
-      }, 300)
+      markResourceLoaded('translations')
     }
 
     // Iniciar carregamento de recursos
     loadFonts()
-    loadImages()
+    loadPriorityImages()
     loadRoutes()
     loadTranslations()
-  }, [imagesLoading])
+  }, [priorityImagesLoading])
 
   /**
    * Efeito para verificar se pode finalizar o carregamento
@@ -163,10 +175,12 @@ export const useAppLoader = (): UseAppLoaderReturn => {
   useEffect(() => {
     const checkLoadingComplete = (): void => {
       if (checkAllResourcesLoaded() && checkMinimumTimeElapsed()) {
-        // Pequeno delay para suavizar a transição
+        // Delay mínimo para suavizar a transição
         setTimeout(() => {
+          const duration = Date.now() - startTime
+          setLoadingDuration(duration)
           setIsLoading(false)
-        }, 500)
+        }, 100)
       }
     }
 
@@ -174,16 +188,17 @@ export const useAppLoader = (): UseAppLoaderReturn => {
   }, [loadedResources, startTime])
 
   /**
-   * Efeito para timeout de segurança (máximo 10 segundos)
+   * Efeito para timeout de segurança (máximo 3 segundos)
    */
   useEffect(() => {
     const safetyTimeout = setTimeout(() => {
-      console.warn('Timeout de carregamento atingido, forçando fim do loading')
+      const duration = Date.now() - startTime
+      setLoadingDuration(duration)
       setIsLoading(false)
-    }, 10000)
+    }, 3000)
 
     return () => clearTimeout(safetyTimeout)
-  }, [])
+  }, [startTime])
 
   // ================================
   // Return

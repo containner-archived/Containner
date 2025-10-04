@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useBackgroundLoader } from '@/shared/hooks/useBackgroundLoader'
-import { useFastLoader } from '@/shared/hooks/useFastLoader'
+import { useAppLoader } from '@/shared/hooks/useAppLoader'
 import { AppLoaderProps } from '@/types/shared'
 import Loader from './Loader'
 
@@ -23,7 +23,7 @@ export const AppLoader: React.FC<AppLoaderProps> = ({ children }) => {
   // ================================
   // Hooks
   // ================================
-  const { isLoading } = useFastLoader()
+  const { isLoading } = useAppLoader()
 
   // Iniciar carregamento em background (não bloqueia a renderização)
   useBackgroundLoader()
